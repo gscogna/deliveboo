@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'RestaurantController@index')->name('guest.restaurant.index');
+Route::get('/restaurants/ciao', 'RestaurantController@show')->name('guest.restaurant.show');
+Route::get('/restaurants/carrello', 'RestaurantController@carrello')->name('guest.restaurant.carrello');
+
 Auth::routes();
 
 Route::prefix('admin')
@@ -25,5 +25,9 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('admin.home');
+        Route::resource('plates', 'PlateController');
+        Route::get('/ordini', 'RestaurantController@ordini')->name('admin.restaurants.ordini');
+        Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.restaurants.statistiche');
     });
+
 

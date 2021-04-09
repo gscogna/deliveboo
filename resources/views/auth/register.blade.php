@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+        </div>
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -23,6 +33,22 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="partita_iva" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="number" class="form-control @error('partita_iva') is-invalid @enderror" name="partita_iva" value="{{ old('partita_iva') }}" required autocomplete="partita_iva" autofocus>
+
+                                @error('partita_iva')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            
+
                         </div>
 
                         <div class="form-group row">
