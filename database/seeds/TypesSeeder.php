@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
+use App\Type;
 
 class TypesSeeder extends Seeder
 {
@@ -9,8 +12,14 @@ class TypesSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker  $faker)
     {
-        //
+        for($i = 0; $i < 5; $i++){
+          $newType = new Type();
+          $newType->name = $faker->word();
+          $newType->immagine = $faker->imageUrl(640, 480, 'type', true);
+
+          $newType->save();
+        }
     }
 }
