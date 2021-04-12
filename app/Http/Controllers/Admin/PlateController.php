@@ -15,7 +15,10 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = Plate::all();
+        $data = ['plates' => $plates];
+
+        return view('admin.restaurants.index', $data);
     }
 
     /**
@@ -25,7 +28,10 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+        $plates = Plate::all();
+        $data = ['plates' => $plates];
+
+        return view('admin.restaurants.create', $data);
     }
 
     /**
@@ -36,7 +42,18 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $idUser = Auth::id();
+
+        $newPlates = new Plate();
+        $newPlates -> user_id = $idUser;
+        $newPlates -> fill($data);
+        // inserire nome immagine
+        $image = Storage::put('immagine', $data['nomeImmagine']);
+        $data['immagine'] = $image;
+        $newPlate-> save();
+
+        return redirect()->route('plates.index', $data);
     }
 
     /**
@@ -45,9 +62,10 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plate $plate)
     {
-        //
+        $data = ['plate' => $plate];
+        return view('admin.restaurants.show', $data);
     }
 
     /**
@@ -56,9 +74,18 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plate $plate)
     {
-        //
+        
+        if($plate){
+            $data = [
+              'plate'=> $plate
+            ];
+            return view('admin.restaurants.edit',$data);
+          }
+    
+
+        return view('admin.restaurants.edit', $data);
     }
 
     /**
@@ -68,9 +95,15 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Plate $plate)
     {
-        //
+        $data = $request->all();
+        if(array_key_exist('immagine', $data)){
+            $image = Storage::put('immagine', $data['nomeImmagine']);
+            $data['immagine'] = $image;
+        };
+        $plate -> update($data);
+        return redirect()->route('plates.show', $plate);
     }
 
     /**
@@ -79,8 +112,10 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Plate $plate)
     {
-        //
+        $plate -> delete();
+        return redirect()-> route('plates.index');
+      
     }
 }
