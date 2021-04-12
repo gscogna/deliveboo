@@ -17,7 +17,7 @@ class PlateSeeder extends Seeder
         for($i = 0; $i < 10; $i++){
             $newPlate = new Plate;
             $newPlate -> nome = $faker->word();
-            $newPlate -> immagine = $faker->word();
+            $newPlate -> immagine = $faker->imageUrl(640, 480, 'animals', true);
             $newPlate -> prezzo = $faker->randomFloat(2, 1, 10);
             $newPlate -> ingredienti = $faker->word();
             $newPlate -> visibile = $faker->boolean();

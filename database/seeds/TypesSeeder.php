@@ -17,8 +17,8 @@ class TypesSeeder extends Seeder
         for($i = 0; $i < 5; $i++){
           $newType = new Type();
           $newType->nome = $faker->word();
-          // $newType->immagine = $faker->imageUrl(640, 480, 'type', true);
-          $newType -> immagine = $faker ->word();
+          $newType->immagine = $faker->imageUrl(640, 480, 'animals', true);
+
 
           $newType->save();
         }
