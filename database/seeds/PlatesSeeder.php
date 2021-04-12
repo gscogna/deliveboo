@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Restaurant;
-use App\User;
 use App\Plate;
 
 class PlatesSeeder extends Seeder
@@ -22,7 +21,7 @@ class PlatesSeeder extends Seeder
             $newPlate ->prezzo = $faker->randomFloat(2, 1, 10);
             $newPlate ->ingredienti = $faker->word();
             $newPlate ->visibile = $faker->boolean();
-            $usersCount = Count(User::all()->toArray());
+            $usersCount = Count(Restaurant::all()->toArray());
             $newPlate ->user_id = rand(1, $usersCount);
 
             $newPlate-> save();
