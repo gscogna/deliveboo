@@ -79,13 +79,10 @@ class PlateController extends Controller
         
         if($plate){
             $data = [
-              'plate'=> $plate
+            'plate'=> $plate
             ];
             return view('admin.restaurants.edit',$data);
-          }
-    
-
-        return view('admin.restaurants.edit', $data);
+        }
     }
 
     /**
@@ -116,6 +113,6 @@ class PlateController extends Controller
     {
         $plate -> delete();
         return redirect()-> route('plates.index');
-      
+
     }
 }

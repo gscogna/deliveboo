@@ -12,18 +12,18 @@ class OrdersSeeder extends Seeder
      *
      * @return void
      */
-     public function run(Faker $faker)
-     {
-       for($i = 0; $i < 10; $i++){
-           $newOrder = new Order;
+    public function run(Faker $faker)
+    {
+      for($i = 0; $i < 10; $i++){
+          $newOrder = new Order;
 
-           $newOrder ->prezzo_totale = $faker->randomFloat(2, 1, 1000);
-           $newOrder ->indirizzo_consegna = $faker->streetAddress();
-           $newOrder ->pagamento_avvenuto = $faker->boolean();
-           $usersCount = Count(User::all()->toArray());
-           $newOrder ->user_id = rand(1, $usersCount);
+          $newOrder ->prezzo_totale = $faker->randomFloat(2, 1, 1000);
+          $newOrder ->indirizzo_consegna = $faker->streetAddress();
+          $newOrder ->pagamento_avvenuto = $faker->boolean();
+          $usersCount = Count(User::all()->toArray());
+          $newOrder ->user_id = rand(1, $usersCount);
 
-           $newOrder-> save();
-       }
-     }
+          $newOrder-> save();
+      }
+    }
 }

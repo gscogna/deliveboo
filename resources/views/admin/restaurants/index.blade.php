@@ -10,10 +10,14 @@
         <th scope="col">Prezzo</th>
         <th scope="col">Ingredienti</th>
         <th scope="col">Visibile</th>
+        <th scope="col"> {{ Auth::user()->name }}</th>
+
       </tr>
     </thead>
     <tbody>
+      
         @foreach ($plates as $plate)
+          @if($plate->user_id == Auth::id())
             <tr>
                 <td>{{ $plate->id }}</td>
                 <td>{{ $plate->nome }}</td>
@@ -31,6 +35,7 @@
                     </form>
                 </td>
             </tr>
+          @endif
     @endforeach
     </tbody>
   </table>
