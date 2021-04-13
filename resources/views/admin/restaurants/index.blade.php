@@ -16,6 +16,7 @@
     </thead>
     <tbody>
       
+      <a class="btn btn-primary" href=" {{ route('plates.create') }}">Inserisci un piatto</a>
         @foreach ($plates as $plate)
           @if($plate->user_id == Auth::id())
             <tr>
