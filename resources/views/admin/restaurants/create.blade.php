@@ -28,15 +28,29 @@
             {{-- ingredienti --}}
             <div class="mb-3">
                 <label for="example3" class="form-label">Ingredienti</label>
-                <textarea class="form-control" name="content" id="example3" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="ingredienti" id="example3" cols="30" rows="10"></textarea>
             </div>
 
             {{-- visibile --}}
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="example7" class="form-label">Visibile</label>
                 <input type="text" class="form-control" name="visibile" id="example7" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text"></div>
-            </div>
+            </div> --}}
+                
+            {{-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1" name="visibile" value="{{ $plates->id }}">
+                    
+                </label>
+              </div> --}}
+
+              <div class="form-check">
+                <input name="visibile" type="checkbox" value=1>
+                <label class="form-check-label" for="flexRadioDefault1" name="visibile">
+                    Si
+                </label>
+              </div>
 
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>

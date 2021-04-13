@@ -51,8 +51,10 @@ class PlateController extends Controller
         $newPlates -> user_id = $idUser;
         $newPlates -> fill($data);
         // inserire nome immagine
-        $image = Storage::put('immagine', $data['nomeImmagine']);
-        $data['immagine'] = $image;
+        if( $request->has('immagine') ) {
+            $image = Storage::put('immagine_storage', $data['immagine']);
+            $data['immagine'] = $image;
+        };
         $newPlates-> save();
 
         return redirect()->route('plates.index', $data);
