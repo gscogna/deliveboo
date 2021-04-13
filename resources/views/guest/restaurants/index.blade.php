@@ -4,8 +4,8 @@
     <div class="hcg-left">
       <h2> Il piacere del cibo a casa tua</h2>
       <div class="header-searchbar">
-        <input type="text" name="" value="" placeholder="cosa stai cercando?">
-        <button type="button" name="button">Cerca</button>
+        <input v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
+        <button @click='search_plate'type="button" name="button">Cerca</button>
       </div>
     </div>
     <div class="hcg-right">
