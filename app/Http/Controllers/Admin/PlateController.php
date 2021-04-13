@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -97,12 +99,17 @@ class PlateController extends Controller
     public function update(Request $request, Plate $plate)
     {
         $data = $request->all();
-        if(array_key_exist('immagine', $data)){
-            $image = Storage::put('immagine', $data['nomeImmagine']);
+        if( $request->has('immagine') ) {
+            $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
         };
+
+        // if(array_key_exist('immagine', $data)){
+        //     $image = Storage::put('immagine', $data['nomeImmagine']);
+        //     $data['immagine'] = $image;
+        // };
         $plate -> update($data);
-        return redirect()->route('plates.show', $plate);
+        return redirect()->route('plates.index', $plate);
     }
 
     /**
