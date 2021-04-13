@@ -10942,3 +10942,22 @@ a.text-dark:focus {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vW;
+}
+
+body #app {
+  width: 100vW;
+}
+
+header {
+  width: 100%;
+  background-color: red;
+}
+
