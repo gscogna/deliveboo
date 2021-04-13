@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Plate;
 
 class PlateController extends Controller
@@ -51,7 +53,7 @@ class PlateController extends Controller
         // inserire nome immagine
         $image = Storage::put('immagine', $data['nomeImmagine']);
         $data['immagine'] = $image;
-        $newPlate-> save();
+        $newPlates-> save();
 
         return redirect()->route('plates.index', $data);
     }

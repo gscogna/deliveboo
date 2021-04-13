@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         RestaurantsSeeder::class,
         TypesSeeder::class,
         PlatesSeeder::class,
-        // OrdersSeeder::class,
+        OrdersSeeder::class,
     ]);
     }
 }
