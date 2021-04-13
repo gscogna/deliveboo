@@ -14,7 +14,7 @@
         {{-- prezzo --}}
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Prezzo</label>
-            <input type="number" step="0.1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $plate-> prezzo }}" name="prezzo">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $plate-> prezzo }}" name="prezzo">
           </div>
           {{-- immagine --}}
           @if ($plate)

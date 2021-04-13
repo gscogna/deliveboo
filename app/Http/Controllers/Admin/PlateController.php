@@ -97,6 +97,11 @@ class PlateController extends Controller
     public function update(Request $request, Plate $plate)
     {
         $data = $request->all();
+        if( $request->has('immagine') ) {
+            $image = Storage::put('immagine_storage', $data['immagine']);
+            $data['immagine'] = $image;
+        };
+
         // if(array_key_exist('immagine', $data)){
         //     $image = Storage::put('immagine', $data['nomeImmagine']);
         //     $data['immagine'] = $image;
