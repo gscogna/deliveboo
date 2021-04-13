@@ -24,7 +24,7 @@
           <form method="POST" action="{{ route('plates.update', $plate) }}" enctype="multipart/form-data">
             <div class="form-group">
               <label for="immagine">Carica l'immagine</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="immagine" value={{ $plate->immagine }}>
             </div>
           </form>
           {{-- ingredienti --}}
