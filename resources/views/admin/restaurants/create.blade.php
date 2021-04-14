@@ -15,7 +15,7 @@
             {{-- prezzo --}}
             <div class="mb-3">
                 <label for="example2" class="form-label">Prezzo</label>
-                <input type="number" class="form-control" name="prezzo" id="example2" aria-describedby="emailHelp">
+                <input type="number" step="any" class="form-control" name="prezzo" id="example2" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text"></div>
             </div>
 
@@ -32,25 +32,18 @@
             </div>
 
             {{-- visibile --}}
-            {{-- <div class="mb-3">
-                <label for="example7" class="form-label">Visibile</label>
-                <input type="text" class="form-control" name="visibile" id="example7" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text"></div>
-            </div> --}}
-                
-            {{-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1" name="visibile" value="{{ $plates->id }}">
-                    
-                </label>
-              </div> --}}
 
               <div class="form-check">
-                <input name="visibile" type="checkbox" value=1>
+                <input name="visibile" type="radio" value=1>
                 <label class="form-check-label" for="flexRadioDefault1" name="visibile">
                     Si
                 </label>
+                <input name="visibile" type="radio" value=0>
+                <label class="form-check-label" for="flexRadioDefault1" name="visibile">
+                    No
+                </label>
               </div>
+              
 
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>

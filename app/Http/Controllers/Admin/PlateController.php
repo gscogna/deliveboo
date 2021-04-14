@@ -50,7 +50,6 @@ class PlateController extends Controller
         $newPlates = new Plate();
         $newPlates -> user_id = $idUser;
         $newPlates -> fill($data);
-        // inserire nome immagine
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
@@ -103,11 +102,7 @@ class PlateController extends Controller
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
         };
-
-        // if(array_key_exist('immagine', $data)){
-        //     $image = Storage::put('immagine', $data['nomeImmagine']);
-        //     $data['immagine'] = $image;
-        // };
+        
         $plate -> update($data);
         return redirect()->route('plates.index', $plate);
     }

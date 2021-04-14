@@ -20,7 +20,7 @@ class CreatePlatesTable extends Migration
             $table->float('prezzo',6,2);
             $table->string('immagine');
             $table->text('ingredienti');
-            $table->boolean('visibile')->default(0);
+            $table->boolean('visibile');
             $table->timestamps();
         });
     }
