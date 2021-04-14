@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <h4 class="pt-5">Dettaglio Piatto</h4>
     <table class="table table-dark table-striped">
         <table class="table">
@@ -25,4 +26,5 @@
             </tbody>
         </table>
     </table>
+</div>
 @endsection
