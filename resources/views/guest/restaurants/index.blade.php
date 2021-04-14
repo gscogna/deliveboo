@@ -17,17 +17,18 @@
 @endsection
 @section('content')
     <h1 class="text-center">Deliveboo in costruzione</h1>
-    <div class="guest-restaurants">
+    <div class="choose-restaurant">
       <h2>ristoranti</h2>
-        <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''">
-          @{{element.nome}}
+      <div class="guest-restaurants">
+        <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''" class="card-restaurant">
+          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+            <p class="rainbow-text">@{{element.nome}}</p>
+            <a href="#"><button type="button" name="button">Vai al menù</button> </a>
         </div>
-        {{-- <div v-else-if="ristorantiSelezionati.length == 0 && !search == ''">
-          nessun ristorante trovato
-        </div> --}}
         <div v-if ="!ristorantiSelezionati.length && !search == ''">
           nessun ristorante trovato
         </div>
+      </div>
     </div>
 
 @endsection
