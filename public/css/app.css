@@ -11032,7 +11032,7 @@ footer .container {
 }
 
 footer .container .card {
-  width: 400px;
+  width: calc(100% / 3);
   margin: 30px;
   padding: 20px;
   background-color: #464646;
@@ -11047,15 +11047,37 @@ footer .container .card ul {
   list-style: none;
 }
 
+footer .container .card ul li {
+  color: #d1cfcc;
+  padding-top: 10px;
+}
+
+footer .container .card ul li:hover {
+  color: orange;
+}
+
 footer .font {
   color: white;
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
+  font-size: 30px;
+  padding-bottom: 30px;
 }
 
-footer .font ul {
-  list-style: none;
+footer .font i {
+  padding: 20px;
+}
+
+footer .font .fb-blue:hover {
+  color: blue;
+}
+
+footer .font .inst-red:hover {
+  color: red;
+}
+
+footer .font .twt-lightblue:hover {
+  color: lightblue;
 }
 
 main {
