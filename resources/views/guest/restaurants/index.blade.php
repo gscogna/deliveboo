@@ -5,11 +5,11 @@
       <h2> Il piacere del cibo a casa tua</h2>
       <div class="header-searchbar">
         <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
-        <button type="button" name="button">Cerca</button>
+        <button @click='ciao' type="button" name="button">Cerca</button>
         <div class="container-search">
-          <div class="search-results" @keyup="div_restaurants" v-for="(element,index) in ristorantiSelezionati" v-if="search != ''">
+          <div class="search-results" @keyup="div_restaurants">
             <ul>
-              <li>@{{ element.nome }}</li>
+              <li v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" @click="click_restaurant_choice(index)" :key="val.nome">@{{ val.nome }}</li>
             </ul>
           </div>
         </div>
@@ -27,12 +27,27 @@
     <div class="choose-restaurant">
       <h2>ristoranti</h2>
       <div class="guest-restaurants">
-        <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''" class="card-restaurant">
+        {{-- <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''" class="card-restaurant">
           <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
             <p class="rainbow-text">@{{element.nome}}</p>
             <a href="#"><button type="button" name="button">Vai al menù</button> </a>
         </div>
         <div v-if ="!ristorantiSelezionati.length && !search == ''">
+          nessun ristorante trovato
+        </div> --}}
+
+        <div v-for="(element, index) in arrayRistoranti" class="card-restaurant" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
+          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+            <p class="rainbow-text">@{{element.nome}}</p>
+            <a href="#"><button type="button" name="button">Vai al menù</button> </a>
+        </div>
+        <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
+          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+          <p class="rainbow-text">@{{item.nome}}</p>
+          <a href="#"><button type="button" name="button">Vai al menù</button> </a>
+        </div>
+        </div>
+        <div v-if ="!ristorantiSelezionati.length">
           nessun ristorante trovato
         </div>
       </div>
