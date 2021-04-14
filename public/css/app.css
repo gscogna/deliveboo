@@ -11062,13 +11062,53 @@ main {
   width: 100%;
 }
 
-main .guest-restaurants {
-  width: 60%;
-  margin: auto;
-  background-color: red;
+main .choose-restaurant h2 {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-main .guest-restaurants h2 {
-  margin-bottom: 30px;
+main .choose-restaurant .guest-restaurants {
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant {
+  width: calc(100% / 3 - 40px);
+  height: 400px;
+  margin-right: 40px;
+  border: 1px solid #ff5722;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant:hover {
+  box-shadow: 0px 1px 4px 2px #ff5722;
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant img {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant p.rainbow-text {
+  margin-top: 0px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #ef5350, #f9a825, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant button {
+  padding: 4px 24px;
+  border-radius: 10px;
+  background-color: #eb6338;
+  border: 0px;
+  font-size: 20px;
+  color: yellow;
 }
 
