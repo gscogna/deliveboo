@@ -49696,7 +49696,11 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       console.log(this.search);
       this.ristorantiSelezionati = [];
       this.arrayRistoranti.forEach(function (item) {
-        if (item.nome == _this3.search) {
+        //   if(item.nome == this.search){
+        //     this.ristorantiSelezionati.push(item);
+        //   }
+        // });
+        if (item.nome.indexOf(_this3.search) > -1) {
           _this3.ristorantiSelezionati.push(item);
         }
       });
@@ -49770,10 +49774,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
