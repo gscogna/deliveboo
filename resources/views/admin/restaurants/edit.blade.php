@@ -14,7 +14,7 @@
         {{-- prezzo --}}
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Prezzo</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $plate-> prezzo }}" name="prezzo">
+            <input type="number" class="form-control" id="exampleInputEmail1" step="any" aria-describedby="emailHelp" value="{{ $plate-> prezzo }}" name="prezzo">
           </div>
           {{-- immagine --}}
           @if ($plate)
@@ -35,9 +35,18 @@
           {{-- visibile --}}
          <h2>Visibile si/no</h2>
          <div class="form-check">
-             <input class="form-check-input" type="checkbox" name="visibile" value="{{ $plate-> visibile }}">
-             <label for="">{{ $plate->visibile }}</label>
-         </div>
+
+            <input type="radio" name="visibile" id="visibile" value= 1 @if($plate->visibile == 1) checked @elseif($plate->visibile == 0) unchecked @endif>
+            <label class="form-check-label" for="flexRadioDefault1" name="visibile">
+                Si
+            </label>
+
+            <input type="radio" name="visibile" id="visibile" value= 0 @if($plate->visibile == 0) checked @elseif($plate->visibile == 1) unchecked @endif>
+            <label class="form-check-label" for="flexRadioDefault1" name="visibile">
+                No
+            </label>
+          </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
