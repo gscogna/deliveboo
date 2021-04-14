@@ -6,8 +6,15 @@
       <div class="header-searchbar">
         <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
         <button type="button" name="button">Cerca</button>
+        <div class="container-search">
+          <div class="search-results" @keyup="div_restaurants" v-for="(element,index) in ristorantiSelezionati" v-if="search != ''">
+            <ul>
+              <li>@{{ element.nome }}</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
     <div class="hcg-right">
         <img src="{{asset('img/consegna.png')}}" alt="">
         <i class="fas fa-angle-double-right"></i>

@@ -48,8 +48,13 @@ var chiamate = new Vue({
           this.ristorantiSelezionati.push(item);
         }
       });
-      console.log(this.ristorantiSelezionati);
+      // console.log(this.ristorantiSelezionati);
 
+    },
+    div_restaurants(){
+      if(this.search == ""){
+        this.ristorantiSelezionati = [];
+      }
     }
   }
 });
