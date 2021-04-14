@@ -5,7 +5,7 @@
 <div class="container">
         @method('PUT')
         @csrf
-        <a href="{{ route('plates.index') }}"><button type="button" class="btn btn-primary">Indietro</button></a>
+        <a href="{{ route('plates.index') }}"><button type="button" class="btn btn-info">Indietro</button></a>
         {{-- nome --}}
         <div class="mb-3">
           <label for="exampleInputEmail1"  class="form-label">Nome piatto</label>
