@@ -4,8 +4,8 @@
     <div class="hcg-left">
       <h2> Il piacere del cibo a casa tua</h2>
       <div class="header-searchbar">
-        <input v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
-        <button @click='search_restaurant'type="button" name="button">Cerca</button>
+        <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
+        <button type="button" name="button">Cerca</button>
       </div>
     </div>
     <div class="hcg-right">
@@ -19,12 +19,13 @@
     <h1 class="text-center">Deliveboo in costruzione</h1>
     <div class="guest-restaurants">
       <h2>ristoranti</h2>
-        <div  v-if="search == ''"  class="card-restaurant">
-              <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''">
-                @{{element.nome}}
-              </div>
+        <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''">
+          @{{element.nome}}
         </div>
-        <div v-else-if="ristorantiSelezionati.length == 0 && !search == ''">
+        {{-- <div v-else-if="ristorantiSelezionati.length == 0 && !search == ''">
+          nessun ristorante trovato
+        </div> --}}
+        <div v-if ="!ristorantiSelezionati.length && !search == ''">
           nessun ristorante trovato
         </div>
     </div>
