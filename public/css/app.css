@@ -11031,3 +11031,41 @@ main h1.prova {
   -webkit-text-fill-color: transparent;
 }
 
+footer {
+  width: 100%;
+  background-color: black;
+}
+
+footer .container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+footer .container .card {
+  width: 400px;
+  margin: 30px;
+  padding: 20px;
+  background-color: #464646;
+  color: white;
+}
+
+footer .container .card h3 {
+  font-size: 30px;
+}
+
+footer .container .card ul {
+  list-style: none;
+}
+
+footer .font {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+footer .font ul {
+  list-style: none;
+}
+
