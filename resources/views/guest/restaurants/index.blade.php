@@ -16,5 +16,17 @@
   </div>
 @endsection
 @section('content')
-    <h1 class="text-center prova">Deliveboo in costruzione</h1>
+    <h1 class="text-center">Deliveboo in costruzione</h1>
+    <div class="guest-restaurants">
+      <h2>ristoranti</h2>
+        <div  v-if="search == ''"  class="card-restaurant">
+              <div v-for="(element, index) in arrayRistoranti" v-if="element.nome.includes(search) || search == ''">
+                @{{element.nome}}
+              </div>
+        </div>
+        <div v-else-if="ristorantiSelezionati.length == 0 && !search == ''">
+          nessun ristorante trovato
+        </div>
+    </div>
+
 @endsection

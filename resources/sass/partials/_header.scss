@@ -70,15 +70,5 @@ header {
 
    // header-content-guest @extend ;
 
-   // header-content-admin
-   & div.pci{
-     background-color: white;
-   }
-}
 
-main h1.prova {
-  font-size: 60px;
-  background-image: linear-gradient(to right, yellow, orange, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

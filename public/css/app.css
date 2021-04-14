@@ -11020,17 +11020,6 @@ header .header-content-guest div.hcg-right i {
   margin-right: 10px;
 }
 
-header div.pci {
-  background-color: white;
-}
-
-main h1.prova {
-  font-size: 60px;
-  background-image: linear-gradient(to right, yellow, orange, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 footer {
   width: 100%;
   background-color: black;
@@ -11067,5 +11056,19 @@ footer .font {
 
 footer .font ul {
   list-style: none;
+}
+
+main {
+  width: 100%;
+}
+
+main .guest-restaurants {
+  width: 60%;
+  margin: auto;
+  background-color: red;
+}
+
+main .guest-restaurants h2 {
+  margin-bottom: 30px;
 }
 

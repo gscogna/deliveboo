@@ -1,0 +1,17 @@
+
+main{
+  width: 100%;
+
+  & .guest-restaurants{
+    width: 60%;
+    margin: auto;
+    background-color: red;
+    & h2 {
+      margin-bottom: 30px;
+    }
+
+    & .card-restaurant{
+      
+    }
+  }
+}
