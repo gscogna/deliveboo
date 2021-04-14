@@ -40,7 +40,11 @@ var chiamate = new Vue({
       console.log(this.search);
       this.ristorantiSelezionati = [];
       this.arrayRistoranti.forEach((item) => {
-        if(item.nome == this.search){
+      //   if(item.nome == this.search){
+      //     this.ristorantiSelezionati.push(item);
+      //   }
+      // });
+        if(item.nome.indexOf(this.search)> -1){
           this.ristorantiSelezionati.push(item);
         }
       });
