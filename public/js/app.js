@@ -49659,16 +49659,22 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   data: {
-    array: '',
+    arrayPiatti: '',
+    arrayRistoranti: '',
     search: '',
-    piattiSelezionati: []
+    piattiSelezionati: [],
+    ristorantiSelezionati: []
   },
   mounted: function mounted() {
     var _this = this;
 
     axios.get('http://localhost:8000/api/plate').then(function (result) {
-      _this.array = result.data.response;
-      console.log(_this.array);
+      _this.arrayPiatti = result.data.response;
+      console.log(_this.arrayPiatti);
+    });
+    axios.get('http://localhost:8000/api/restaurant').then(function (result) {
+      _this.arrayRistoranti = result.data.response;
+      console.log(_this.arrayRistoranti);
     });
   },
   methods: {
@@ -49677,12 +49683,24 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       console.log(this.search);
       this.piattiSelezionati = [];
-      this.array.forEach(function (item) {
+      this.arrayPiatti.forEach(function (item) {
         if (item.nome == _this2.search) {
           _this2.piattiSelezionati.push(item);
         }
       });
       console.log(this.piattiSelezionati);
+    },
+    search_restaurant: function search_restaurant() {
+      var _this3 = this;
+
+      console.log(this.search);
+      this.ristorantiSelezionati = [];
+      this.arrayRistoranti.forEach(function (item) {
+        if (item.nome == _this3.search) {
+          _this3.ristorantiSelezionati.push(item);
+        }
+      });
+      console.log(this.ristorantiSelezionati);
     }
   }
 });

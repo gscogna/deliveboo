@@ -5,7 +5,7 @@ header {
   & nav div ul li {
     font-size: 24px;
   }
-
+    // header-content guest
    & .header-content-guest{
      display: flex;
      justify-content: center;
@@ -66,6 +66,13 @@ header {
      }
 
 
+   }
+
+   // header-content-guest @extend ;
+
+   // header-content-admin
+   & div.pci{
+     background-color: white;
    }
 }
 

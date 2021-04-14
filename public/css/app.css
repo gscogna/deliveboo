@@ -11020,6 +11020,10 @@ header .header-content-guest div.hcg-right i {
   margin-right: 10px;
 }
 
+header div.pci {
+  background-color: white;
+}
+
 main h1.prova {
   font-size: 60px;
   background-image: linear-gradient(to right, yellow, orange, red);

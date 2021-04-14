@@ -1,4 +1,12 @@
 @extends('layouts.app')
+@section('header.content')
+<div class="header-content-admin">
+  <div class="header-searchbar">
+    <input v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
+    <button @click='search_plate'type="button" name="button">Cerca</button>
+  </div>
+</div>
+@endsection
 
 @section('content')
 <table class="table">
@@ -15,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      
+
         @foreach ($plates as $plate)
           @if($plate->user_id == Auth::id())
             <tr>
