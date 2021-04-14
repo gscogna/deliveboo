@@ -1,5 +1,84 @@
 header {
   width: 100%;
-  background-color: red;
-   
+  background: linear-gradient(to right, orange, yellow);
+
+  & nav div ul li {
+    font-size: 24px;
+  }
+    // header-content guest
+   & .header-content-guest{
+     display: flex;
+     justify-content: center;
+     & .hcg-left{
+       width: 50%;
+       height: 300px;
+       // background-color: pink;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+
+       & h2 {
+         color: #eb6338;
+       }
+
+      & .header-searchbar{
+        padding-top: 30px;
+
+        & input{
+          width: 200px;
+          border-radius: 5px;
+        }
+
+        & button {
+          padding: 4px 24px;
+          border-radius: 10px;
+          background-color: #eb6338;
+          border: 0px;
+          font-size: 20px;
+          color: yellow;
+        }
+      }
+
+     }
+
+     & div.hcg-right{
+       width: 40%;
+       height: 300px;
+       // background-color: green;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+       & img {
+         height: 150px;
+         margin-right: 10px;
+
+       }
+
+       & i {
+         font-size: 100px;
+        color: #eb6338;
+        margin-right: 10px;
+
+
+       }
+     }
+
+
+   }
+
+   // header-content-guest @extend ;
+
+   // header-content-admin
+   & div.pci{
+     background-color: white;
+   }
+}
+
+main h1.prova {
+  font-size: 60px;
+  background-image: linear-gradient(to right, yellow, orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

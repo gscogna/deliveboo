@@ -79,7 +79,7 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        
+
         if($plate){
             $data = [
             'plate'=> $plate
@@ -119,4 +119,6 @@ class PlateController extends Controller
         return redirect()-> route('plates.index');
 
     }
+
+
 }
