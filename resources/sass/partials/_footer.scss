@@ -8,7 +8,7 @@ footer {
             justify-content: center;
     
     .card { 
-        width: 400px;
+        width: calc(100% / 3);
         margin:30px;
         padding: 20px;
         background-color:#464646;
@@ -19,21 +19,36 @@ footer {
       }
       ul{
           list-style: none;
-      }
-    } 
-    
+          li{
+            color:rgb(209, 207, 204);
+            padding-top: 10px;
+
+            &:hover{
+                color:orange;  
+            }
+          }
+        }
+     }   
   }
   .font{
     color:white;
     display:flex;
     justify-content:center;
-    flex-wrap:nowrap;
-    ul{
-        list-style:none;
-        
-        
-    }
-}
+    font-size: 30px;
+    padding-bottom:30px;
 
+    i{
+        padding:20px;
+    }
+    .fb-blue:hover{
+        color:blue;
+    }
+    .inst-red:hover{
+        color:red;
+    }
+    .twt-lightblue:hover{
+        color:lightblue;
+    }
+  }
 }
   
