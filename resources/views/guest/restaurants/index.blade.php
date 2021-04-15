@@ -47,7 +47,7 @@
           <a href="#"><button type="button" name="button">Vai al menù</button> </a>
         </div>
         </div>
-        <div v-if ="!ristorantiSelezionati.length">
+        <div v-if ="!ristorantiSelezionati.length && !ristoranteScelto.length && search != ''">
           nessun ristorante trovato
         </div>
       </div>
