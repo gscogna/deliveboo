@@ -38,6 +38,18 @@ header {
           font-size: 20px;
           color: yellow;
         }
+        & .container-search {
+          background-color: white;
+          & ul {
+            list-style: none;
+            & li{
+              &:hover{
+                background-color: aqua;
+                cursor: pointer;
+              }
+            }
+          }
+        }
       }
 
      }

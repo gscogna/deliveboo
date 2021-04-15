@@ -49663,7 +49663,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     arrayRistoranti: '',
     search: '',
     piattiSelezionati: [],
-    ristorantiSelezionati: []
+    ristorantiSelezionati: [],
+    ristoranteScelto: []
   },
   mounted: function mounted() {
     var _this = this;
@@ -49673,27 +49674,25 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       console.log(_this.arrayPiatti);
     });
     axios.get('http://localhost:8000/api/restaurant').then(function (result) {
-      _this.arrayRistoranti = result.data.response;
-      console.log(_this.arrayRistoranti);
+      _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
     });
   },
   methods: {
     search_plate: function search_plate() {
       var _this2 = this;
 
-      console.log(this.search);
+      // console.log(this.search);
       this.piattiSelezionati = [];
       this.arrayPiatti.forEach(function (item) {
         if (item.nome == _this2.search) {
           _this2.piattiSelezionati.push(item);
         }
-      });
-      console.log(this.piattiSelezionati);
+      }); // console.log(this.piattiSelezionati);
     },
     search_restaurant: function search_restaurant() {
       var _this3 = this;
 
-      console.log(this.search);
+      // console.log(this.search);
       this.ristorantiSelezionati = [];
       this.arrayRistoranti.forEach(function (item) {
         //   if(item.nome == this.search){
@@ -49703,8 +49702,35 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         if (item.nome.indexOf(_this3.search) > -1) {
           _this3.ristorantiSelezionati.push(item);
         }
+
+        ;
+
+        if (_this3.search == '' || _this3.search != _this3.ristoranteScelto.nome) {
+          _this3.ristoranteScelto = [];
+        }
+      }); // console.log(this.ristorantiSelezionati);
+    },
+    div_restaurants: function div_restaurants() {
+      if (this.search == '') {
+        this.ristorantiSelezionati = [];
+      }
+    },
+    click_restaurant_choice: function click_restaurant_choice(index) {
+      // this.ristorantiSelezionati = [];
+      console.log(this.ristorantiSelezionati); // console.log(item);
+
+      this.ristoranteScelto = [];
+      this.ristoranteScelto.push(this.ristorantiSelezionati[index]);
+      this.ristorantiSelezionati = [];
+      this.search = this.ristoranteScelto[0].nome;
+      this.ristoranteScelto.forEach(function (item) {
+        console.log(item.nome);
       });
-      console.log(this.ristorantiSelezionati);
+      console.log(this.ristoranteScelto);
+    },
+    ciao: function ciao() {
+      console.log(this.search);
+      console.log(this.ristoranteScelto);
     }
   }
 });
@@ -49774,8 +49800,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andreacorro/Desktop/boolean/esercitazioni/php/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andreacorro/Desktop/boolean/esercitazioni/php/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -11001,6 +11001,19 @@ header .header-content-guest .hcg-left .header-searchbar button {
   color: yellow;
 }
 
+header .header-content-guest .hcg-left .header-searchbar .container-search {
+  background-color: white;
+}
+
+header .header-content-guest .hcg-left .header-searchbar .container-search ul {
+  list-style: none;
+}
+
+header .header-content-guest .hcg-left .header-searchbar .container-search ul li:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+
 header .header-content-guest div.hcg-right {
   width: 40%;
   height: 300px;
