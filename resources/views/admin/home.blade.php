@@ -19,15 +19,15 @@
             </div>
             <div class="card mt-4 text-center" style="width: 18rem;">
                 @foreach ($restaurants as $restaurant)
-                <img src=" {{ $restaurant -> immagine }}" class="card-img-top" alt="...">
+                <img src=" {{ asset($restaurant -> immagine) }}" class="card-img-top" alt="...">
             <div class="card-body">
                     
                 <p class="card-text">Nome ristorante: {{ $restaurant -> nome }}</p>
                 @endforeach
-                <td><a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a></td>
-                <td>
+                <a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a>
             </div>
         </div>
+        <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
         </div>
     </div>
 </div>
