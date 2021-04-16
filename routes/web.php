@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'RestaurantController@index')->name('guest.restaurant.index');
-Route::get('/restaurants/ciao', 'RestaurantController@show')->name('guest.restaurant.show');
+Route::get('/restaurant/show', 'RestaurantController@show')->name('guest.restaurant.show');
 Route::get('/restaurants/carrello', 'RestaurantController@carrello')->name('guest.restaurant.carrello');
 
 Auth::routes();

@@ -49662,9 +49662,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     arrayPiatti: '',
     arrayRistoranti: '',
     search: '',
-    piattiSelezionati: [],
+    piattiRistorante: [],
     ristorantiSelezionati: [],
-    ristoranteScelto: []
+    ristoranteScelto: [],
+    id_ristorante: ''
   },
   mounted: function mounted() {
     var _this = this;
@@ -49678,16 +49679,21 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     });
   },
   methods: {
-    search_plate: function search_plate() {
+    ristorante_id: function ristorante_id(id) {
+      this.id_ristorante = id;
+      console.log(this.id_ristorante);
+    },
+    restaurant_plates: function restaurant_plates(id) {
       var _this2 = this;
 
-      // console.log(this.search);
-      this.piattiSelezionati = [];
+      this.id_ristorante = id;
       this.arrayPiatti.forEach(function (item) {
-        if (item.nome == _this2.search) {
-          _this2.piattiSelezionati.push(item);
+        if (item.user_id == _this2.id_ristorante) {
+          _this2.piattiRistorante.push(item);
         }
-      }); // console.log(this.piattiSelezionati);
+      });
+      console.log(this.id_ristorante);
+      console.log(this.piattiRistorante); // console.log(this.piattiSelezionati);
     },
     search_restaurant: function search_restaurant() {
       var _this3 = this;
@@ -49728,9 +49734,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       });
       console.log(this.ristoranteScelto);
     },
-    ciao: function ciao() {
-      console.log(this.search);
-      console.log(this.ristoranteScelto);
+    vedi: function vedi() {
+      console.log(this.piattiRistorante);
     }
   }
 });
@@ -49800,8 +49805,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andreacorro/Desktop/boolean/esercitazioni/php/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andreacorro/Desktop/boolean/esercitazioni/php/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

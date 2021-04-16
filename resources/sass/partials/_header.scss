@@ -9,6 +9,12 @@ header {
    & .header-content-guest{
      display: flex;
      justify-content: center;
+
+     @media screen and(max-width: 992px){
+       flex-direction: column-reverse;
+       align-items: center;
+     }
+
      & .hcg-left{
        width: 50%;
        height: 300px;
@@ -18,16 +24,39 @@ header {
        justify-content: center;
        align-items: center;
 
+       @media screen and(max-width: 992px){
+        height: 260px;
+       }
+
+
        & h2 {
          color: #eb6338;
+        font-size: 50px;
+        text-align: center;
+        @media screen and(max-width: 992px){
+          font-size: 40px;
+        }
+        @media screen and(max-width: 766px){
+          font-size: 30px;
+        }
        }
 
       & .header-searchbar{
-        padding-top: 30px;
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+
+        @media screen and(max-width: 766px){
+          flex-direction: column;
+        }
 
         & input{
           width: 200px;
           border-radius: 5px;
+          margin-right: 20px;
+          margin-top: 20px;
+
+
         }
 
         & button {
@@ -37,14 +66,21 @@ header {
           border: 0px;
           font-size: 20px;
           color: yellow;
+
+
         }
         & .container-search {
-          background-color: white;
+          background-color: transparent;
+          @media screen and(max-width: 766px){
+            background-color: transparent;
+
+          }
           & ul {
             list-style: none;
             & li{
+              width: 200px;
               &:hover{
-                background-color: aqua;
+                background-color: #eb6338;
                 cursor: pointer;
               }
             }
@@ -61,6 +97,9 @@ header {
        display: flex;
        justify-content: center;
        align-items: center;
+       @media screen and(max-width: 992px){
+        height: 200px;
+       }
 
        & img {
          height: 150px;

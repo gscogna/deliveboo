@@ -10949,11 +10949,11 @@ a.text-dark:focus {
 }
 
 body {
-  width: 100vW;
+  width: 100%;
 }
 
 body #app {
-  width: 100vW;
+  width: 100%;
 }
 
 header {
@@ -10970,6 +10970,13 @@ header .header-content-guest {
   justify-content: center;
 }
 
+@media screen and (max-width: 992px) {
+  header .header-content-guest {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
 header .header-content-guest .hcg-left {
   width: 50%;
   height: 300px;
@@ -10979,17 +10986,47 @@ header .header-content-guest .hcg-left {
   align-items: center;
 }
 
+@media screen and (max-width: 992px) {
+  header .header-content-guest .hcg-left {
+    height: 260px;
+  }
+}
+
 header .header-content-guest .hcg-left h2 {
   color: #eb6338;
+  font-size: 50px;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  header .header-content-guest .hcg-left h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  header .header-content-guest .hcg-left h2 {
+    font-size: 30px;
+  }
 }
 
 header .header-content-guest .hcg-left .header-searchbar {
-  padding-top: 30px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 766px) {
+  header .header-content-guest .hcg-left .header-searchbar {
+    flex-direction: column;
+  }
 }
 
 header .header-content-guest .hcg-left .header-searchbar input {
   width: 200px;
   border-radius: 5px;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 header .header-content-guest .hcg-left .header-searchbar button {
@@ -11002,15 +11039,25 @@ header .header-content-guest .hcg-left .header-searchbar button {
 }
 
 header .header-content-guest .hcg-left .header-searchbar .container-search {
-  background-color: white;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 766px) {
+  header .header-content-guest .hcg-left .header-searchbar .container-search {
+    background-color: transparent;
+  }
 }
 
 header .header-content-guest .hcg-left .header-searchbar .container-search ul {
   list-style: none;
 }
 
+header .header-content-guest .hcg-left .header-searchbar .container-search ul li {
+  width: 200px;
+}
+
 header .header-content-guest .hcg-left .header-searchbar .container-search ul li:hover {
-  background-color: aqua;
+  background-color: #eb6338;
   cursor: pointer;
 }
 
@@ -11020,6 +11067,12 @@ header .header-content-guest div.hcg-right {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  header .header-content-guest div.hcg-right {
+    height: 200px;
+  }
 }
 
 header .header-content-guest div.hcg-right img {
@@ -11106,17 +11159,46 @@ main .choose-restaurant .guest-restaurants {
   width: 50%;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  main .choose-restaurant .guest-restaurants {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  main .choose-restaurant .guest-restaurants {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 main .choose-restaurant .guest-restaurants .card-restaurant {
-  width: calc(100% / 3 - 40px);
-  height: 400px;
-  margin-right: 40px;
+  width: calc(100% / 3 - 60px);
+  height: 300px;
+  margin-right: 60px;
   border: 1px solid #ff5722;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant {
+    width: calc(100% / 2 - 40px);
+    height: 240px;
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant {
+    width: 100%;
+    flex-direction: row;
+  }
 }
 
 main .choose-restaurant .guest-restaurants .card-restaurant:hover {
@@ -11124,13 +11206,27 @@ main .choose-restaurant .guest-restaurants .card-restaurant:hover {
 }
 
 main .choose-restaurant .guest-restaurants .card-restaurant img {
-  width: 50%;
+  width: 40%;
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 766px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant img {
+    width: 20%;
+    margin-left: 30px;
+  }
+}
+
+main .choose-restaurant .guest-restaurants .card-restaurant p {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 main .choose-restaurant .guest-restaurants .card-restaurant p.rainbow-text {
   margin-top: 0px;
-  font-size: 30px;
+  font-size: 24px;
   margin-bottom: 10px;
   font-family: sans-serif;
   background: linear-gradient(to right, #ef5350, #f9a825, #ff5722);
@@ -11138,12 +11234,41 @@ main .choose-restaurant .guest-restaurants .card-restaurant p.rainbow-text {
   -webkit-text-fill-color: transparent;
 }
 
+@media screen and (max-width: 1200px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant p.rainbow-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant p.rainbow-text {
+    font-size: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 main .choose-restaurant .guest-restaurants .card-restaurant button {
-  padding: 4px 24px;
+  padding: 4px 10px;
   border-radius: 10px;
   background-color: #eb6338;
   border: 0px;
-  font-size: 20px;
+  font-size: 16px;
   color: yellow;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant button {
+    padding: 4px 16px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  main .choose-restaurant .guest-restaurants .card-restaurant button {
+    padding: 5px 24px;
+    font-size: 20px;
+  }
 }
 

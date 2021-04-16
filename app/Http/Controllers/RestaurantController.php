@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Plate;
 
 class RestaurantController extends Controller
 {
@@ -12,6 +13,7 @@ class RestaurantController extends Controller
     }
     public function show()
     {
+
         return view('guest.restaurants.show');
     }
 

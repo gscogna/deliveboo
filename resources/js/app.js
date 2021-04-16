@@ -7,9 +7,10 @@ var chiamate = new Vue({
     arrayPiatti: '',
     arrayRistoranti: '',
     search: '',
-    piattiSelezionati:[],
+    piattiRistorante:[],
     ristorantiSelezionati: [],
     ristoranteScelto : [],
+    id_ristorante: ''
   },
   mounted(){
     axios
@@ -24,16 +25,24 @@ var chiamate = new Vue({
       this.arrayRistoranti = result.data.response;
       // console.log(this.arrayRistoranti);
     })
+
   },
   methods:{
-    search_plate(){
-      // console.log(this.search);
-      this.piattiSelezionati = [];
+    ristorante_id(id){
+        this.id_ristorante = id;
+        console.log(this.id_ristorante);
+    },
+
+    restaurant_plates(id){
+      this.id_ristorante = id;
+
       this.arrayPiatti.forEach((item) => {
-        if(item.nome == this.search){
-          this.piattiSelezionati.push(item);
+        if(item.user_id == this.id_ristorante){
+          this.piattiRistorante.push(item);
         }
       });
+      console.log(this.id_ristorante);
+      console.log(this.piattiRistorante);
       // console.log(this.piattiSelezionati);
 
     },
@@ -64,25 +73,24 @@ var chiamate = new Vue({
     click_restaurant_choice(index){
       // this.ristorantiSelezionati = [];
       console.log(this.ristorantiSelezionati);
-      
+
         // console.log(item);
         this.ristoranteScelto = [];
         this.ristoranteScelto.push(this.ristorantiSelezionati[index]);
         this.ristorantiSelezionati = [];
         this.search = this.ristoranteScelto[0].nome;
-        
+
         this.ristoranteScelto.forEach((item)=>{
           console.log(item.nome);
         });
-     
-      console.log(this.ristoranteScelto);
-      
-    },
-    
-    ciao(){
-      console.log(this.search);
+
       console.log(this.ristoranteScelto);
 
+    },
+    vedi(){
+      console.log(this.piattiRistorante);
     }
+
+
   }
 });
