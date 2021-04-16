@@ -19,7 +19,7 @@
                     <td>{{ $plate->id }}</td>
                     <td>{{ $plate->nome }}</td>
                     <td>{{ $plate->prezzo }}</td>
-                    <td><img src="{{asset($plate->immagine)}}" alt="{{$plate->nome}}"></td>
+                    <td><img src="{{ asset('storage/' .$plate->immagine) }}" alt=""></td>
                     <td>{{ $plate->ingredienti }}</td>
                     <td>{{ $plate->visibile }}</td>
                 </tr>

@@ -17,17 +17,23 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
-            <div class="card mt-4 text-center" style="width: 18rem;">
-                @foreach ($restaurants as $restaurant)
-                <img src=" {{ $restaurant -> immagine }}" class="card-img-top" alt="...">
+            @if ($restaurants)
+            @foreach ($restaurants as $restaurant)
+            <div class="card mt-4 text-center" style="width: 18rem;" enctype=“multipart/form-data”>
+                <img src=" {{ asset('storage/' .$restaurant -> immagine) }}" class="card-img-top" alt="...">
             <div class="card-body">
                     
                 <p class="card-text">Nome ristorante: {{ $restaurant -> nome }}</p>
-                @endforeach
-                <td><a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a></td>
-                <td>
+                <a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a>
             </div>
         </div>
+        @endforeach
+        @endif
+        {{-- @dd((count($restaurants))) --}}
+        @if (count($restaurants ) < 1)
+
+            <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
+        @endif
         </div>
     </div>
 </div>
