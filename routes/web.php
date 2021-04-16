@@ -29,5 +29,5 @@ Route::prefix('admin')
         Route::get('/ordini', 'RestaurantController@ordini')->name('admin.restaurants.ordini');
         Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.restaurants.statistiche');
         // Route::get('/plates/search', 'PlateController@search')->name('search');
-        Route::resource('restaurants', 'RestaurantController');
+        Route::resource('/restaurants', 'RestaurantController');
     });

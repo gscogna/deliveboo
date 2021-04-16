@@ -43,6 +43,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        // $restaurants = Restaurant::all();
+        // $data = ['restaurants' => $restaurants];
         return view('admin.crearistorante');
     }
 
@@ -86,9 +88,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::id());
+        $data = ['restaurant' => $restaurant];
+        return view('admin.modifiche-ristorante.edit', $data);
+
     }
 
     /**
@@ -98,9 +103,16 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->all();
+        if( $request->has('immagine') ) {
+            $image = Storage::put('immagine_storage', $data['immagine']);
+            $data['immagine'] = $image;
+        };
+        
+        $restaurant -> update($data);
+        return redirect()->route('restaurants.index' , $restaurant);
     }
 
     /**
