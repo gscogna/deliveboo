@@ -28,7 +28,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $restaurants = Restaurant::all();
+        $data = ['restaurants' => $restaurants];
+
+        return view('admin.home');
     }
 
     /**
@@ -54,11 +57,11 @@ class RestaurantController extends Controller
         $newRestaurant = new Restaurant();
         $newRestaurant -> user_id = $idUser;
         $newRestaurant->slug = Str::Slug($data['nome']);
+        
+        $image = Storage::put('ristorante_storage', $data['immagine']);
+        $data['immagine'] = $image;
         $newRestaurant -> fill($data);
-        if( $request->has('immagine') ) {
-            $image = Storage::put('ristorante_storage', $data['immagine']);
-            $data['immagine'] = $image;
-        };
+        
         $newRestaurant-> save();
 
         return redirect()->route('admin.home', $data);
