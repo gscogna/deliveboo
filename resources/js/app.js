@@ -13,6 +13,7 @@ var chiamate = new Vue({
     id_ristorante: ''
   },
   mounted(){
+    console.log(this.piattiRistorante);
     axios
     .get('http://localhost:8000/api/plate')
     .then((result)=> {
