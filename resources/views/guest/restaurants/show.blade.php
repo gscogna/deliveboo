@@ -29,8 +29,7 @@
 <div class="choose-restaurant">
   <div class="guest-restaurants">
     <div v-for='item in piattiRistorante' v-if="item.visibile == 1" class="card-restaurant">
-      <img src="https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg" alt="img">
-
+      <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
         <p class="rainbow-text">@{{item.nome}}</p>
         <p>Ingredienti: @{{ item.ingredienti }}</p>
         <p>Prezzo: @{{ item.prezzo }}€</p>
