@@ -29,7 +29,11 @@
         </div>
         @endforeach
         @endif
-        <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
+        {{-- @dd((count($restaurants))) --}}
+        @if (count($restaurants ) < 1)
+
+            <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
+        @endif
         </div>
     </div>
 </div>

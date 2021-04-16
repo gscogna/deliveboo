@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Restaurant;
+use App\User;
 
 class RestaurantController extends Controller
 {
@@ -29,9 +30,10 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
-        $data = ['restaurants' => $restaurants];
+        $users = User::all();
+        $data = ['restaurants' => $restaurants, 'users' => $users];
 
-        return view('admin.home');
+        return view('admin.home', $data);
     }
 
     /**
