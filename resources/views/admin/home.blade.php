@@ -24,7 +24,7 @@
                 <p class="card-text">Nome ristorante: {{ $restaurant -> nome }}</p>
                 <a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a>
                 
-                <a href="{{ route('restaurants.edit', $restaurant->user_id) }}"><button type="submite" class="btn btn-warning">Modifica</button></a>
+                <a href="{{ route('restaurants.edit', $restaurant->user_id) }}"><button type="button" class="btn btn-warning">Modifica</button></a>
             </div>
         </div>
         @endforeach

@@ -43,9 +43,10 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        // $restaurants = Restaurant::all();
-        // $data = ['restaurants' => $restaurants];
-        return view('admin.crearistorante');
+        $restaurants = Restaurant::all();
+        $data = ['restaurants' => $restaurants];
+        return view('admin.crearistorante', $data);
+
     }
 
     /**
@@ -77,7 +78,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
         //
     }
@@ -88,11 +89,13 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Restaurant $restaurant)
     {
-        $restaurant = Restaurant::where('user_id', Auth::id());
+        
+        // dd($restaurant);
         $data = ['restaurant' => $restaurant];
         return view('admin.modifiche-ristorante.edit', $data);
+
 
     }
 
