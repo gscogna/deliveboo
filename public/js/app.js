@@ -49673,10 +49673,21 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     axios.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
+
+      _this.arrayPiatti.forEach(function (item) {
+        if (item.user_id == _this.id_ristorante) {
+          _this.piattiRistorante.push(item);
+        }
+      });
+
+      console.log(_this.id_ristorante);
+      console.log(_this.piattiRistorante);
     });
     axios.get('http://localhost:8000/api/restaurant').then(function (result) {
       _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
     });
+    this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
+    this.restaurant_plates;
   },
   methods: {
     ristorante_id: function ristorante_id(id) {
@@ -49693,7 +49704,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         }
       });
       console.log(this.id_ristorante);
-      console.log(this.piattiRistorante); // console.log(this.piattiSelezionati);
+      console.log(this.piattiRistorante);
+      localStorage.id_ristorante = this.id_ristorante;
+      console.log(localStorage.id_ristorante);
     },
     search_restaurant: function search_restaurant() {
       var _this3 = this;

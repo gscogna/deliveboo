@@ -18,6 +18,14 @@ var chiamate = new Vue({
     .then((result)=> {
       this.arrayPiatti = result.data.response;
       console.log(this.arrayPiatti);
+      this.arrayPiatti.forEach((item) => {
+        if(item.user_id == this.id_ristorante){
+          this.piattiRistorante.push(item);
+        }
+      });
+      console.log(this.id_ristorante);
+      console.log(this.piattiRistorante);
+
     })
     axios
     .get('http://localhost:8000/api/restaurant')
@@ -25,6 +33,9 @@ var chiamate = new Vue({
       this.arrayRistoranti = result.data.response;
       // console.log(this.arrayRistoranti);
     })
+    this.id_ristorante= localStorage.id_ristorante,
+    // console.log(this.id_ristorante),
+    this.restaurant_plates
 
   },
   methods:{
@@ -43,7 +54,8 @@ var chiamate = new Vue({
       });
       console.log(this.id_ristorante);
       console.log(this.piattiRistorante);
-      // console.log(this.piattiSelezionati);
+      localStorage.id_ristorante = this.id_ristorante;
+      console.log(localStorage.id_ristorante);
 
     },
     search_restaurant(){

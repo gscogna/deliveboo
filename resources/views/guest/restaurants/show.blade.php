@@ -26,10 +26,9 @@
 @endsection
 @section('content')
 <div class="user-manager">
-  svdffd
   <div class="restaurant-menu">
         <div v-for='item in piattiRistorante' class="">
-          prova
+          @{{item.nome}}
         </div>
   </div>
   <div class="carrello">
