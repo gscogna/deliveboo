@@ -11311,6 +11311,7 @@ main .choose-restaurant .guest-restaurants .card p:hover {
 
 main .banner {
   width: 100%;
+  padding: 50px 0;
   background-color: #fff;
 }
 
@@ -11345,6 +11346,16 @@ main .banner h2 {
 main .banner img {
   height: 350px;
   margin: auto;
+}
+
+main .banner .container-img-app {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  main .banner .container-img-app {
+    flex-direction: column;
+  }
 }
 
 main .banner .container-img-app img {

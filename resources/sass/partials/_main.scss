@@ -172,6 +172,7 @@ main{
   // fine sezione ristoranti guest
   .banner {
     width: 100%;
+    padding: 50px 0;
     background-color: #fff;
     & .container {
       display: flex;
@@ -195,6 +196,14 @@ main{
       height: 350px;
       margin: auto;
     }
+
+    & .container-img-app{
+      justify-content: center;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
     & .container-img-app img {
       height: 75px;
       margin: auto;
