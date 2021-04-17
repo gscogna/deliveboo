@@ -13,7 +13,6 @@ var chiamate = new Vue({
     id_ristorante: ''
   },
   mounted(){
-    console.log(item);
     axios
     .get('http://localhost:8000/api/plate')
     .then((result)=> {
@@ -67,7 +66,7 @@ var chiamate = new Vue({
       //     this.ristorantiSelezionati.push(item);
       //   }
       // });
-        if(item.nome.indexOf(this.search)> -1){
+        if(item.nome.indexOf(this.search) > -1){
           this.ristorantiSelezionati.push(item);
         };
         if(this.search == '' || this.search != this.ristoranteScelto.nome){

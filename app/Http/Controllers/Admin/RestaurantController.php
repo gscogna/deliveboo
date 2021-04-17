@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Restaurant;
 use App\User;
+use App\Plate;
 
 class RestaurantController extends Controller
 {
@@ -124,8 +125,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $plates = Plate::where('user_id', $restaurant->user_id);
+        $plates->delete();
+        $restaurant->delete();
+        return redirect()->route('admin.home');
     }
 }

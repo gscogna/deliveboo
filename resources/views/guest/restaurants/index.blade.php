@@ -25,28 +25,25 @@
   </div>
 @endsection
 @section('content')
-    <h1 class="text-center">Deliveboo in costruzione</h1>
-    <div class="choose-restaurant">
+<h1 class="text-center">Deliveboo in costruzione</h1>
+  <div class="choose-restaurant">
       <h2>ristoranti</h2>
+
       <div class="guest-restaurants">
-
-
         <div v-for="(element, index) in arrayRistoranti" class="card-restaurant" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
           <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
-            <p class="rainbow-text">@{{element.nome}}</p>
-            <a   @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">Vai al menù</button> </a>
+          <p class="rainbow-text">@{{element.nome}}</p>
+          <a   @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">Vai al menù</button> </a>
         </div>
         <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
           <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
           <a @click='restaurant_plates(element.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
         </div>
-        </div>
         <div v-if ="!ristorantiSelezionati.length && !ristoranteScelto.length && search != ''">
           nessun ristorante trovato
         </div>
       </div>
-
-    {{-- ciao --}}
-
+      
+  </div>
 @endsection

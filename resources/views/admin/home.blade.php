@@ -25,13 +25,17 @@
                 <a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a>
                 
                 <a href="{{ route('restaurants.edit', $restaurant->user_id) }}"><button type="button" class="btn btn-warning">Modifica</button></a>
+                <form method="POST" action="{{ route('restaurants.destroy', $restaurant) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Cancella</button>
+                </form>
             </div>
         </div>
         @endforeach
         @endif
         {{-- @dd((count($restaurants))) --}}
         @if (count($restaurants ) < 1)
-
             <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
         @endif
         </div>
