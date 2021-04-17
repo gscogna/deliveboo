@@ -9,11 +9,12 @@ class RestaurantController extends Controller
 {
     public function index()
     {
+        
         return view('guest.restaurants.index');
     }
-    public function show()
+    public function show(Plate $plate)
     {
-
+        $data = ['plate' => $plate];
         return view('guest.restaurants.show');
     }
 
