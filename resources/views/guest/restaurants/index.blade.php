@@ -31,12 +31,12 @@
 
       <div class="guest-restaurants">
         <div v-for="(element, index) in arrayRistoranti" class="card-restaurant" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
-          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+          <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
           <p class="rainbow-text">@{{element.nome}}</p>
           <a   @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">Vai al menù</button> </a>
         </div>
         <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
-          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+          <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
           <a @click='restaurant_plates(element.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
         </div>
