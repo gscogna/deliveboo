@@ -29,8 +29,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
-        $users = User::all();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+        $users = User::where('id', Auth::id())->get();
         $data = ['restaurants' => $restaurants, 'users' => $users];
 
         return view('admin.home', $data);
