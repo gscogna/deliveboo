@@ -11143,6 +11143,13 @@ footer .container .card ul a {
 
 footer .container .card ul a:hover {
   color: orange;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer .container .card ul a:hover {
+    transition: none;
+  }
 }
 
 footer .container .card ul li {
@@ -11253,6 +11260,15 @@ main .choose-restaurant .guest-restaurants .card {
 
 main .choose-restaurant .guest-restaurants .card:hover {
   box-shadow: 0px 1px 4px 2px #ff5722;
+  transform: scale(1.2);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .choose-restaurant .guest-restaurants .card:hover {
+    transition: none;
+  }
 }
 
 main .choose-restaurant .guest-restaurants .card .card-img-top {
@@ -11284,6 +11300,13 @@ main .choose-restaurant .guest-restaurants .card p {
 
 main .choose-restaurant .guest-restaurants .card p:hover {
   color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .choose-restaurant .guest-restaurants .card p:hover {
+    transition: none;
+  }
 }
 
 main .banner {

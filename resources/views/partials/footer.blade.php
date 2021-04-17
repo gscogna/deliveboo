@@ -5,9 +5,9 @@
         <div class="Scopri">
             <h3>Scopri Deliveboo</h3>
             <ul>
-            <li> <a href="#">Chi siamo</li></a>
-            <li> <a href="#">Ristoranti </li></a>
-            <li> <a href="#">Altro </li></a>     
+            <a href="#"><li>Chi siamo</li></a>
+            <a href="#"><li>Ristoranti </li></a>
+            <a href="#"><li>Altro </li></a>     
             </ul>
         </div>  
     </div>
@@ -16,9 +16,9 @@
         <div class="Aiuto">
             <h3>Note Legali</h3>
             <ul>
-            <li> <a href="#">Termini e condizioni </li></a>
-            <li> <a href="#">Informativa sulla privacy </li></a>
-            <li> <a href="#">Cookies </li></a>     
+            <a href="#"><li>Termini e condizioni </li></a>
+            <a href="#"><li>Informativa sulla privacy </li></a>
+            <a href="#"><li>Cookies </li></a>     
             </ul>
         </div>  
     </div>
@@ -27,8 +27,8 @@
         <div class="Privacy">
             <h3>Aiuto</h3>
             <ul>
-            <li> <a href="#">Contatti </li></a>
-            <li> <a href="#">Altro </li></a>     
+            <a href="#"><li>Contatti </li></a>
+            <a href="#"><li>Altro </li></a>     
             </ul>
         </div>  
     </div>
