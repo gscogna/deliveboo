@@ -20,34 +20,33 @@
         </tr>
       </thead>
       <tbody>
-        
         <a class="btn btn-success mb-3" href=" {{ route('plates.create') }}">Inserisci un piatto</a>
-          @foreach ($plates as $plate)
-            @if($plate->user_id == Auth::id())
-              <tr>
-                  <td>{{ $plate->id }}</td>
-                  <td>{{ $plate->nome }}</td>
-                  <td>{{ $plate->immagine }}</td>
-                  <td>{{ $plate->prezzo }}</td>
-                  <td>{{ $plate->ingredienti }}</td>
-                    @if ( $plate->visibile == 1)
-                      <td>Si</td>
-                    @else
-                        <td>No</td>
-                    @endif
+        @foreach ($plates as $plate)
+          @if($plate->user_id == Auth::id())
+            <tr>
+                <td>{{ $plate->id }}</td>
+                <td>{{ $plate->nome }}</td>
+                <td>{{ $plate->immagine }}</td>
+                <td>{{ $plate->prezzo }}</td>
+                <td>{{ $plate->ingredienti }}</td>
+                  @if ( $plate->visibile == 1)
+                    <td>Si</td>
+                  @else
+                      <td>No</td>
+                  @endif
 
-                  <td><a href="{{ route('plates.show', $plate) }}"><button type="button" class="btn btn-info">Dettagli</button></a></td>
-                  <td><a href="{{ route('plates.edit', $plate) }}"><button type="button" class="btn btn-warning">Modifica</button></a></td>
-                  <td>
-                      <form method="POST" action="{{ route('plates.destroy', $plate) }}">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger">Cancella</button>
-                      </form>
-                  </td>
-              </tr>
-            @endif
-      @endforeach
+                <td><a href="{{ route('plates.show', $plate) }}"><button type="button" class="btn btn-info">Dettagli</button></a></td>
+                <td><a href="{{ route('plates.edit', $plate) }}"><button type="button" class="btn btn-warning">Modifica</button></a></td>
+                <td>
+                    <form method="POST" action="{{ route('plates.destroy', $plate) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">Cancella</button>
+                    </form>
+                </td>
+            </tr>
+          @endif
+        @endforeach
       </tbody>
     </table>
 </div>
