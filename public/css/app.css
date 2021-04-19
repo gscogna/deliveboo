@@ -11118,6 +11118,7 @@ footer .container .card {
   padding: 20px;
   background-color: #464646;
   color: white;
+  border-radius: 5%;
 }
 
 @media screen and (max-width: 992px) {
@@ -11170,14 +11171,17 @@ footer .font i {
 
 footer .font .fb-blue:hover {
   color: blue;
+  cursor: pointer;
 }
 
 footer .font .inst-red:hover {
   color: red;
+  cursor: pointer;
 }
 
 footer .font .twt-lightblue:hover {
   color: lightblue;
+  cursor: pointer;
 }
 
 main {
@@ -11337,6 +11341,15 @@ main .banner .right-side-banner {
   main .banner .right-side-banner {
     width: 100%;
   }
+}
+main .container-fluid,
+main .container-sm,
+main .container-md,
+main .container-lg,
+main .container-xl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 main .banner h2 {

@@ -214,3 +214,42 @@ main{
   // sezione menu e carrelo
 
 }
+
+  .container-fluid{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  
+    .card{
+      width: 50%;    
+      padding:20px;
+      justify-content: center;
+      text-align: center;
+      
+          .img-fluid{
+            width:50%;    
+            padding:10px;
+            display:block;
+            margin:0px auto;
+            text-align:center;
+          }
+          .card-body img{
+            width: 40%;
+          }
+          .card-body img:hover{
+            cursor:pointer;
+          }
+   
+   
+        .card-text{
+         font-size: 40px;
+         font-weight:500;
+         margin-top:20px;     
+         }   
+    } //fine card
+  } //fine container-fluid
+
+  // FINE SEZIONE TELEFONO
+
+} //fine main
+
