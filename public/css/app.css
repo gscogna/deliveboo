@@ -11278,7 +11278,7 @@ main .choose-restaurant .guest-restaurants .card .card-img-top {
   height: 200px;
   width: 80%;
   border: 2px solid orangered;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 
 main .choose-restaurant .guest-restaurants .card a {
