@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Plate;
 
 use Illuminate\Http\Request;
-use App\Plate;
 
 class RestaurantController extends Controller
 {

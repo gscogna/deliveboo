@@ -20,7 +20,7 @@ class RestaurantController extends Controller
 
     public function statistiche()
     {
-        return view('admin.restaurants.statistiche');
+        return view('admin.modifiche-ristorante.statistiche');
     }
 
     /**
