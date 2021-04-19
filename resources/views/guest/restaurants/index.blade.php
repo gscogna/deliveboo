@@ -55,7 +55,7 @@
           </div>
           <div class="right-side-banner">
             <h2>Scarica la nostra app e ordina comodamente anche da cellulare!</h2>
-            <div class="container-img-app d-flex jusify-content-center">
+            <div class="container-img-app d-flex">
               <img src="https://d2egcvq7li5bpq.cloudfront.net/b/hw/img/icons/appstore/ios.it.svg" alt="">
               <img src="https://d2egcvq7li5bpq.cloudfront.net/b/hw/img/icons/appstore/android.it.svg" alt="">
             </div>
