@@ -17,8 +17,10 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::all();
-        $data = ['plates' => $plates];
+        $plates = Plate::all()->sortBy('nome');
+        $data = [
+            'plates' => $plates
+        ];
 
         return view('admin.restaurants.index', $data);
     }

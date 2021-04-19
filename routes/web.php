@@ -31,3 +31,5 @@ Route::prefix('admin')
         // Route::get('/plates/search', 'PlateController@search')->name('search');
         Route::resource('/restaurants', 'RestaurantController');
     });
+
+    Route::get('/payment/process', 'PagamentiController@process')->name('payment.process');
