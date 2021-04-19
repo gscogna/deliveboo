@@ -45,6 +45,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $restaurants = Restaurant::all();
+        
         $data = ['restaurants' => $restaurants];
         return view('admin.crearistorante', $data);
 
@@ -128,6 +129,9 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $plates = Plate::where('user_id', $restaurant->user_id);
+        $user = User::where('id', $restaurant->user_id);
+
+        $user->delete();
         $plates->delete();
         $restaurant->delete();
         return redirect()->route('admin.home');
