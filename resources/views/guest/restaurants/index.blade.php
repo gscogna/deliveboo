@@ -25,18 +25,20 @@
   </div>
 @endsection
 @section('content')
-<h1 class="text-center">Deliveboo in costruzione</h1>
+<h1 class="text-center">Scegli il ristorante da cui ordinare</h1>
   <div class="choose-restaurant">
-      <h2>ristoranti</h2>
+      {{-- <h2>ristoranti</h2> --}}
 
       <div class="guest-restaurants">
-        <div v-for="(element, index) in arrayRistoranti" class="card-restaurant" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
-          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
-          <p class="rainbow-text">@{{element.nome}}</p>
-          <a   @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">Vai al menù</button> </a>
+        <div v-for="(element, index) in arrayRistoranti" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
+          <img class="card-img-top" :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
+          <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+            <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
+          </a>
+          {{-- <a   @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">@{{element.nome}}</button> </a> --}}
         </div>
         <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
-          <img src="https://image.freepik.com/premium-vector/pizza-logo-vector_25327-119.jpg" alt="">
+          <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
           <a @click='restaurant_plates(element.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
         </div>
@@ -44,6 +46,22 @@
           nessun ristorante trovato
         </div>
       </div>
-      
+
+      {{-- banner app --}}
+      <div class="banner">
+        <div class="container w-75">
+          <div class="left-side-banner d-flex jusify-content-center">
+            <img src="https://d2egcvq7li5bpq.cloudfront.net/b/hw/img/decoration/apps_promo-wide-je.png" alt="">
+          </div>
+          <div class="right-side-banner">
+            <h2>Scarica la nostra app e ordina comodamente anche da cellulare!</h2>
+            <div class="container-img-app d-flex jusify-content-center">
+              <img src="https://d2egcvq7li5bpq.cloudfront.net/b/hw/img/icons/appstore/ios.it.svg" alt="">
+              <img src="https://d2egcvq7li5bpq.cloudfront.net/b/hw/img/icons/appstore/android.it.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
 @endsection
