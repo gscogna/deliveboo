@@ -13,6 +13,7 @@ footer {
         padding: 20px;
         background-color:#464646;
         color:white;
+        border-radius: 5%;
 
      h3{
         font-size: 30px;
@@ -24,7 +25,8 @@ footer {
             padding-top: 10px;
 
             &:hover{
-                color:orange;  
+                color:orange; 
+                cursor:pointer; 
             }
           }
         }
@@ -42,12 +44,15 @@ footer {
     }
     .fb-blue:hover{
         color:blue;
+        cursor:pointer;
     }
     .inst-red:hover{
         color:red;
+        cursor:pointer;
     }
     .twt-lightblue:hover{
         color:lightblue;
+        cursor:pointer;
     }
   }
 }

@@ -44,6 +44,30 @@
           nessun ristorante trovato
         </div>
       </div>
-      
-  </div>
+    </div>
+
+
+    <!-- Inizio sezione telefono -->
+
+  <div class="container-fluid">
+
+    <div class="card">
+      <img class="img-fluid" src="https://d2egcvq7li5bpq.cloudfront.net/a/hw/img/decoration/apps_promo-narrow-je.png" class="img-fluid" alt="Immagini su ipad e telefono">  
+    </div>
+
+    <div class="card">
+        <p class="card-text">
+          Scarica l'app e ordina dove vuoi, </p>
+          <p class="card-text">
+          qualunque cosa desideri! </p>
+        
+        <div class="card-body"> 
+          <img src="https://d2egcvq7li5bpq.cloudfront.net/a/hw/img/icons/appstore/ios.it.svg" alt="Scarica app su Ios">
+          <img src="https://d2egcvq7li5bpq.cloudfront.net/a/hw/img/icons/appstore/android.it.svg" alt="Scarica app da google play">
+        </div>
+
+    </div>  <!-- fine card -->
+   
+  </div> <!-- fine container-fluid -->
+   
 @endsection
