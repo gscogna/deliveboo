@@ -4,30 +4,38 @@ footer {
 
     .container {
             display:flex;
-            flex-wrap:nowrap;
+            flex-wrap:wrap;
             justify-content: center;
     
     .card { 
-        width: calc(100% / 3);
+        width: calc(100% / 4);
         margin:30px;
         padding: 20px;
         background-color:#464646;
         color:white;
-        border-radius: 5%;
+        @media screen and(max-width:992px) {
+          width: 100%;
+          margin: 10px auto;
+          text-align: center;
+        }
 
      h3{
         font-size: 30px;
       }
       ul{
           list-style: none;
-          li{
+          & a{
+            text-decoration: none;
             color:rgb(209, 207, 204);
+            &:hover{
+                color:orange;  
+              @include transition;
+
+            }
+          }
+          li{
             padding-top: 10px;
 
-            &:hover{
-                color:orange; 
-                cursor:pointer; 
-            }
           }
         }
      }   

@@ -1,7 +1,12 @@
 
 main{
   width: 100%;
+  background-color: #ffeae4;
   // sezione della parte ristoranti guest
+  & h1 {
+    font-size: 45px;
+    font-weight: bold;
+  }
   & .choose-restaurant{
 
     & h2 {
@@ -11,114 +16,200 @@ main{
 
 
     & .guest-restaurants{
-      width: 50%;
+      width: 80%;
       margin: auto;
       display: flex;
+      justify-content: space-around;
       flex-wrap: wrap;
 
       @media screen and(max-width: 1200px){
-      justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        justify-content: space-between;
       }
 
-      @media screen and(max-width: 766px){
-        width: 100%;
-        margin: 0;
+      @media screen and(max-width: 768px){
+        width: 80%;
+        margin: auto;
+        justify-content: space-between;
       }
+       
+      @media screen and (max-width: 576px) {
+        width: 65%;
+        justify-content: space-between;
 
-      & .card-restaurant{
-        width: calc(100% / 3 - 40px);
-        height: 400px;
-        
-        border: 1px solid #ff5722;
+    }
+
+      & .card{
+        width: calc(100% / 4 - 10px);
+        background-color: #ffeae4;
+        // border: 1px solid #ff5722;
+        border: none;
         display: flex;
         flex-direction: column;
         align-items: center;
         // justify-content: center;
-        margin-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
         @media screen and(max-width: 1200px){
-          width: calc(100% / 2 - 40px);
-          height: 240px;
-          margin-right: 0px;
+          width: calc(100% / 3 - 10px);
+          margin-bottom: 30px;
         }
 
-        @media screen and(max-width: 766px){
-          width: 100%;
-          flex-direction: row;
-
+        
+        @media screen and(max-width: 768px){
+          width: calc(100% / 2 - 10px);
+          margin-bottom: 30px;
+          
         }
-
+        
+        @media screen and (max-width: 576px) {
+            width: 100%;
+            margin-bottom: 30px;
+            
+        }
         &:hover{
           // box-shadow: 0px 1px 4px 2px grey;
           box-shadow: 0px 1px 4px 2px  #ff5722;
+          transform: scale(1.2);
+          z-index: 1000;
+          @include transition;
         }
 
-        & img{
-          width: 40%;
-          margin-bottom: 20px;
-          margin-top: 20px;
+        // & img{
+        //   width: 40%;
+        //   margin-bottom: 20px;
+        //   margin-top: 20px;
 
-          @media screen and(max-width: 766px){
-            width: 20%;
-            margin-left: 30px;
+        //   @media screen and(max-width: 766px){
+        //     width: 20%;
+        //     margin-left: 30px;
 
-          }
+        //   }
+        // }
+
+        .card-img-top {
+          height: 200px;
+          width: 80%;
+          border: 2px solid orangered;
+          border-radius: 50%;
+        }
+
+        & a{
+          text-decoration: none;
+          
         }
 
         & p{
-
-            text-align: center;
-            margin-left: 10px;
-            margin-right: 10px;
-
-          &.rainbow-text {
-            margin-top: 0px;
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-family: sans-serif;
-            background: linear-gradient(to right, #ef5350, #f9a825, #ff5722);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            @media screen and(max-width: 1200px){
-              font-size: 20px;
-            }
-
-            @media screen and(max-width: 766px){
-            font-size: 30px;
-            padding-left: 30px;
-            padding-right: 30px;
-
-            }
-          }
-
-
-        }
-
-        & button{
           padding: 4px 10px;
           border-radius: 10px;
-          background-color: #eb6338;
           border: 0px;
           font-size: 16px;
-          color: yellow;
+          color: black;
+          font-weight: bold;
           margin-bottom: 20px;
+          text-align: center;
+          padding: 10px;
+          background-color: orange;
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-top: 10px;
 
-          @media screen and(max-width: 1200px){
-              padding: 4px 16px;
-              font-size: 12px;
+          &:hover{
+            color: white;
+            @include transition;
           }
-          @media screen and(max-width: 766px){
-            padding: 5px 24px;
-            font-size: 20px;
-          }
+
+          // &.rainbow-text {
+          //   margin-top: 0px;
+          //   font-size: 24px;
+          //   margin-bottom: 10px;
+          //   font-family: sans-serif;
+          //   background: linear-gradient(to right, #ef5350, #f9a825, #ff5722);
+          //   -webkit-background-clip: text;
+          //   -webkit-text-fill-color: transparent;
+
+            // @media screen and(max-width: 1200px){
+            //   font-size: 20px;
+            // }
+
+            // @media screen and(max-width: 766px){
+            // font-size: 30px;
+            // padding-left: 30px;
+            // padding-right: 30px;
+
+            // }
+          // }
+
 
         }
 
+        // & button{
+        //   padding: 4px 10px;
+        //   border-radius: 10px;
+        //   background-color: #eb6338;
+        //   border: 0px;
+        //   font-size: 16px;
+        //   color: yellow;
+        //   margin-bottom: 20px;
+
+        //   @media screen and(max-width: 1200px){
+        //       padding: 4px 16px;
+        //       font-size: 12px;
+        //   }
+        //   @media screen and(max-width: 766px){
+        //     padding: 5px 24px;
+        //     font-size: 20px;
+        //   }
+
+        // }
+
+        
       }
     }
   }
   // fine sezione ristoranti guest
+  .banner {
+    width: 100%;
+    padding: 50px 0;
+    background-color: #fff;
+    & .container {
+      display: flex;
+      justify-content: space-between;
+      @media screen and (max-width: 992px) {
+        flex-direction: column;
+      }
+    }
+    & .left-side-banner, .right-side-banner {
+      width: 80%;
+      margin: auto;
+
+      @media screen and (max-width: 992px) {
+        width: 100%;
+      }
+    }
+    & h2 {
+      text-align: center;
+    }
+    & img{
+      height: 350px;
+      margin: auto;
+    }
+
+    & .container-img-app{
+      justify-content: center;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    & .container-img-app img {
+      height: 75px;
+      margin: auto;
+    }
+
+  }
 
   // sezione menu e carrelo
 
