@@ -30,6 +30,7 @@ Route::prefix('admin')
         Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.restaurants.statistiche');
         // Route::get('/plates/search', 'PlateController@search')->name('search');
         Route::resource('/restaurants', 'RestaurantController');
+        Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.statistiche');
     });
 
     Route::get('/payment/process', 'PagamentiController@process')->name('payment.process');

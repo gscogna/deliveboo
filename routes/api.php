@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/plate', 'API\PlateController@index');
 Route::get('/restaurant', 'API\RestaurantController@index');
+Route::get('/orders', 'API\OrdersController@index');

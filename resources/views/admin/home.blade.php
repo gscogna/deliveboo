@@ -15,6 +15,11 @@
                     {{ __('Sei loggato!') }}
                 </div>
             </div>
+            <div>
+                <button class="btn btn-success">
+                    <a href="{{ route('admin.statistiche') }}">Ordini e Statistiche</a>
+                </button>
+            </div>
             @if ($restaurants)
             @foreach ($restaurants as $restaurant)
             <div class="card mt-4 text-center" style="width: 18rem; margin: auto;" enctype=“multipart/form-data”>
