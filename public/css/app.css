@@ -11118,7 +11118,6 @@ footer .container .card {
   padding: 20px;
   background-color: #464646;
   color: white;
-  border-radius: 5%;
 }
 
 @media screen and (max-width: 992px) {
@@ -11342,15 +11341,6 @@ main .banner .right-side-banner {
     width: 100%;
   }
 }
-main .container-fluid,
-main .container-sm,
-main .container-md,
-main .container-lg,
-main .container-xl {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
 
 main .banner h2 {
   text-align: center;
@@ -11374,5 +11364,64 @@ main .banner .container-img-app {
 main .banner .container-img-app img {
   height: 75px;
   margin: auto;
+}
+
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.container-fluid .card,
+.container-sm .card,
+.container-md .card,
+.container-lg .card,
+.container-xl .card {
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.container-fluid .card .img-fluid,
+.container-sm .card .img-fluid,
+.container-md .card .img-fluid,
+.container-lg .card .img-fluid,
+.container-xl .card .img-fluid {
+  width: 50%;
+  padding: 10px;
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.container-fluid .card .card-body img,
+.container-sm .card .card-body img,
+.container-md .card .card-body img,
+.container-lg .card .card-body img,
+.container-xl .card .card-body img {
+  width: 40%;
+}
+
+.container-fluid .card .card-body img:hover,
+.container-sm .card .card-body img:hover,
+.container-md .card .card-body img:hover,
+.container-lg .card .card-body img:hover,
+.container-xl .card .card-body img:hover {
+  cursor: pointer;
+}
+
+.container-fluid .card .card-text,
+.container-sm .card .card-text,
+.container-md .card .card-text,
+.container-lg .card .card-text,
+.container-xl .card .card-text {
+  font-size: 40px;
+  font-weight: 500;
+  margin-top: 20px;
 }
 
