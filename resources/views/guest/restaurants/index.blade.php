@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Deliveboo')
+
 @section('header.content')
   <div class="container header-content-guest">
     <div class="hcg-left">
@@ -41,7 +42,7 @@
         <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
           <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
-          <a @click='restaurant_plates(element.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
+          <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
         </div>
         <div v-if ="!ristorantiSelezionati.length && !ristoranteScelto.length && search != ''">
           nessun ristorante trovato
