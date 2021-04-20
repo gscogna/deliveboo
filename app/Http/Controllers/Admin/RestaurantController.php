@@ -64,7 +64,7 @@ class RestaurantController extends Controller
         $data = $request->validate([
             'nome' => ['required',Rule::unique('restaurants')->ignore($newRestaurant)],
             'indirizzo' => 'required',
-            'immagine' => 'required'
+            'immagine' => 'required|min:1|max:2048'
         ]);
         $idUser = Auth::id();
         $newRestaurant -> user_id = $idUser;
@@ -115,7 +115,11 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'nome' => ['required',Rule::unique('restaurants')->ignore($restaurant)],
+            'indirizzo' => 'required',
+            'immagine' => 'required|min:1|max:2048'
+        ]);
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;

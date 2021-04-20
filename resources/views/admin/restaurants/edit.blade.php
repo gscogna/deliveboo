@@ -3,6 +3,15 @@
 @section('content')
 <form method="POST" action="{{ route('plates.update', $plate)}}" enctype="multipart/form-data">
 <div class="container">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
         @method('PUT')
         @csrf
         <a href="{{ route('plates.index') }}"><button type="button" class="btn btn-info">Indietro</button></a>
