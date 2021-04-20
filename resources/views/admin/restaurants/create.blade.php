@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <h4 class="pt-5 text-center">Inserisci un Piatto</h4>
     <div class="container">
         <form class="form-group" method="post" action="{{ route('plates.store') }}" enctype="multipart/form-data">

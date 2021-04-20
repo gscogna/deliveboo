@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -59,9 +60,13 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $idUser = Auth::id();
         $newRestaurant = new Restaurant();
+        $data = $request->validate([
+            'nome' => ['required',Rule::unique('restaurants')->ignore($newRestaurant)],
+            'indirizzo' => 'required',
+            'immagine' => 'required'
+        ]);
+        $idUser = Auth::id();
         $newRestaurant -> user_id = $idUser;
         $newRestaurant->slug = Str::Slug($data['nome']);
         
