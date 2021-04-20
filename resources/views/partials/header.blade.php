@@ -3,9 +3,23 @@
 
     <nav class="navbar navbar-expand-md navbar-light  shadow-sm" style="width: 100%;">
       <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-          DELIVEROO
-        </a>
+        @if (Auth::user())
+        <ul class="list-unstyled list-group d-flex">
+          <li class="list-item"><a class="navbar-brand" href="{{ url('/') }}">
+            DELIVEROO
+          </a></li>
+              
+          <li class="list-item"><a href="{{ route('admin.home') }}">Torna al tuo ristorante</a></li>
+        </ul>
+        @endif
+
+        @if (!Auth::user())
+        <ul class="list-unstyled list-group">
+          <li><a class="navbar-brand" href="{{ url('/') }}">
+            DELIVEROO
+          </a></li>
+        </ul>
+        @endif
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
-  
+            
           </ul>
   
           <!-- Right Side Of Navbar -->

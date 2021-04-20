@@ -14,10 +14,10 @@ use App\Plate;
 
 class RestaurantController extends Controller
 {
-    public function ordini()
-    {
-        return view('admin.restaurants.ordini');
-    }
+    // public function ordini()
+    // {
+    //     return view('admin.restaurants.ordini');
+    // }
 
     public function statistiche()
     {

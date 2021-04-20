@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Crea Piatto')
 @section('content')
     <h4 class="pt-5 text-center">Inserisci un Piatto</h4>
     <div class="container">

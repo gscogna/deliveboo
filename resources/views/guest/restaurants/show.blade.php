@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Menù')
 @section('header.content')
   <div class="container header-content-guest">
     <div class="hcg-left">

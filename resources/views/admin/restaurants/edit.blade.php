@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Modifica il tuo piatto')
 
 @section('content')
 <form method="POST" action="{{ route('plates.update', $plate)}}" enctype="multipart/form-data">

@@ -1,4 +1,5 @@
 @extends('layouts.pagamenti')
+@section('title', 'Paga il tuo ordine')
 
 @section('content')
 <div class="container">
