@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h4 class="pt-5 text-center">Inserisci un Piatto</h4>
     <div class="container">
         <form class="form-group" method="post" action="{{ route('plates.store') }}" enctype="multipart/form-data">
