@@ -47,6 +47,7 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::all();
         
         $data = ['restaurants' => $restaurants];
+        // dd($data);
         return view('admin.crearistorante', $data);
 
     }
@@ -65,8 +66,12 @@ class RestaurantController extends Controller
         $newRestaurant -> user_id = $idUser;
         $newRestaurant->slug = Str::Slug($data['nome']);
         
-        $image = Storage::put('ristorante_storage', $data['immagine']);
-        $data['immagine'] = $image;
+        if(empty($data['immagine'])){
+            $data['immagine'] = 'ristorante_storage\fast-food-2029397_960_720.png';
+        } else {
+            $image = Storage::put('ristorante_storage', $data['immagine']);
+            $data['immagine'] = $image;
+        }
         $newRestaurant -> fill($data);
         
         $newRestaurant-> save();
