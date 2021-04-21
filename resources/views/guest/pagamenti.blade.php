@@ -23,30 +23,16 @@
       <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
         @csrf
         @method('POST')
-        <div class="form-group">
-          <label for="inputNome">Nome Completo</label>
-          <input type="email" class="form-control" id="inputNome" placeholder="Inserisci il tuo nome completo...">
-        </div>
-        <div class="form-group">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Inserisci Email...">
-        </div>
-        <div class="form-group">
-          <label for="inputIndirizzo">Indirizzo</label>
-          <input type="email" class="form-control" id="inputIndirizzo" placeholder="Inserisci il tuo indirizzo...">
-        </div>
-
         <section>
           <div class="bt-drop-in-wrapper">
               <div id="bt-dropin"></div>
           </div>
       </section>
 
-      <input id="nonce" name="payment_method_nonce" type="hidden" />
+      <input type="hidden" id="nonce" name="payment_method_nonce"/>
 
       <div class="buttons">
           <button class="button btn btn-primary" type="submit"><span>Acquista</span></button>
-          <a href="{{ url()->previous() }}" class="btn">Torna indietro</a>
       </div>
   
       </form>
