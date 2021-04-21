@@ -146,7 +146,6 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-        </div>
       </section>
       {{-- Sezione info ristorante e vario --}}
       <section id="ristorante e info">
@@ -281,13 +280,20 @@
             </div>
           </div>
         </div>
+        <!--Carrello-->
+  
+        <div @click="showCarrello" class="carrello">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div :class="show" class="oggetti_carrello">
+          <p>Item</p>
+          <p>Item</p>
+          <p>Item</p>
+          <p>Item</p>
+        </div>
       </section>
-      <!--Carrello-->
 
 
-
-
-      {{-- inserisci il carrello --}}
 
 
 
@@ -320,4 +326,5 @@
         </div>
       </footer>
     </div>
+  </div>
 </body>

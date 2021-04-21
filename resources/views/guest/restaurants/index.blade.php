@@ -71,7 +71,7 @@
 </div>
 
 <!-- SEGLI RISTORANTE -->
-<h1 class="text-center">Scegli il ristorante da cui ordinare</h1>
+<h1  class="text-center">Scegli il ristorante da cui ordinare</h1>
   <div class="choose-restaurant">
       {{-- <h2>ristoranti</h2> --}}
 

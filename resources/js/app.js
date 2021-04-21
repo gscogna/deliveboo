@@ -12,9 +12,11 @@ var chiamate = new Vue({
     piattiRistorante:[],
     ristorantiSelezionati: [],
     ristoranteScelto : [],
-    id_ristorante: ''
+    id_ristorante: '',
+    show: "",
   },
   mounted(){
+    this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
     .then((result)=> {
@@ -101,12 +103,26 @@ var chiamate = new Vue({
       console.log(this.ristoranteScelto);
 
     },
-    vedi(){
-      console.log(this.piattiRistorante);
+    // vedi(){
+    //   console.log(this.piattiRistorante);
+    // },
+    // carrello
+    
+    showCarrello(){
+      if(this.show == "hide"){
+        this.show = "show"
+      } else {
+        this.show ="hide";
+      }
+      console.log(this.show);
     }
-  }
-});
+  },
 
+
+  // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
+
+
+});  
 
 
 

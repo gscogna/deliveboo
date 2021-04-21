@@ -1,0 +1,36 @@
+.carrello {
+    position: fixed;
+    right: 5%;
+    top: 25%;
+    z-index: 1000;
+    & i{
+        padding: 20px;
+        border-radius: 50%;
+        background-color: orange;
+        color: white;
+        font-size: 20px;
+    }
+}
+
+.oggetti_carrello{
+    width: 300px;
+    background-color: orange;
+    position: fixed;
+    right: 5%;
+    top: 35%;
+    z-index: 1000;
+    border-radius: 10%;
+    border: 2px solid white;
+    & p{
+        color: white;
+        margin-left: 5px;
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
