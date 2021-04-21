@@ -46,9 +46,15 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $idUser = Auth::id();
         $newPlates = new Plate();
+        $data = $request->validate([
+            'nome' => 'required',
+            'prezzo' => 'required|numeric|between:0,9999.99',
+            'immagine' => 'required|min:1|max:2048',
+            'ingredienti' => 'required',
+            'visibile' => 'required'
+        ]);
+        $idUser = Auth::id();
         $newPlates -> user_id = $idUser;
         // if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
@@ -98,7 +104,13 @@ class PlateController extends Controller
      */
     public function update(Request $request, Plate $plate)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'nome' => 'required',
+            'prezzo' => 'required|numeric|between:0,9999.99',
+            'immagine' => 'required|min:1|max:2048',
+            'ingredienti' => 'required',
+            'visibile' => 'required'
+        ]);
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;

@@ -1,10 +1,26 @@
 @extends('layouts.pagamenti')
+@section('title', 'Paga il tuo ordine')
 
 @section('content')
 <div class="container">
+  @if (session('success_message'))
+                    <div class="alert alert-success">
+                        {{ session('success_message') }}
+                    </div>
+                @endif
+
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
   <div class="row">
     <div class="col-md-8 col-ms-offset-1">
-      <form method="POST" action="#">
+      <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
         @csrf
         @method('POST')
         <div class="form-group">
@@ -19,33 +35,47 @@
           <label for="inputIndirizzo">Indirizzo</label>
           <input type="email" class="form-control" id="inputIndirizzo" placeholder="Inserisci il tuo indirizzo...">
         </div>
+
+        <section>
+          <div class="bt-drop-in-wrapper">
+              <div id="bt-dropin"></div>
+          </div>
+      </section>
+
+      <input id="nonce" name="payment_method_nonce" type="hidden" />
+
+      <div class="buttons">
+          <button class="button btn btn-primary" type="submit"><span>Acquista</span></button>
+          <a href="{{ url()->previous() }}" class="btn">Torna indietro</a>
+      </div>
+  
       </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="dropin-container"></div>
-      <button id="submit-button">Verifica il metodo di pagamento e paga</button>
     </div>
   </div>
 </div>
 <script>
- var button = document.querySelector('#submit-button');
- braintree.dropin.create({
-   authorization: "{{ $token }}",
-   container: '#dropin-container'
- }, function (createErr, instance) {
-   button.addEventListener('click', function () {
-     instance.requestPaymentMethod(function (err, payload) {
-       $.get('{{ route('payment.process') }}', {payload}, function (response) {
-         if (response.success) {
-           alert('Pagamento Riuscito');
-         } else {
-           alert('Pagamento Fallito');
-         }
-       }, 'json');
-     });
-   });
- });
+ var form = document.querySelector('#payment-form');
+                var client_token = "{{ $token }}";
+                braintree.dropin.create({
+                authorization: client_token,
+                selector: '#bt-dropin',
+                }, function (createErr, instance) {
+                if (createErr) {
+                    console.log('Create Error', createErr);
+                    return;
+                }
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    instance.requestPaymentMethod(function (err, payload) {
+                    if (err) {
+                        console.log('Request Payment Method Error', err);
+                        return;
+                    }
+                    // Add the nonce to the form and submit
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                    });
+                });
+                });
 </script>
 @endsection

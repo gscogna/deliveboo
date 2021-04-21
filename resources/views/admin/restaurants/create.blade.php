@@ -1,7 +1,17 @@
 @extends('layouts.app')
+@section('title', 'Crea Piatto')
 @section('content')
     <h4 class="pt-5 text-center">Inserisci un Piatto</h4>
     <div class="container">
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <form class="form-group" method="post" action="{{ route('plates.store') }}" enctype="multipart/form-data">
             @csrf
             @method('POST')

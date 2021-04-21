@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -13,10 +14,10 @@ use App\Plate;
 
 class RestaurantController extends Controller
 {
-    public function ordini()
-    {
-        return view('admin.restaurants.ordini');
-    }
+    // public function ordini()
+    // {
+    //     return view('admin.restaurants.ordini');
+    // }
 
     public function statistiche()
     {
@@ -59,9 +60,13 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $idUser = Auth::id();
         $newRestaurant = new Restaurant();
+        $data = $request->validate([
+            'nome' => ['required',Rule::unique('restaurants')->ignore($newRestaurant)],
+            'indirizzo' => 'required',
+            'immagine' => 'required|min:1|max:2048'
+        ]);
+        $idUser = Auth::id();
         $newRestaurant -> user_id = $idUser;
         $newRestaurant->slug = Str::Slug($data['nome']);
         
@@ -110,7 +115,11 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'nome' => ['required',Rule::unique('restaurants')->ignore($restaurant)],
+            'indirizzo' => 'required',
+            'immagine' => 'required|min:1|max:2048'
+        ]);
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
