@@ -39,7 +39,11 @@ class RestaurantsSeeder extends Seeder
         $newRestaurant->nome = $nomeBeginner;
 
         $newRestaurant->indirizzo = $faker->streetAddress();
-        $newRestaurant->immagine = $faker->imageUrl(640, 480, 'restaurant', true);
+        // $newRestaurant->immagine = $faker->imageUrl(640, 480, 'restaurant', true);
+
+         
+        // $newRestaurant->immagine = Storage::put('ristorante_storage', $newRestaurant->immagine);
+
         $newRestaurant->slug = Str::slug($newRestaurant->nome);
         $newRestaurant->user_id = $i + 1;
         $existRestaurant = Restaurant::where('user_id',$newRestaurant->user_id)->first();
