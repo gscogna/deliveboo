@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Restaurant;
 use App\User;
 use App\Plate;
+use App\Type;
 
 class RestaurantController extends Controller
 {
@@ -46,8 +47,8 @@ class RestaurantController extends Controller
     public function create()
     {
         $restaurants = Restaurant::all();
-        
-        $data = ['restaurants' => $restaurants];
+        $types = Type::all();
+        $data = ['restaurants' => $restaurants, 'types'=>$types];
         // dd($data);
         return view('admin.crearistorante', $data);
 
@@ -80,6 +81,10 @@ class RestaurantController extends Controller
         $newRestaurant -> fill($data);
         
         $newRestaurant-> save();
+
+        // if(array_key_exists('tags', $data)){
+        //     $newPost -> tags() -> sync($data['tags']);
+        // };
 
         return redirect()->route('admin.home', $data);
     }

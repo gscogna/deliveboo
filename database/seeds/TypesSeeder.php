@@ -63,7 +63,7 @@ class TypesSeeder extends Seeder
             ],
           ];
 
-          for($i = 0; $i < 3; $i++){
+          for($i = 0; $i < 10; $i++){
             $newType = new Type();
             $newType -> nome = $newTypes[$i]['nome'];
             $newType -> immagine = $newTypes[$i]['immagine'];
