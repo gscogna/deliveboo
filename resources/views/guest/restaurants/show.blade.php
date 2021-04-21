@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@section('title', 'Menù')
 @section('header.content')
+{{-- @dd($restaurant) --}}
   <div class="container header-content-guest">
     <div class="hcg-left">
       <h2> Il piacere del cibo a casa tua</h2>
@@ -28,7 +30,7 @@
 
 <div class="choose-restaurant">
   <div class="guest-restaurants">
-    <div v-for='item in piattiRistorante' v-if="item.visibile == 1" class="card-restaurant">
+    <div v-for='(item,index) in piattiRistorante' v-if="item.visibile == 1" class="card-restaurant">
       <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
         <p class="rainbow-text">@{{item.nome}}</p>
         <p>Ingredienti: @{{ item.ingredienti }}</p>

@@ -1,7 +1,17 @@
 @extends('layouts.app')
+@section('title', 'Crea il tuo ristorante')
 
 @section('content')
 <div class="container">
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
     <form action="{{ route('restaurants.store') }}" method="post" enctype="multipart/form-data">
         @method('POST')
         @csrf

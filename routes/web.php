@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'RestaurantController@index')->name('guest.restaurant.index');
-Route::get('/restaurant/show', 'RestaurantController@show')->name('guest.restaurant.show');
+Route::get('/restaurant/menu-ristorante', 'RestaurantController@show')->name('guest.restaurant.show');
+Route::get('/restaurants/carrello', 'RestaurantController@carrello')->name('guest.restaurant.carrello');
 
 Auth::routes();
 
@@ -25,11 +26,12 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('admin.home');
         Route::resource('plates', 'PlateController');
-        Route::get('/ordini', 'RestaurantController@ordini')->name('admin.restaurants.ordini');
-        Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.restaurants.statistiche');
+        // Route::get('/ordini', 'RestaurantController@ordini')->name('admin.restaurants.ordini');
+        // Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.restaurants.statistiche');
         // Route::get('/plates/search', 'PlateController@search')->name('search');
         Route::resource('/restaurants', 'RestaurantController');
         Route::get('/statistiche', 'RestaurantController@statistiche')->name('admin.statistiche');
     });
 
     Route::get('/payment/process', 'PagamentiController@process')->name('payment.process');
+    Route::post('payment/checkout', 'PagamentiController@checkout')->name('payment.checkout');

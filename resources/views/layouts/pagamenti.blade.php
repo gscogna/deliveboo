@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')<</title>
 
     <!-- Scripts -->
     <script src="https://js.braintreegateway.com/web/3.76.1/js/client.min.js"></script>

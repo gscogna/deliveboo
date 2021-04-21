@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Deliveboo')
+
 @section('header.content')
   <div class="container header-content-guest">
     <div class="hcg-left">

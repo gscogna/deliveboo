@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'I tuoi ordini e le tue statistiche')
 
 @section('content')
 <div style="width: 300px">

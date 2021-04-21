@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('header.content')
+@section('title', 'I tuoi piatti')
 
 @endsection
 
