@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Restaurant;
 use App\User;
 use App\Plate;
+use App\Type;
 
 class RestaurantController extends Controller
 {
@@ -46,8 +47,8 @@ class RestaurantController extends Controller
     public function create()
     {
         $restaurants = Restaurant::all();
-        
-        $data = ['restaurants' => $restaurants];
+        $types = Type::all();
+        $data = ['restaurants' => $restaurants, 'types'=>$types];
         // dd($data);
         return view('admin.crearistorante', $data);
 
@@ -81,6 +82,10 @@ class RestaurantController extends Controller
         
         $newRestaurant-> save();
 
+        if($request->has('types')){
+            $newRestaurant->types()->sync($request['types']);
+        }
+
         return redirect()->route('admin.home', $data);
     }
 
@@ -105,7 +110,9 @@ class RestaurantController extends Controller
     {
         
         // dd($restaurant);
-        $data = ['restaurant' => $restaurant];
+        $types = Type::all();
+
+        $data = ['restaurant' => $restaurant, 'types'=>$types];
         return view('admin.modifiche-ristorante.edit', $data);
 
 
@@ -125,11 +132,18 @@ class RestaurantController extends Controller
             'indirizzo' => 'required',
             'immagine' => 'required|min:1|max:2048'
         ]);
+        if($request->has('types')){
+            $restaurant->types()->sync($request['types']);
+        }
+
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
         };
         
+        // if(array_key_exists('types', $data)){
+        //     $restaurant -> types() -> sync($data['types']);
+        // };
         $restaurant -> update($data);
         return redirect()->route('restaurants.index' , $restaurant);
     }

@@ -30,6 +30,15 @@
             <label for="exampleFormControlFile1">Carica l'immagine</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="immagine">
         </div>
+        {{-- tipologia --}}
+        @foreach ($types as $type)
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="{{ $type->id }}" name="types[]" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            {{ $type->nome }}
+          </label>
+        </div>
+        @endforeach
        
       <button type="submit" class="btn btn-primary">Submit</button>
       </form>
