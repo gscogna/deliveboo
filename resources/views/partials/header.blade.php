@@ -1,7 +1,7 @@
 <header >
   <div class="layover">
 
-    <nav class="navbar navbar-expand-md navbar-light  shadow-sm" style="width: 100%;">
+    <nav class="navbar navbar-expand-md navbar-light position-fixed shadow-sm" style="width: 100%;">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           DELIVEROO
@@ -21,18 +21,19 @@
             <!-- Authentication Links -->
             @guest
             <li class="nav-item">
-              <a class="nav-link" style="color: #eb6338;" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a class="nav-link" style="color: #272343;" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
             @if (Route::has('register'))
             <li class="nav-item">
-              <a class="nav-link" style="color: #eb6338;" href="{{ route('register') }}">{{ __('Register') }}</a>
+              <a class="nav-link" style="color: #272343;" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
             @endif
             @else
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" style="color: #eb6338;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <a id="navbarDropdown" style="color: #272343;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
               </a>
+
   
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" style="color: #eb6338;" href="{{ route('logout') }}"

@@ -37,4 +37,8 @@
   </div>
 </div>
 
+<div class="carrello">
+  <h2>il mio carrello</h2>
+</div>
+
 @endsection
