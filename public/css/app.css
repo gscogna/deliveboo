@@ -11466,7 +11466,7 @@ body {
 }
 
 .carousel-item {
-  height: 600px;
+  height: 450px;
 }
 
 .carousel-item .title-color {
@@ -11555,17 +11555,17 @@ body {
 }
 
 .carousel-image-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/f527ea09-0a95-4b2b-85d3-c30c09399632/Derivates/3d14d9c6-2eda-45d5-a103-d30c90eb25f1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://cdn.pixabay.com/photo/2020/06/08/16/49/pizza-5275191_960_720.jpg");
   background-size: cover;
 }
 
 .carousel-image-2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://www.sempliceveloce.it/wordpress/wp-content/uploads/2020/04/baba_rustico_Napoletano.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://cdn.pixabay.com/photo/2020/01/17/16/42/food-4773380_960_720.jpg");
   background-size: cover;
 }
 
 .carousel-image-3 {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://www.oetker.ch/Recipe/Recipes/oetker.ch/ch-it/sweets/image-thumb__14899__RecipeDetail/torta-brownie-a-strati.jpg://https://www.sempliceveloce.it/wordpress/wp-content/uploads/2014/04/rustico_napoletano_finale-640x420.jpg.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/f527ea09-0a95-4b2b-85d3-c30c09399632/Derivates/3d14d9c6-2eda-45d5-a103-d30c90eb25f1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://cdn.pixabay.com/photo/2018/01/04/11/40/food-3060458_960_720.jpg");
   background-size: cover;
 }
 
@@ -11577,7 +11577,7 @@ body {
   color: white;
 }
 
-#products .product-title .single-item {
+#products .single-item {
   display: inline-block;
   vertical-align: middle;
   transform: perspective(1px) translateZ(0);
@@ -11588,13 +11588,13 @@ body {
   cursor: pointer;
 }
 
-#products .product-title .single-item:hover,
-#products .product-title .single-item:focus,
-#products .product-title .single-item:active {
+#products .single-item:hover,
+#products .single-item:focus,
+#products .single-item:active {
   transform: translateY(-5px);
 }
 
-#products .product-title .single-item::before {
+#products .single-item::before {
   pointer-events: none;
   position: absolute;
   z-index: -1;
@@ -11609,13 +11609,13 @@ body {
   transition-property: transform, opacity;
 }
 
-#products .product-title .single-item::before:hover,
-#products .product-title .single-item::before:active {
+#products .single-item::before:hover,
+#products .single-item::before:active {
   opacity: 1;
   transform: translateY(5px);
 }
 
-#products .product-title .single-item .img-container {
+#products .single-item .img-container {
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -11627,23 +11627,23 @@ body {
   transition-property: box-shadow, transform;
 }
 
-#products .product-title .single-item .img-container:hover {
+#products .single-item .img-container:hover {
   box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
   transform: scale(1.1);
 }
 
-#products .product-title .single-item .img-container .product-img:focus,
-#products .product-title .single-item .img-container .product-img:active {
+#products .single-item .img-container .product-img:focus,
+#products .single-item .img-container .product-img:active {
   box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
   transform: scale(1.1);
 }
 
-.about-sec {
+#about-sec {
   margin-top: 25px;
-  background-color: blue;
+  background-color: aliceblue;
 }
 
-.about-sec .watch-img {
+#about-sec .watch-img {
   margin-top: 35px;
   -webkit-animation-name: imgLeft;
           animation-name: imgLeft;
@@ -11651,11 +11651,11 @@ body {
           animation-duration: 3s;
 }
 
-.about-sec .text-color {
+#about-sec .text-color {
   color: #000;
 }
 
-.about-sec .about-text {
+#about-sec .about-text {
   -webkit-animation-name: textRight;
           animation-name: textRight;
   -webkit-animation-duration: 3s;

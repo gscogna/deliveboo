@@ -107,10 +107,10 @@
               <div class="carousel-item carousel-image-1 active">
                 <div class="container">
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                    <h1 class="display -3 title-color">Title One</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h1 class="display -3 title-color">Pizza Margherita</h1>
+                    <p class="lead">L'unica e inimitabile pizza Napoletana.</p>
                       <a href="#" class="btn btn-color slide-btn btnl-lg">
-                        Sign up Now
+                        Vedi in anteprima
                       </a>
                   </div>
                 </div>
@@ -119,10 +119,10 @@
               <div class="carousel-item carousel-image-2">
                 <div class="container">
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                    <h1 class="display -3 title-color">Title 2</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h1 class="display -3 title-color">Cucina Cinese</h1>
+                    <p class="lead">Con furore e passione dalla cina.</p>
                       <a href="#" class="btn btn-color slide-btn btnl-lg">
-                        Add
+                        Vedi in anteprima
                       </a>
                   </div>
                 </div>
@@ -130,10 +130,10 @@
               <div class="carousel-item carousel-image-3">
                 <div class="container">
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                    <h1 class="display -3 title-color">Title 3</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h1 class="display -3 title-color">Torta al limone</h1>
+                    <p class="lead">Dalle mani della nonna alla classica cucina tradizionale italiana.</p>
                       <a href="#" class="btn btn-color slide-btn btnl-lg">
-                        Add 3333
+                        Vedi in anteprima
                       </a>
                   </div>
                 </div>
