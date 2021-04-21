@@ -264,5 +264,60 @@
           </div>
         </div>
       </section>
+      {{-- Another section --}}
+      <section id="about-sec">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5 text-center">
+              <img src="https://www.dolcesalato.com/wp-content/uploads/sites/5/2020/04/food-delivery-02.jpg" width="450" height="150" 
+              class="img-fluid watch-img">
+            </div>
+            <div class="col-lg-7 text-lg-right  text-center text-color about-text">
+              <h2>La classe 2 della 24</h2>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing 
+                elit. Perferendis itaque sequi facere deleniti 
+                repellat minima doloribus nostrum consectetur enim 
+                accusantium.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--Carrello-->
+
+
+
+
+      {{-- inserisci il carrello --}}
+
+
+
+
+
+
+      {{-- Fine Carrello --}}
+    <!--End of Contact Section-->
+      <!--Footer-->
+      <footer class="footer mt-5">
+        <div class="text-center py-5">
+            <h2 class="py-3">Time Value</h2>
+          <div class="mx-auto heading-line"></div>
+        </div>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla aliquet est nec aliquet. 
+                      Cras convallis ultrices sem, id cursus tellus varius. </p>
+                    <div class="justify-content-center">
+                      <i class="fab fa-facebook fa-2x"></i>
+                      <i class="fab fa-twitter fa-2x"></i>
+                      <i class="fab fa-instagram fa-2x"></i>
+                    </div>
+              </div>
+            </div>
+            <div class="copyright text-center py-3 border-top text-light">
+              <p>&copy; Copy Right Time Value</p>
+            </div>
+        </div>
+      </footer>
     </div>
 </body>

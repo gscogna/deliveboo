@@ -11462,7 +11462,7 @@ body {
 
 .header_diversa {
   height: 100px;
-  background: bisque;
+  background: lightgrey;
 }
 
 .carousel-item {
@@ -11588,6 +11588,12 @@ body {
   cursor: pointer;
 }
 
+#products .product-title .single-item:hover,
+#products .product-title .single-item:focus,
+#products .product-title .single-item:active {
+  transform: translateY(-5px);
+}
+
 #products .product-title .single-item::before {
   pointer-events: none;
   position: absolute;
@@ -11599,5 +11605,108 @@ body {
   width: 90%;
   opacity: 0;
   background: radial-gradient(ellipse at center, rgba(248, 248, 248, 0.35) 0%, rgba(247, 244, 244, 0) 80%);
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+#products .product-title .single-item::before:hover,
+#products .product-title .single-item::before:active {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+#products .product-title .single-item .img-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+
+#products .product-title .single-item .img-container:hover {
+  box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
+  transform: scale(1.1);
+}
+
+#products .product-title .single-item .img-container .product-img:focus,
+#products .product-title .single-item .img-container .product-img:active {
+  box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
+  transform: scale(1.1);
+}
+
+.about-sec {
+  margin-top: 25px;
+  background-color: blue;
+}
+
+.about-sec .watch-img {
+  margin-top: 35px;
+  -webkit-animation-name: imgLeft;
+          animation-name: imgLeft;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.about-sec .text-color {
+  color: #000;
+}
+
+.about-sec .about-text {
+  -webkit-animation-name: textRight;
+          animation-name: textRight;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@-webkit-keyframes textRight {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textRight {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes imgLeft {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes imgLeft {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
