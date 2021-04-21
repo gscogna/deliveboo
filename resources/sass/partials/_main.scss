@@ -1,13 +1,65 @@
 
 main{
   width: 100%;
-  background-color: #ffeae4;
+  background-color:#fffffe;
+
+  // tipologie
+  h1{
+    text-align:center;
+    color:#272343;
+    background-color: white;
+    margin-bottom:25px;
+    margin-top:25px;
+  }
+
+  .container-tipologie{
+    // background: linear-gradient(to right, #ffffff, hsla(184, 76%, 81%, 0.788));
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    width: 100%;
+    height: 200px;
+
+
+    .tipologie{
+      width:200px;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      flex-direction: column;
+      
+      &:hover{
+        @include transition;
+        transform: scale(1.2);
+        z-index: 70;
+      }
+
+    a{
+      
+      font-size: 20px;
+      color:#272343;
+      text-align:center;
+      font-weight: bold;
+    }
+      img{
+        width: 100%;
+        border-radius:50%;
+
+      }
+
+   }
+ }
   // sezione della parte ristoranti guest
   & h1 {
     font-size: 45px;
     font-weight: bold;
+    color:#272343;
   }
+// nella sezionescelta ristorante si puo' mettere lo slider
   & .choose-restaurant{
+    // display:flex;
+    // flex-wrap:nowrap;
+    // justify-content: center;
 
     & h2 {
       margin-bottom: 30px;
@@ -16,11 +68,13 @@ main{
 
 
     & .guest-restaurants{
-      width: 80%;
+     // background: linear-gradient(to right, #ffffff, hsla(184, 76%, 81%, 0.788));
+      width: 100%;
       margin: auto;
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+      
 
       @media screen and(max-width: 1200px){
         width: 80%;
@@ -33,7 +87,7 @@ main{
         margin: auto;
         justify-content: space-between;
       }
-       
+
       @media screen and (max-width: 576px) {
         width: 65%;
         justify-content: space-between;
@@ -41,135 +95,92 @@ main{
     }
 
       & .card{
-        width: calc(100% / 4 - 10px);
-        background-color: #ffeae4;
-        // border: 1px solid #ff5722;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // justify-content: center;
+        
+        width:calc(100% / 6);
+        display: flex;       
         margin-top: 30px;
         margin-bottom: 30px;
+      
 
         @media screen and(max-width: 1200px){
           width: calc(100% / 3 - 10px);
           margin-bottom: 30px;
         }
 
-        
+
         @media screen and(max-width: 768px){
           width: calc(100% / 2 - 10px);
           margin-bottom: 30px;
-          
+
         }
-        
+
         @media screen and (max-width: 576px) {
             width: 100%;
             margin-bottom: 30px;
-            
-        }
-        &:hover{
-          // box-shadow: 0px 1px 4px 2px grey;
-          box-shadow: 0px 1px 4px 2px  #ff5722;
-          transform: scale(1.2);
-          z-index: 1000;
-          @include transition;
+
         }
 
-        // & img{
-        //   width: 40%;
-        //   margin-bottom: 20px;
-        //   margin-top: 20px;
-
-        //   @media screen and(max-width: 766px){
-        //     width: 20%;
-        //     margin-left: 30px;
-
-        //   }
+        // &:hover img{
+        //   width:100%;
+        //   opacity:0.5;
         // }
 
-        .card-img-top {
-          height: 200px;
-          width: 80%;
-          border: 2px solid orangered;
-          border-radius: 10%;
-        }
 
+        .card-img-top {   
+          display:flex;
+          justify-content:center;
+          width:100%; 
+          height:70%;     
+          position:relative;
+
+            &:hover {
+              background-color: black;         
+             opacity:0.6;
+         }
+         & img{
+          width:100%;
+          padding:10px;
+        }
+        }
+        .cover-layover{ 
+          display:none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          
+          color:#FFBF00;
+          font-size: 60px;
+        }
+        .card-img-top:hover .cover-layover{
+          
+          display:block;
+        }
+      
         & a{
           text-decoration: none;
-          
         }
 
         & p{
-          padding: 4px 10px;
-          border-radius: 10px;
-          border: 0px;
-          font-size: 16px;
-          color: black;
+          color:#272343;
           font-weight: bold;
+          font-size: 25px;
           margin-bottom: 20px;
           text-align: center;
-          padding: 10px;
-          background-color: orange;
-          margin-left: 10px;
-          margin-right: 10px;
-          margin-top: 10px;
-
-          &:hover{
-            color: white;
-            @include transition;
-          }
-
-          // &.rainbow-text {
-          //   margin-top: 0px;
-          //   font-size: 24px;
-          //   margin-bottom: 10px;
-          //   font-family: sans-serif;
-          //   background: linear-gradient(to right, #ef5350, #f9a825, #ff5722);
-          //   -webkit-background-clip: text;
-          //   -webkit-text-fill-color: transparent;
-
-            // @media screen and(max-width: 1200px){
-            //   font-size: 20px;
-            // }
-
-            // @media screen and(max-width: 766px){
-            // font-size: 30px;
-            // padding-left: 30px;
-            // padding-right: 30px;
-
-            // }
-          // }
-
-
+          
+          margin:0px auto 10px auto; 
+          
         }
-
-        // & button{
-        //   padding: 4px 10px;
-        //   border-radius: 10px;
-        //   background-color: #eb6338;
-        //   border: 0px;
-        //   font-size: 16px;
-        //   color: yellow;
-        //   margin-bottom: 20px;
-
-        //   @media screen and(max-width: 1200px){
-        //       padding: 4px 16px;
-        //       font-size: 12px;
-        //   }
-        //   @media screen and(max-width: 766px){
-        //     padding: 5px 24px;
-        //     font-size: 20px;
-        //   }
-
-        // }
-
-        
       }
     }
-  }
-  // fine sezione ristoranti guest
+  }   // fine sezione ristoranti guest
+
+
+
+}//fine main
+
+
+
   .banner {
     width: 100%;
     padding: 50px 0;
@@ -177,6 +188,7 @@ main{
     & .container {
       display: flex;
       justify-content: space-between;
+
       @media screen and (max-width: 992px) {
         flex-direction: column;
       }
@@ -191,6 +203,7 @@ main{
     }
     & h2 {
       text-align: center;
+      color:#272343;
     }
     & img{
       height: 350px;
@@ -207,49 +220,45 @@ main{
     & .container-img-app img {
       height: 75px;
       margin: auto;
+     }
+
+   }
+
+.container-section{
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  fex-wrap:wrap;
+  padding:20px;
+
+  .section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img{
+      margin:0 auto;
+      width:50%;
+      margin-bottom:40px;
     }
+    h3{
+      text-align:center;
+      color:#272343;
+      font-weight: bold;
 
+    }
+    p{
+      text-align:center;
+      color:#272343;
+      font-size: 20px;
+    }
   }
-
-  // sezione menu e carrelo
 
 }
 
-  .container-fluid{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  
-    .card{
-      width: 50%;    
-      padding:20px;
-      justify-content: center;
-      text-align: center;
-      
-          .img-fluid{
-            width:50%;    
-            padding:10px;
-            display:block;
-            margin:0px auto;
-            text-align:center;
-          }
-          .card-body img{
-            width: 40%;
-          }
-          .card-body img:hover{
-            cursor:pointer;
-          }
-   
-   
-        .card-text{
-         font-size: 40px;
-         font-weight:500;
-         margin-top:20px;     
-         }   
-    } //fine card
-  } //fine container-fluid
 
-  // FINE SEZIONE TELEFONO
 
-//fine main
+
+
+
 

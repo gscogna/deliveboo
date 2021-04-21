@@ -10956,23 +10956,33 @@ body #app {
   width: 100%;
 }
 
+.navbar-brand {
+  font-size: 30px;
+  font-weight: bold;
+  font-style: inherit;
+}
+
 header {
   width: 100%;
-  background-image: url("https://www.medicalfacts.it/wp-content/uploads/2020/02/bigstock-Junk-Food-Concept-Unhealthy-F-279475684-900x580.jpg");
+  height: 500px;
+  background-image: url("https://www.vitaminity.com/it/pub/media/blog/cache/840x473/magefan_blog/VITAMINITY_CIBI_SANI.jpg");
   background-position: center;
   background-size: cover;
 }
 
 header .layover {
-  width: 100%;
+  margin: 70px auto 10px auto;
+  width: 80%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 header nav {
-  background: linear-gradient(to right, #ffeae4, #ffeae4c9);
+  background-color: rgba(255, 191, 0, 0.7);
   position: fixed;
+  z-index: 80;
   top: 0;
+  right: 0;
 }
 
 header nav div ul li {
@@ -10982,7 +10992,7 @@ header nav div ul li {
 header .header-content-guest {
   display: flex;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.705);
+  background-color: transparent;
 }
 
 @media screen and (max-width: 992px) {
@@ -10995,6 +11005,7 @@ header .header-content-guest {
 header .header-content-guest .hcg-left {
   width: 50%;
   height: 300px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11008,8 +11019,9 @@ header .header-content-guest .hcg-left {
 }
 
 header .header-content-guest .hcg-left h2 {
-  color: #eb6338;
-  font-size: 50px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70px;
   text-align: center;
 }
 
@@ -11028,7 +11040,7 @@ header .header-content-guest .hcg-left h2 {
 header .header-content-guest .hcg-left .header-searchbar {
   padding-top: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 @media screen and (max-width: 766px) {
@@ -11038,23 +11050,18 @@ header .header-content-guest .hcg-left .header-searchbar {
 }
 
 header .header-content-guest .hcg-left .header-searchbar input {
-  width: 200px;
+  width: 300px;
+  height: 50px;
   border-radius: 5px;
   margin-right: 20px;
   margin-top: 20px;
-}
-
-header .header-content-guest .hcg-left .header-searchbar button {
-  padding: 4px 24px;
-  border-radius: 10px;
-  background-color: #eb6338;
-  border: 0px;
+  text-align: justify;
+  padding: 10px;
   font-size: 20px;
-  color: yellow;
 }
 
 header .header-content-guest .hcg-left .header-searchbar .container-search {
-  background-color: transparent;
+  background-color: white;
 }
 
 @media screen and (max-width: 766px) {
@@ -11077,7 +11084,7 @@ header .header-content-guest .hcg-left .header-searchbar .container-search ul li
 }
 
 header .header-content-guest div.hcg-right {
-  width: 40%;
+  width: 60%;
   height: 300px;
   display: flex;
   justify-content: center;
@@ -11090,15 +11097,11 @@ header .header-content-guest div.hcg-right {
   }
 }
 
-header .header-content-guest div.hcg-right img {
-  height: 150px;
-  margin-right: 10px;
-}
-
 header .header-content-guest div.hcg-right i {
-  font-size: 100px;
-  color: #eb6338;
-  margin-right: 10px;
+  font-size: 200px;
+  color: #ffbf00;
+  margin-right: 30px;
+  margin-top: 50px;
 }
 
 footer {
@@ -11128,6 +11131,20 @@ footer .container .card {
   }
 }
 
+@media screen and (max-width: 768px) {
+  footer .container .card {
+    width: calc(100% / 2 - 10px);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  footer .container .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
 footer .container .card h3 {
   font-size: 30px;
 }
@@ -11142,7 +11159,7 @@ footer .container .card ul a {
 }
 
 footer .container .card ul a:hover {
-  color: orange;
+  color: #ffd803;
   transition: all 0.2s ease-in-out;
 }
 
@@ -11185,12 +11202,61 @@ footer .font .twt-lightblue:hover {
 
 main {
   width: 100%;
-  background-color: #ffeae4;
+  background-color: #fffffe;
+}
+
+main h1 {
+  text-align: center;
+  color: #272343;
+  background-color: white;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+main .container-tipologie {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+}
+
+main .container-tipologie .tipologie {
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+main .container-tipologie .tipologie:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.2);
+  z-index: 70;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .container-tipologie .tipologie:hover {
+    transition: none;
+  }
+}
+
+main .container-tipologie .tipologie a {
+  font-size: 20px;
+  color: #272343;
+  text-align: center;
+  font-weight: bold;
+}
+
+main .container-tipologie .tipologie img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 main h1 {
   font-size: 45px;
   font-weight: bold;
+  color: #272343;
 }
 
 main .choose-restaurant h2 {
@@ -11199,7 +11265,7 @@ main .choose-restaurant h2 {
 }
 
 main .choose-restaurant .guest-restaurants {
-  width: 80%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -11230,12 +11296,8 @@ main .choose-restaurant .guest-restaurants {
 }
 
 main .choose-restaurant .guest-restaurants .card {
-  width: calc(100% / 4 - 10px);
-  background-color: #ffeae4;
-  border: none;
+  width: calc(100% / 6);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -11261,24 +11323,36 @@ main .choose-restaurant .guest-restaurants .card {
   }
 }
 
-main .choose-restaurant .guest-restaurants .card:hover {
-  box-shadow: 0px 1px 4px 2px #ff5722;
-  transform: scale(1.2);
-  z-index: 1000;
-  transition: all 0.2s ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  main .choose-restaurant .guest-restaurants .card:hover {
-    transition: none;
-  }
-}
-
 main .choose-restaurant .guest-restaurants .card .card-img-top {
-  height: 200px;
-  width: 80%;
-  border: 2px solid orangered;
-  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+  position: relative;
+}
+
+main .choose-restaurant .guest-restaurants .card .card-img-top:hover {
+  background-color: black;
+  opacity: 0.6;
+}
+
+main .choose-restaurant .guest-restaurants .card .card-img-top img {
+  width: 100%;
+  padding: 10px;
+}
+
+main .choose-restaurant .guest-restaurants .card .cover-layover {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFBF00;
+  font-size: 60px;
+}
+
+main .choose-restaurant .guest-restaurants .card .card-img-top:hover .cover-layover {
+  display: block;
 }
 
 main .choose-restaurant .guest-restaurants .card a {
@@ -11286,142 +11360,104 @@ main .choose-restaurant .guest-restaurants .card a {
 }
 
 main .choose-restaurant .guest-restaurants .card p {
-  padding: 4px 10px;
-  border-radius: 10px;
-  border: 0px;
-  font-size: 16px;
-  color: black;
+  color: #272343;
   font-weight: bold;
+  font-size: 25px;
   margin-bottom: 20px;
   text-align: center;
-  padding: 10px;
-  background-color: orange;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin: 0px auto 10px auto;
 }
 
-main .choose-restaurant .guest-restaurants .card p:hover {
-  color: white;
-  transition: all 0.2s ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  main .choose-restaurant .guest-restaurants .card p:hover {
-    transition: none;
-  }
-}
-
-main .banner {
+.banner {
   width: 100%;
   padding: 50px 0;
   background-color: #fff;
 }
 
-main .banner .container {
+.banner .container {
   display: flex;
   justify-content: space-between;
 }
 
 @media screen and (max-width: 992px) {
-  main .banner .container {
+  .banner .container {
     flex-direction: column;
   }
 }
 
-main .banner .left-side-banner,
-main .banner .right-side-banner {
+.banner .left-side-banner,
+.banner .right-side-banner {
   width: 80%;
   margin: auto;
 }
 
 @media screen and (max-width: 992px) {
-  main .banner .left-side-banner,
-  main .banner .right-side-banner {
+  .banner .left-side-banner,
+  .banner .right-side-banner {
     width: 100%;
   }
 }
 
-main .banner h2 {
+.banner h2 {
   text-align: center;
+  color: #272343;
 }
 
-main .banner img {
+.banner img {
   height: 350px;
   margin: auto;
 }
 
-main .banner .container-img-app {
+.banner .container-img-app {
   justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
-  main .banner .container-img-app {
+  .banner .container-img-app {
     flex-direction: column;
   }
 }
 
-main .banner .container-img-app img {
+.banner .container-img-app img {
   height: 75px;
   margin: auto;
 }
 
-.container-fluid,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl {
+.container-section {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.container-fluid .card,
-.container-sm .card,
-.container-md .card,
-.container-lg .card,
-.container-xl .card {
-  width: 50%;
-  padding: 20px;
+  flex-direction: row;
   justify-content: center;
-  text-align: center;
+  fex-wrap: wrap;
+  padding: 20px;
 }
 
-.container-fluid .card .img-fluid,
-.container-sm .card .img-fluid,
-.container-md .card .img-fluid,
-.container-lg .card .img-fluid,
-.container-xl .card .img-fluid {
+.container-section .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-section .section img {
+  margin: 0 auto;
   width: 50%;
-  padding: 10px;
-  display: block;
-  margin: 0px auto;
+  margin-bottom: 40px;
+}
+
+.container-section .section h3 {
   text-align: center;
+  color: #272343;
+  font-weight: bold;
 }
 
-.container-fluid .card .card-body img,
-.container-sm .card .card-body img,
-.container-md .card .card-body img,
-.container-lg .card .card-body img,
-.container-xl .card .card-body img {
-  width: 40%;
+.container-section .section p {
+  text-align: center;
+  color: #272343;
+  font-size: 20px;
 }
 
-.container-fluid .card .card-body img:hover,
-.container-sm .card .card-body img:hover,
-.container-md .card .card-body img:hover,
-.container-lg .card .card-body img:hover,
-.container-xl .card .card-body img:hover {
-  cursor: pointer;
-}
-
-.container-fluid .card .card-text,
-.container-sm .card .card-text,
-.container-md .card .card-text,
-.container-lg .card .card-text,
-.container-xl .card .card-text {
-  font-size: 40px;
-  font-weight: 500;
-  margin-top: 20px;
+.card {
+  width: 100%;
+  background-color: yellow;
 }
 
