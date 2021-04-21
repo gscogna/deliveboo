@@ -34,3 +34,4 @@ Route::prefix('admin')
     });
 
     Route::get('/payment/process', 'PagamentiController@process')->name('payment.process');
+    Route::post('payment/checkout', 'PagamentiController@checkout')->name('payment.checkout');
