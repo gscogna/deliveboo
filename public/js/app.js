@@ -62445,7 +62445,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ristorantiSelezionati: [],
     ristoranteScelto: [],
     id_ristorante: '',
-    show: ""
+    show: "",
+    carrello: []
   },
   mounted: function mounted() {
     var _this = this;
@@ -62457,6 +62458,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       _this.arrayPiatti.forEach(function (item) {
         if (item.user_id == _this.id_ristorante) {
           _this.piattiRistorante.push(item);
+
+          item.contatore = 0;
         }
       });
 
@@ -62539,6 +62542,15 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
 
       console.log(this.show);
+    },
+    add_to_chart: function add_to_chart(index) {
+      if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
+        this.carrello.push(this.piattiRistorante[index].nome);
+      }
+
+      ;
+      console.log(this.piattiRistorante);
+      this.piattiRistorante[index].contatore++;
     }
   } // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
 

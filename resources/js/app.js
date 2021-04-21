@@ -14,6 +14,7 @@ var chiamate = new Vue({
     ristoranteScelto : [],
     id_ristorante: '',
     show: "",
+    carrello: [],
   },
   mounted(){
     this.show = 'hide',
@@ -25,6 +26,7 @@ var chiamate = new Vue({
       this.arrayPiatti.forEach((item) => {
         if(item.user_id == this.id_ristorante){
           this.piattiRistorante.push(item);
+          item.contatore = 0;
         }
       });
       console.log(this.id_ristorante);
@@ -115,9 +117,18 @@ var chiamate = new Vue({
         this.show ="hide";
       }
       console.log(this.show);
-    }
-  },
+    },
 
+    add_to_chart(index){
+      if(! this.carrello.includes(this.piattiRistorante[index].nome)){
+        this.carrello.push(this.piattiRistorante[index].nome);
+      };
+      console.log(this.piattiRistorante);
+      this.piattiRistorante[index].contatore++;
+    },
+
+
+  }
 
   // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
 
