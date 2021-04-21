@@ -95,6 +95,7 @@
       </div>
       <div class="jumbotrone">
       </div>
+      {{-- Sezione slider --}}
       <section id="main">
         <div id="Carousel" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -108,30 +109,35 @@
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
                     <h1 class="display -3 title-color">Title One</h1>
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="btn btn-color slide-btn btnl-lg">
-                      Sign up Now
-                    </a>
+                      <a href="#" class="btn btn-color slide-btn btnl-lg">
+                        Sign up Now
+                      </a>
                   </div>
                 </div>
               </div>
               {{-- End --}}
               <div class="carousel-item carousel-image-2">
                 <div class="container">
-                  <div class="carousel-caption d-none de-sm-block mb-5">
-                    <h1 class="display-3 title-color">Title 2</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate consequatur itaque.</p>
-                    <a href="#" class="btn btn-color slide-btn btn-lg">Add More</a>
+                  <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                    <h1 class="display -3 title-color">Title 2</h1>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <a href="#" class="btn btn-color slide-btn btnl-lg">
+                        Add
+                      </a>
                   </div>
                 </div>
               </div>
               <div class="carousel-item carousel-image-3">
                 <div class="container">
-                  <div class="carousel-caption d-none de-sm-block mb-5">
-                    <h1 class="display-3 title-color">Title 3</h1>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate consequatur itaque.</p>
-                    <a href="#" class="btn btn-color slide-btn btn-lg">Learn More</a>
+                  <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                    <h1 class="display -3 title-color">Title 3</h1>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      <a href="#" class="btn btn-color slide-btn btnl-lg">
+                        Add 3333
+                      </a>
                   </div>
                 </div>
+              </div>
               </div>
               <a href="#Carousel" data-slide="prev" class="carousel-control-prev">
                 <span class="carousel-control-prev-icon"></span>
@@ -140,6 +146,122 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
+        </div>
+      </section>
+      {{-- Sezione info ristorante e vario --}}
+      <section id="ristorante e info">
+
+      </section>
+      {{-- Sezione prodotti e piatti --}}
+      <section id="products" class="products py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-10 mx-auto col-sm-6 text-center">
+              <h1 class="text-capitalize product-title">
+                Piatti Tipici e tradizionali
+              </h1>
+            </div>
+          </div>
+          <div class="row product-items" id="product-items">
+            {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+                {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+                {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+                {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+                {{-- singolo oggetto --}}
+            <div class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="card single-item">
+                <div class="img-container">
+                  <img src="https://static.cookist.it/wp-content/uploads/sites/21/2018/05/pizza-fritta-638x425.jpg" class="card-img-top product-img" alt="">
+                </div>
+                <div class="card-body">
+                  <div class="card-text d-flex justify-content-between text-capitalize">
+                    <h5 id="item-name">Pizza Fritta</h5>
+                    <span><i class="fas fa-dollar-sign"></i>12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
