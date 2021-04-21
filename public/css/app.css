@@ -11456,3 +11456,31 @@ main .choose-restaurant .guest-restaurants .card p {
   font-size: 20px;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.header_diversa {
+  height: 100px;
+  background: bisque;
+}
+
+.carousel-item {
+  height: 600px;
+}
+
+.carousel-image-1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/f527ea09-0a95-4b2b-85d3-c30c09399632/Derivates/3d14d9c6-2eda-45d5-a103-d30c90eb25f1.jpg");
+  background-size: cover;
+}
+
+.carousel-image-2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://www.sempliceveloce.it/wordpress/wp-content/uploads/2020/04/baba_rustico_Napoletano.jpg");
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("https://www.oetker.ch/Recipe/Recipes/oetker.ch/ch-it/sweets/image-thumb__14899__RecipeDetail/torta-brownie-a-strati.jpg://https://www.sempliceveloce.it/wordpress/wp-content/uploads/2014/04/rustico_napoletano_finale-640x420.jpg.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/f527ea09-0a95-4b2b-85d3-c30c09399632/Derivates/3d14d9c6-2eda-45d5-a103-d30c90eb25f1.jpg");
+  background-size: cover;
+}
+
