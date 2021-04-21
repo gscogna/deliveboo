@@ -42,7 +42,7 @@ class TypesSeeder extends Seeder
               'immagine' => $faker->imageUrl(640, 480, 'animals', true),
             ],
             [
-              'nome' => 'Pesce',
+              'nome' => 'Messicano',
               'immagine' => $faker->imageUrl(640, 480, 'animals', true),
             ],
             [
@@ -55,6 +55,10 @@ class TypesSeeder extends Seeder
             ],
             [
               'nome' => 'Indiano',
+              'immagine' => $faker->imageUrl(640, 480, 'animals', true),
+            ],
+            [
+              'nome' => 'Pesce',
               'immagine' => $faker->imageUrl(640, 480, 'animals', true),
             ],
           ];
