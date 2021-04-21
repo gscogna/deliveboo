@@ -14,11 +14,11 @@ class CreateRestaurantTypeTable extends Migration
     public function up()
     {
         Schema::create('restaurant_type', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('restaurants')->onDelete('cascade');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types');
-            $table->primary(['user_id', 'type_id']);
+            $table->primary(['restaurant_id', 'type_id']);
         });
     }
 

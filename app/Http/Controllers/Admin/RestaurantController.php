@@ -82,9 +82,9 @@ class RestaurantController extends Controller
         
         $newRestaurant-> save();
 
-        // if(array_key_exists('tags', $data)){
-        //     $newPost -> tags() -> sync($data['tags']);
-        // };
+        if($request->has('types')){
+            $newRestaurant->types()->sync($request['types']);
+        }
 
         return redirect()->route('admin.home', $data);
     }
@@ -110,7 +110,9 @@ class RestaurantController extends Controller
     {
         
         // dd($restaurant);
-        $data = ['restaurant' => $restaurant];
+        $types = Type::all();
+
+        $data = ['restaurant' => $restaurant, 'types'=>$types];
         return view('admin.modifiche-ristorante.edit', $data);
 
 
@@ -130,11 +132,18 @@ class RestaurantController extends Controller
             'indirizzo' => 'required',
             'immagine' => 'required|min:1|max:2048'
         ]);
+        if($request->has('types')){
+            $restaurant->types()->sync($request['types']);
+        }
+
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
             $data['immagine'] = $image;
         };
         
+        // if(array_key_exists('types', $data)){
+        //     $restaurant -> types() -> sync($data['types']);
+        // };
         $restaurant -> update($data);
         return redirect()->route('restaurants.index' , $restaurant);
     }
