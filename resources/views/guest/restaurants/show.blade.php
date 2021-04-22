@@ -163,7 +163,7 @@
           </div>
           <div class="row product-items" id="product-items">
             {{-- singolo oggetto --}}
-            <div v-for="item in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+            <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
               <div class="card single-item">
                 <div class="img-container">
                   <img style="height: 200px; width:325px" src="'http://127.0.0.1:8000/storage/'+ item.immagine" class="card-img-top product-img" alt="">
@@ -202,10 +202,13 @@
           <i class="fas fa-shopping-cart"></i>
         </div>
         <div :class="show" class="oggetti_carrello">
-          <p>Item</p>
-          <p>Item</p>
-          <p>Item</p>
-          <p>Item</p>
+          <div v-for="(piatto, index) in carrello" class="container-piatti">
+            <p>@{{ piatto }}</p>
+          </div>
+          <div v-for="(val, index) in piattiRistorante" class="container-contatore">
+            <p>@{{ val.contatore }}</p>
+          </div>
+          <button type="submit" class="btn btn-primary">Primary</button>
         </div>
       </section>
 
