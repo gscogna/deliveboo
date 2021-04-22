@@ -144,12 +144,6 @@ var chiamate = new Vue({
         this.carrello.push(this.piattiRistorante[index].nome);
         console.log('carrello' + this.carrello);
 
-        // Save
-        localStorage[this.carrello] = JSON.stringify(this.carrello);
-
-        // Retrieve
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
-
         console.log(this.stored_datas);
 
       }

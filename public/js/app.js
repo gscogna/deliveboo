@@ -62458,9 +62458,6 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this = this;
 
-    // this.stored_datas = JSON.parse(localStorage[this.carrello]);
-    // console.log(this.stored_datas);
-    this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/types').then(function (result) {
       _this.tipologie = result.data.response; //   this.tipologie.forEach((element, index) => {
       //     if (!this.tipoScelto.includes(element.nome)) {
@@ -62492,7 +62489,6 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ristorante_id: function ristorante_id(id) {
       this.id_ristorante = id;
       console.log(this.id_ristorante);
-      this.id_ristorante = id; // console.log(this.id_ristorante);
     },
     restaurant_plates: function restaurant_plates(id) {
       var _this2 = this;
@@ -62560,11 +62556,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     add_to_chart: function add_to_chart(index) {
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
         this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello); // Save
-
-        localStorage[this.carrello] = JSON.stringify(this.carrello); // Retrieve
-
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
+        console.log('carrello' + this.carrello);
         console.log(this.stored_datas);
       } // this.carrello.forEach(item =>{
       //   this.carrelloSalvato = localStorage[item];
@@ -62678,10 +62670,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
