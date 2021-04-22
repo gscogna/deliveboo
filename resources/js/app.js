@@ -173,50 +173,60 @@ var chiamate = new Vue({
 var app = new Vue({
   el: '#myChart',
   data: {
-    arrayOrdini: ''
+    arrayOrdini: '',
+    nomi: [],
+    quantita: [],
+    mese: [],
 
   },
   mounted(){
     axios
     .get('http://localhost:8000/api/orders')
     .then((result)=> {
-            this.arrayOrdini = result.data.response;
-            // console.log(this.arrayOrdini);
+      this.arrayOrdini = result.data.response;
+      console.log(this.arrayOrdini);
             this.arrayOrdini.forEach(element => {
-                
-            })
-      });
-    
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['pizza', 'hamburger', 'patatine', 'supplì'],
-                datasets: [{
-                    data: [12, 19, 3, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.4)',
-                        'rgba(255, 206, 86, 0.4)',
-                        'rgba(54, 162, 235, 0.4)',
-                        'rgba(75, 192, 192, 0.4)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(75, 192, 192, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            // options: {
-            //     scales: {
-            //         y: {
-            //             beginAtZero: true
-            //         }
-            //     }
-            // }
-        });
 
-  }
+                if(element.pagamento_avvenuto == 1 && element.created_at.slice(0,7) == '2021-04'){
+                  this.quantita.push(element);
+                }
+                
+              })
+              // console.log(this.quantita.length);
+            });
+
+            var tot = this.quantita.length;
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                    labels: ['Gen','Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott','Nov','Dic'],
+                    datasets: [{
+                        data: [2,5,6,7,4,5,6,7,5,3,2,2],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.4)',
+                            'rgba(255, 206, 86, 0.4)',
+                            'rgba(54, 162, 235, 0.4)',
+                            'rgba(75, 192, 192, 0.4)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                // options: {
+                //     scales: {
+                //         y: {
+                //             beginAtZero: true
+                //         }
+                //     }
+                // }
+            });
+
+
+      }
 });
