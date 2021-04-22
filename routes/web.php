@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'RestaurantController@index')->name('guest.restaurant.index');
 Route::get('/restaurant/menu-ristorante', 'RestaurantController@show')->name('guest.restaurant.show');
-Route::get('/restaurants/carrello', 'RestaurantController@carrello')->name('guest.restaurant.carrello');
 
 Auth::routes();
 
@@ -35,3 +34,5 @@ Route::prefix('admin')
 
     Route::get('/payment/process', 'PagamentiController@process')->name('payment.process');
     Route::post('payment/checkout', 'PagamentiController@checkout')->name('payment.checkout');
+    Route::post('/carrello', 'RestaurantController@add')->name('add.carrello.post');
+    Route::get('/carrello', 'RestaurantController@get')->name('add.carrello.get');
