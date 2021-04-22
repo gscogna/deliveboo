@@ -161,22 +161,23 @@
               </h1>
             </div>
           </div>
-          <div class="row product-items" id="product-items">
-            {{-- singolo oggetto --}}
-            <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
-              <div class="card single-item">
-                <div class="img-container">
-                  <img style="height: 200px; width:325px" src="'http://127.0.0.1:8000/storage/'+ item.immagine" class="card-img-top product-img" alt="">
-                </div>
-                <div class="card-body">
-                  <div class="card-text d-flex justify-content-between text-capitalize">
-                    <h5 id="item-name">@{{ item.nome }}</h5>
-                    <span><i class="fas fa-dollar-sign"></i>@{{ item.prezzo }}</span>
+
+            <div class="row product-items" id="product-items">
+              {{-- singolo oggetto --}}
+              <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+                <div class="card single-item">
+                  <div class="img-container">
+                    <img style="height: 200px; width:325px" src="'http://127.0.0.1:8000/storage/'+ item.immagine" class="card-img-top product-img" alt="">
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text d-flex justify-content-between text-capitalize">
+                      <h5 name="nome" id="item-name">@{{ item.nome }}</h5>
+                      <span name="prezzo" ><i class="fas fa-dollar-sign"></i>@{{ item.prezzo }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
       {{-- Another section --}}
@@ -197,7 +198,10 @@
           </div>
         </div>
         <!--Carrello-->
-  
+        <form method="POST" action="{{ route('add.carrello.post') }}">
+          @csrf
+          @method('POST')
+
         <div @click="showCarrello" class="carrello">
           <i class="fas fa-shopping-cart"></i>
         </div>
@@ -209,6 +213,14 @@
             <p>@{{ val.contatore }}</p>
           </div>
           <button type="submit" class="btn btn-primary">Primary</button>
+  
+          <div v-for="item in piattiRistorante" class="input">
+            <input type="text" name="nome" :value="item.nome" readonly>
+            <input type="number" name="prezzo" :value="item.prezzo" readonly>
+          </div>
+  
+  
+          </form>
         </div>
       </section>
 
