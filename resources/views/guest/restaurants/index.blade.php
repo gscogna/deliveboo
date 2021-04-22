@@ -36,13 +36,8 @@
  <!-- TIPOLOGIE -->
  <h1>Scegli il tipo di cucina</h1>
 <div class="container-tipologie">
-      <!-- <div class="pippo">
-        <img src="https://www.progettoartes.it/wp-content/uploads/2018/01/2018-anno-del-cibo-italiano.jpg" alt="Nome dell'immagine" title="Nome dell'immagine">
-      </div> -->
-      <div class="tipologie">
-     <img src="https://www.esca.it/uploads/grandi/156320026781850.jpg" alt="">
-      <a href="#">Italiano</a>
-      </div>
+     
+      
 
       <div class="tipologie">
      <img src="https://images.lacucinaitaliana.it/wp-content/uploads/2017/10/Pizza.jpg" alt="">
@@ -57,7 +52,31 @@
       <div class="tipologie">
      <img src="https://lh3.googleusercontent.com/proxy/qFMy7NY7nCQ7fIDDHhEbe_afGafY9cGrpz2oqbonOc9Djr46XynZqkGeEwgpBnP0-gcdNwf8Bhrws4IlJUVuP_add2_ZvYO3j9lkQfAuGNbcWVl9rIm0oAttT-E" alt="">
       <a href="#">Fast-food</a>
-</div>
+     </div>
+
+      <div class="tipologie">
+       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-tipici-cinesi.jpg?w=744&h=418&a=c" alt=""> 
+      <a href="#">Cinese</a>
+      </div>
+
+      <div class="tipologie">
+       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-cucina-giapponese.jpg?w=744&h=418&a=c" alt=""> 
+      <a href="#">Giapponese</a>
+      </div>
+      <div class="tipologie">
+     <img src="https://images.lacucinaitaliana.it/wp-content/uploads/2017/10/Pizza.jpg" alt="">
+      <a href="#">Pizza</a>
+      </div>
+
+      <div class="tipologie">
+     <img src="https://www.agenziaformativaulisse.it/formazione/wp-content/uploads/2016/12/cucina-messicana.jpg" alt="">
+      <a href="#">Messicano</a>
+      </div>
+
+      <div class="tipologie">
+     <img src="https://lh3.googleusercontent.com/proxy/qFMy7NY7nCQ7fIDDHhEbe_afGafY9cGrpz2oqbonOc9Djr46XynZqkGeEwgpBnP0-gcdNwf8Bhrws4IlJUVuP_add2_ZvYO3j9lkQfAuGNbcWVl9rIm0oAttT-E" alt="">
+      <a href="#">Fast-food</a>
+     </div>
 
       <div class="tipologie">
        <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-tipici-cinesi.jpg?w=744&h=418&a=c" alt=""> 
@@ -93,11 +112,16 @@
           {{-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">@{{element.nome}}</button> </a> --}}
         </div>
 
-        <div v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" class="card-restaurant">
+        
+        <div class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
           <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
-          <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}"><button type="button" name="button">Vai al menù</button> </a>
+          <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
+            <button class="btn-menu" type="button" name="button">Vai al menù</button> 
+          </a>
         </div>
+        
+        
 
         <div v-if ="!ristorantiSelezionati.length && !ristoranteScelto.length && search != ''">
           nessun ristorante trovato

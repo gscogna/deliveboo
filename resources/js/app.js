@@ -4,6 +4,7 @@ import Chart from 'chart.js/auto';
 import axios from 'axios';
 
 
+
 var chiamate = new Vue({
   el: '#app',
   data: {
@@ -18,13 +19,21 @@ var chiamate = new Vue({
     contatore: 0,
     carrello: [],
     carrelloSalvato: '',
-    stored_datas: ''
+    stored_datas: '',
+    tipologie:[],
   },
   mounted(){
+    axios
+      .get('http://127.0.0.1:8000/api/types')
+      .then((result) => {
+        this.tipologie = result.data.response;
 
-    // this.stored_datas = JSON.parse(localStorage[this.carrello]);
-    // console.log(this.stored_datas);
-
+      //   this.tipologie.forEach((element, index) => {
+      //     if (!this.tipoScelto.includes(element.nome)) {
+      //       this.tipoScelto.push(element);
+      //     };
+      // });
+    });
 
     this.show = 'hide',
     axios
@@ -53,10 +62,11 @@ var chiamate = new Vue({
     this.restaurant_plates
 
   },
+  
   methods:{
     ristorante_id(id){
         this.id_ristorante = id;
-        // console.log(this.id_ristorante);
+        console.log(this.id_ristorante);
     },
 
     restaurant_plates(id){
