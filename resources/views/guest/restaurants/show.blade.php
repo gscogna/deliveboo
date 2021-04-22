@@ -26,25 +26,19 @@
       <div class="header_diversa">
         <div class="layover">
 
-          <nav class="navbar navbar-expand-md navbar-light position-fixed shadow-sm" style="width: 100%;">
-            <div class="container">
+           <nav class="navbar navbar-expand-md navbar-light position-fixed shadow-sm" style="width: 100%;"> 
+             <div class="container">
               @if (Auth::user())
               <ul class="list-unstyled list-group d-flex">
                 <li class="list-item"><a class="navbar-brand" href="{{ url('/') }}">
-                  DELIVEROO
+                  DELIVEBOO
                 </a></li>
                     
                 <li class="list-item"><a href="{{ route('admin.home') }}">Torna al tuo ristorante</a></li>
               </ul>
               @endif
 
-              @if (!Auth::user())
-              <ul class="list-unstyled list-group">
-                <li><a class="navbar-brand" href="{{ url('/') }}">
-                  DELIVEROO
-                </a></li>
-              </ul>
-              @endif
+
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -80,7 +74,12 @@
                         document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                       </a>
-          
+
+                      
+
+
+
+
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                       </form>
@@ -152,12 +151,15 @@
 
       </section>
       {{-- Sezione prodotti e piatti --}}
+
+      
+
       <section id="products" class="products py-5">
         <div class="container">
           <div class="row">
             <div class="col-10 mx-auto col-sm-6 text-center">
               <h1 class="text-capitalize product-title">
-                Piatti Tipici e tradizionali
+                Ordina i tuoi piatti
               </h1>
             </div>
           </div>
@@ -165,21 +167,103 @@
             <div class="row product-items" id="product-items">
               {{-- singolo oggetto --}}
               <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
-                <div class="card single-item">
-                  <div class="img-container">
-                    <img style="height: 200px; width:325px" src="'http://127.0.0.1:8000/storage/'+ item.immagine" class="card-img-top product-img" alt="">
-                  </div>
-                  <div class="card-body">
+
+                <div class="contenitore-piatti-img single-item">
+
+                <div class="card-piatti">
                     <div class="card-text d-flex justify-content-between text-capitalize">
                       <h5 name="nome" id="item-name">@{{ item.nome }}</h5>
-                      <span name="prezzo" ><i class="fas fa-dollar-sign"></i>@{{ item.prezzo }}</span>
+                      <p name="prezzo" ><i class="fas fa-dollar-sign"></i>@{{ item.prezzo }}</p>
                     </div>
+                   </div>  <!-- /card-piatti -->
+
+                  <div class="img-container">
+                    <img style="height: 100px; width:100px" src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
                   </div>
-                </div>
-              </div>
-            </div>
+
+
+                  
+
+                </div> <!-- /card -->
+
+              </div> <!-- /@click -->
+
+            </div><!-- /row -->
+            
+        </div> <!-- /contenitore-piatti-img -->
+        <div id="carr">
+
+        <form method="POST" action="{{ route('add.carrello.post') }}">
+          @csrf
+          @method('POST')
+
+          <div @click="showCarrello" class="carrello">
+           <i class="fas fa-shopping-cart"></i>
+          </div>  
+
+       
+        <div :class="show" class="oggetti_carrello carr-header">
+          <h5>Il mio carrello</h5>
+          <hr>
+          <div v-for="(piatto, index) in carrello" class="container-piatti">
+            <p>@{{ piatto }}</p>
+          </div>
+          <div v-for="(val, index) in piattiRistorante" class="container-contatore">
+            <p>@{{ val.contatore }}</p>
+          </div>
+          <button type="submit" class="btn btn-primary">Primary</button>
+  
+          <div v-for="item in piattiRistorante" class="input">
+            <input type="text" name="nome" :value="item.nome" readonly>
+            <input type="number" name="prezzo" :value="item.prezzo" readonly>
+          </div>
+  
+  
+          </form>
+              
         </div>
+
+
+
+        <!-- 2 prova carrello senza click-->
+
+        <div id="carr">
+
+            <form method="POST" action="{{ route('add.carrello.post') }}">
+              @csrf
+              @method('POST')
+
+            <!-- <div @click="showCarrello" class="carrello">
+              <i class="fas fa-shopping-cart"></i>
+            </div>  -->
+
+
+            <div :class="show" class="oggetti_carrello ">
+              <h5>Il mio carrello</h5>
+              <hr>
+              <div v-for="(piatto, index) in carrello" class="container-piatti">
+                <p>@{{ piatto }}</p>
+              </div>
+              <div v-for="(val, index) in piattiRistorante" class="container-contatore">
+                <p>@{{ val.contatore }}</p>
+              </div>
+              <button type="submit" class="btn btn-primary">Primary</button>
+
+              <div v-for="item in piattiRistorante" class="input">
+                <input type="text" name="nome" :value="item.nome" readonly>
+                <input type="number" name="prezzo" :value="item.prezzo" readonly>
+              </div>
+
+
+              </form>
+      
+        </div>
+        
+      </div>
+        
+        
       </section>
+
       {{-- Another section --}}
       <section id="about-sec">
         <div class="container">
@@ -198,29 +282,7 @@
           </div>
         </div>
         <!--Carrello-->
-        <form method="POST" action="{{ route('add.carrello.post') }}">
-          @csrf
-          @method('POST')
-
-        <div @click="showCarrello" class="carrello">
-          <i class="fas fa-shopping-cart"></i>
-        </div>
-        <div :class="show" class="oggetti_carrello">
-          <div v-for="(piatto, index) in carrello" class="container-piatti">
-            <p>@{{ piatto }}</p>
-          </div>
-          <div v-for="(val, index) in piattiRistorante" class="container-contatore">
-            <p>@{{ val.contatore }}</p>
-          </div>
-          <button type="submit" class="btn btn-primary">Primary</button>
-  
-          <div v-for="item in piattiRistorante" class="input">
-            <input type="text" name="nome" :value="item.nome" readonly>
-            <input type="number" name="prezzo" :value="item.prezzo" readonly>
-          </div>
-  
-  
-          </form>
+        
         </div>
       </section>
 
