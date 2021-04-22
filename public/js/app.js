@@ -62431,7 +62431,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -62448,19 +62451,21 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     show: "",
     contatore: 0,
     carrello: [],
+    carrelloSalvato: '',
+    stored_datas: '',
     tipologie: []
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://127.0.0.1:8000/api/types').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/types').then(function (result) {
       _this.tipologie = result.data.response; //   this.tipologie.forEach((element, index) => {
       //     if (!this.tipoScelto.includes(element.nome)) {
       //       this.tipoScelto.push(element);
       //     };
       // });
     });
-    this.show = 'hide', axios.get('http://localhost:8000/api/plate').then(function (result) {
+    this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
 
@@ -62475,7 +62480,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       console.log(_this.id_ristorante);
       console.log(_this.piattiRistorante);
     });
-    axios.get('http://localhost:8000/api/restaurant').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/restaurant').then(function (result) {
       _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
     });
     this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
@@ -62485,6 +62490,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ristorante_id: function ristorante_id(id) {
       this.id_ristorante = id;
       console.log(this.id_ristorante);
+      this.id_ristorante = id; // console.log(this.id_ristorante);
     },
     restaurant_plates: function restaurant_plates(id) {
       var _this2 = this;
@@ -62572,7 +62578,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this4 = this;
 
-    axios.get('http://localhost:8000/api/orders').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/orders').then(function (result) {
       _this4.arrayOrdini = result.data.response; // console.log(this.arrayOrdini);
 
       _this4.arrayOrdini.forEach(function (element) {});

@@ -17,7 +17,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->float('prezzo_totale', 6, 2);
+            $table->string('nome')->nullable();
+            $table->float('prezzo_totale', 6, 2)->nullable();
             $table->string('indirizzo_consegna');
+            $table->string('email')->nullable();
             $table->boolean('pagamento_avvenuto');
             $table->timestamps();
         });

@@ -117,7 +117,7 @@
           <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
           <p class="rainbow-text">@{{item.nome}}</p>
           <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
-            <button class="btn-menu"type="button" name="button">Vai al menù</button> 
+            <button class="btn-menu" type="button" name="button">Vai al menù</button> 
           </a>
         </div>
         

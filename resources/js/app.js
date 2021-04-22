@@ -1,6 +1,8 @@
 require('./bootstrap');
 import Vue from 'vue';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
+
 
 
 var chiamate = new Vue({
@@ -16,6 +18,8 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
+    carrelloSalvato: '',
+    stored_datas: '',
     tipologie:[],
   },
   mounted(){
@@ -63,6 +67,7 @@ var chiamate = new Vue({
     ristorante_id(id){
         this.id_ristorante = id;
         console.log(this.id_ristorante);
+        this.id_ristorante = id; // console.log(this.id_ristorante);
     },
 
     restaurant_plates(id){
