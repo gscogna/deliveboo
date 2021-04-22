@@ -23,6 +23,21 @@
       <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
         @csrf
         @method('POST')
+        <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input name="nome" type="text" class="form-control" id="inputNome" placeholder="Inserisci nome...">
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Inserisci email...">
+        </div>
+        <div class="form-group">
+            <label for="inputIndirizzo">Indirizzo</label>
+            <input name="indirizzo_consegna" type="text" class="form-control" id="inputIndirizzo" placeholder="Inserisci nome...">
+        </div>
+        <div>
+            <p>Prezzo totale: totcarello</p>
+        </div>
         <section>
           <div class="bt-drop-in-wrapper">
               <div id="bt-dropin"></div>

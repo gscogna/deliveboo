@@ -62431,7 +62431,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -62447,12 +62450,16 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     id_ristorante: '',
     show: "",
     contatore: 0,
-    carrello: []
+    carrello: [],
+    carrelloSalvato: '',
+    stored_datas: ''
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.show = 'hide', axios.get('http://localhost:8000/api/plate').then(function (result) {
+    // this.stored_datas = JSON.parse(localStorage[this.carrello]);
+    // console.log(this.stored_datas);
+    this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
 
@@ -62462,12 +62469,11 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
           item.contatore = 0;
         }
-      });
+      }); // console.log(this.id_ristorante);
+      // console.log(this.piattiRistorante);
 
-      console.log(_this.id_ristorante);
-      console.log(_this.piattiRistorante);
     });
-    axios.get('http://localhost:8000/api/restaurant').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/restaurant').then(function (result) {
       _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
     });
     this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
@@ -62475,8 +62481,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   methods: {
     ristorante_id: function ristorante_id(id) {
-      this.id_ristorante = id;
-      console.log(this.id_ristorante);
+      this.id_ristorante = id; // console.log(this.id_ristorante);
     },
     restaurant_plates: function restaurant_plates(id) {
       var _this2 = this;
@@ -62486,11 +62491,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         if (item.user_id == _this2.id_ristorante) {
           _this2.piattiRistorante.push(item);
         }
-      });
-      console.log(this.id_ristorante);
-      console.log(this.piattiRistorante);
-      localStorage.id_ristorante = this.id_ristorante;
-      console.log(localStorage.id_ristorante);
+      }); // console.log(this.id_ristorante);
+      // console.log(this.piattiRistorante);
+
+      localStorage.id_ristorante = this.id_ristorante; // console.log(localStorage.id_ristorante);
     },
     search_restaurant: function search_restaurant() {
       var _this3 = this;
@@ -62520,16 +62524,15 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     },
     click_restaurant_choice: function click_restaurant_choice(index) {
       // this.ristorantiSelezionati = [];
-      console.log(this.ristorantiSelezionati); // console.log(item);
-
+      // console.log(this.ristorantiSelezionati);
+      // console.log(item);
       this.ristoranteScelto = [];
       this.ristoranteScelto.push(this.ristorantiSelezionati[index]);
       this.ristorantiSelezionati = [];
       this.search = this.ristoranteScelto[0].nome;
       this.ristoranteScelto.forEach(function (item) {
         console.log(item.nome);
-      });
-      console.log(this.ristoranteScelto);
+      }); // console.log(this.ristoranteScelto);
     },
     // vedi(){
     //   console.log(this.piattiRistorante);
@@ -62540,17 +62543,24 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         this.show = "show";
       } else {
         this.show = "hide";
-      }
+      } // console.log(this.show);
 
-      console.log(this.show);
     },
     add_to_chart: function add_to_chart(index) {
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
         this.carrello.push(this.piattiRistorante[index].nome);
-      }
+        console.log('carrello' + this.carrello); // Save
 
-      ;
-      console.log(this.piattiRistorante);
+        localStorage[this.carrello] = JSON.stringify(this.carrello); // Retrieve
+
+        this.stored_datas = JSON.parse(localStorage[this.carrello]);
+        console.log(this.stored_datas);
+      } // this.carrello.forEach(item =>{
+      //   this.carrelloSalvato = localStorage[item];
+      // })
+      // console.log('carrellosalvato ' + this.carrelloSalvato);
+
+
       this.piattiRistorante[index].contatore++;
     }
   } // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
@@ -62564,7 +62574,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this4 = this;
 
-    axios.get('http://localhost:8000/api/orders').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/orders').then(function (result) {
       _this4.arrayOrdini = result.data.response; // console.log(this.arrayOrdini);
 
       _this4.arrayOrdini.forEach(function (element) {});
@@ -62657,8 +62667,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

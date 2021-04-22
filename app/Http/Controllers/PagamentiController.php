@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class PagamentiController extends Controller
@@ -23,8 +24,8 @@ class PagamentiController extends Controller
 
         public function checkout(Request $request)
         {
+
             $data = $request->all();
-    
             //gateway
             $gateway = new \Braintree\Gateway([
                 'environment' => 'sandbox',
@@ -46,9 +47,15 @@ class PagamentiController extends Controller
     
             if ($result->success) {
                 //popolo db ordini
+                $order = new Order();
+                $order->pagamento_avvenuto = true;
                 
-        
-                return view('guest.checkout')->with('success_message', 'Il pagamento è stato effettuato. L\'id è:');
+                if($request->has('plates')){
+                    $order->plates()->sync($request['plates']);
+                }
+                $order->fill($data);
+                $order->save();
+                return view('guest.checkout');
             } else {
                 $errorString = "";
         

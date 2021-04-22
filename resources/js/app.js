@@ -1,6 +1,7 @@
 require('./bootstrap');
 import Vue from 'vue';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
 
 
 var chiamate = new Vue({
@@ -16,8 +17,15 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
+    carrelloSalvato: '',
+    stored_datas: ''
   },
   mounted(){
+
+    // this.stored_datas = JSON.parse(localStorage[this.carrello]);
+    // console.log(this.stored_datas);
+
+
     this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
@@ -30,8 +38,8 @@ var chiamate = new Vue({
           item.contatore = 0;
         }
       });
-      console.log(this.id_ristorante);
-      console.log(this.piattiRistorante);
+      // console.log(this.id_ristorante);
+      // console.log(this.piattiRistorante);
 
     })
     axios
@@ -48,7 +56,7 @@ var chiamate = new Vue({
   methods:{
     ristorante_id(id){
         this.id_ristorante = id;
-        console.log(this.id_ristorante);
+        // console.log(this.id_ristorante);
     },
 
     restaurant_plates(id){
@@ -59,10 +67,10 @@ var chiamate = new Vue({
           this.piattiRistorante.push(item);
         }
       });
-      console.log(this.id_ristorante);
-      console.log(this.piattiRistorante);
+      // console.log(this.id_ristorante);
+      // console.log(this.piattiRistorante);
       localStorage.id_ristorante = this.id_ristorante;
-      console.log(localStorage.id_ristorante);
+      // console.log(localStorage.id_ristorante);
 
     },
     search_restaurant(){
@@ -91,7 +99,7 @@ var chiamate = new Vue({
     },
     click_restaurant_choice(index){
       // this.ristorantiSelezionati = [];
-      console.log(this.ristorantiSelezionati);
+      // console.log(this.ristorantiSelezionati);
 
         // console.log(item);
         this.ristoranteScelto = [];
@@ -103,7 +111,7 @@ var chiamate = new Vue({
           console.log(item.nome);
         });
 
-      console.log(this.ristoranteScelto);
+      // console.log(this.ristoranteScelto);
 
     },
     // vedi(){
@@ -117,17 +125,35 @@ var chiamate = new Vue({
       } else {
         this.show ="hide";
       }
-      console.log(this.show);
+      // console.log(this.show);
     },
 
-    add_to_chart: function add_to_chart(index) {
+    add_to_chart(index) {
+
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
         this.carrello.push(this.piattiRistorante[index].nome);
+        console.log('carrello' + this.carrello);
+
+        // Save
+        localStorage[this.carrello] = JSON.stringify(this.carrello);
+
+        // Retrieve
+        this.stored_datas = JSON.parse(localStorage[this.carrello]);
+
+        console.log(this.stored_datas);
+
       }
-      ;
-      console.log(this.piattiRistorante);
+
+      // this.carrello.forEach(item =>{
+      //   this.carrelloSalvato = localStorage[item];
+      // })
+      // console.log('carrellosalvato ' + this.carrelloSalvato);
+
       this.piattiRistorante[index].contatore++;
-    }
+
+
+    },
+
   }
 
   // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
