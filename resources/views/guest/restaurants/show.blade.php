@@ -208,6 +208,7 @@
           <div v-for="(val, index) in piattiRistorante" class="container-contatore">
             <p>@{{ val.contatore }}</p>
           </div>
+          <button type="submit" class="btn btn-primary">Primary</button>
         </div>
       </section>
 

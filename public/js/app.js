@@ -62446,6 +62446,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ristoranteScelto: [],
     id_ristorante: '',
     show: "",
+    contatore: 0,
     carrello: []
   },
   mounted: function mounted() {
