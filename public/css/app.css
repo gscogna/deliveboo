@@ -11287,7 +11287,7 @@ main .container-tipologie .tipologie:hover {
   }
 }
 
-main .container-tipologie .tipologie a {
+main .container-tipologie .tipologie p {
   font-size: 20px;
   color: #272343;
   text-align: center;
@@ -11295,7 +11295,7 @@ main .container-tipologie .tipologie a {
 }
 
 @media screen and (max-width: 768px) {
-  main .container-tipologie .tipologie a {
+  main .container-tipologie .tipologie p {
     font-size: 15px;
   }
 }

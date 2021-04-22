@@ -40,6 +40,7 @@
       <div class="tipologie" v-for="(element, index) in tipologie">
         <img :src="element.immagine" alt="">
           <p>@{{element.nome}}</p>
+         
       </div>    
 
 </div>

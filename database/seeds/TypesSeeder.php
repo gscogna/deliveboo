@@ -39,11 +39,11 @@ class TypesSeeder extends Seeder
             ],
             [
               'nome' => 'Hamburger',
-              'immagine' => "https://www.agenziaformativaulisse.it/formazione/wp-content/uploads/2016/12/cucina-messicana.jpg",
+              'immagine' => "https://media.istockphoto.com/photos/hamburger-with-cheese-and-french-fries-picture-id1188412964?k=6&m=1188412964&s=612x612&w=0&h=860S0kVoWTA60T4wakI8HLv-Y3fFw9jOKLSB4quEkIE=",
             ],
             [
               'nome' => 'Messicano',
-              'immagine' =>"https://www.vistanet.it/cagliari/wp-content/uploads/sites/2/2019/05/gamberoni-770x480.jpg",
+              'immagine' =>"https://ilfattoalimentare.it/wp-content/uploads/2013/11/cibo-messico-153859601.jpg",
             ],
             [
               'nome' => 'Vegetariano',
