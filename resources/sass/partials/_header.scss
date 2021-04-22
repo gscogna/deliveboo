@@ -77,11 +77,10 @@ header {
           flex-direction: column;
         }
 
-        & input{
+        & input{       
           width: 300px;
           height:50px;
-          border-radius: 5px;
-          margin-right: 20px;
+          border-radius: 5px; 
           margin-top: 20px;
           text-align:justify;
           padding:10px;
@@ -93,14 +92,20 @@ header {
           background-color:white;
           @media screen and(max-width: 766px){
           background-color: transparent;
+          border-radius:10px;
+          
 
           }
           & ul {
             list-style: none;
+          
+            
             & li{
-              width: 200px;
+              width: 100%;
+              font-size:20px;
+              text-transform: capitalize;
               &:hover{
-                background-color: #eb6338;
+                background-color:rgb(255, 191, 0, 0.4);
                 cursor: pointer;
               }
             }
@@ -109,7 +114,7 @@ header {
       }
 
      }
-
+     
      & div.hcg-right{
        width: 60%;
        height: 300px;
@@ -144,3 +149,22 @@ header {
 
 }
 
+.nav-item{
+display:flex;
+flex-direction: row;
+align-items:center;
+text-transform: uppercase;
+font-size:20px;
+}
+
+.list-item2{
+  margin-top:8px;
+  margin-right:20px;
+  vertical-align: middle;
+  a{
+    color:#272343;
+    text-decoration:underline;
+    text-transform: uppercase;
+    font-size:20px;
+  }
+}

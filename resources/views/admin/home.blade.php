@@ -5,44 +5,69 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card text-center">
-                <div class="card-body">
+            <div class="card-a text-center">
+                <div class="aut-card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    {{ __('Sei loggato!') }}
+                    {{ __('Autenticazione corretta') }}
                 </div>
             </div>
             <div>
-                <button class="btn btn-success">
-                    <a href="{{ route('admin.statistiche') }}">Ordini e Statistiche</a>
-                </button>
+               
             </div>
             @if ($restaurants)
             @foreach ($restaurants as $restaurant)
-            <div class="card mt-4 text-center" style="width: 18rem; margin: auto;" enctype=“multipart/form-data”>
+            <div class="cards mt-4 text-center" style="width: 18rem; margin: auto;" enctype=“multipart/form-data”>
                 <img src=" {{ asset('storage/' .$restaurant -> immagine) }}" class="card-img-top" alt="...">
-            <div class="card-body">
+
+            <div class="card-body-rist">
+               
                     
-                <p class="card-text">Nome ristorante: {{ $restaurant -> nome }}</p>
-                <a href="{{ route('plates.index') }}"><button type="submite" class="btn btn-primary">Vai ai piatti</button></a>
+                <div class="card-text">
+                    <span>
+                    Nome ristorante: 
+                    </span>    
+                    <p>
+                    {{ $restaurant -> nome }}
+                    </p>
+
+                </div>
+
+                <button class="btn-ordini">
+                    <a href="{{ route('admin.statistiche') }}">Ordini e Statistiche</a>
+                </button>
+                <a href="{{ route('plates.index') }}">
+                    <button type="submite" class="btn-piatti">Vai ai piatti</button>
+                </a>
                 
-                <a href="{{ route('restaurants.edit', $restaurant->user_id) }}"><button type="button" class="btn btn-warning">Modifica</button></a>
+                <a href="{{ route('restaurants.edit', $restaurant->user_id) }}">
+                    <button type="button" class="btn-modifica">Modifica</button>
+                </a>
                 <form method="POST" action="{{ route('restaurants.destroy', $restaurant) }}">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger">Cancella</button>
+                    <button class="btn-cancella">Cancella</button>
                 </form>
             </div>
         </div>
+        
         @endforeach
         @endif
         {{-- @dd((count($restaurants))) --}}
         @if (count($restaurants ) < 1)
-            <a href="{{ route('restaurants.create') }}"><button type="submite" class="btn btn-primary">Crea ristorante</button></a>
+        <div class="contenitore-aggiungi-ristorante">
+
+        <p>Ora puoi inserire il tuo ristorante!</p>
+        <i class="far fa-smile"></i>
+            <a href="{{ route('restaurants.create') }}">
+                <button type="submite" class="btn btn-primary">Inserisci il ristorante</button>
+            </a>
+        </div>
+        
         @endif
         </div>
     </div>

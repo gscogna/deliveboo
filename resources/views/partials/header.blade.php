@@ -7,9 +7,10 @@
         <ul class="list-unstyled list-group d-flex">
           <li class="list-item"><a class="navbar-brand" href="{{ url('/') }}">
             DELIVEROO
-          </a></li>
+          </a>
+        </li>
               
-          <li class="list-item"><a href="{{ route('admin.home') }}">Torna al tuo ristorante</a></li>
+         
         </ul>
         @endif
 
@@ -43,14 +44,20 @@
             </li>
             @endif
             @else
+
+            <div class="list-item2">
+            <a href="{{ route('admin.home') }}">Torna al tuo ristorante</a>
+           </div>
+
             <li class="nav-item dropdown">
+
               <a id="navbarDropdown" style="color: #272343;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
               </a>
-
+              
   
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" style="color: #eb6338;" href="{{ route('logout') }}"
+                <a class="dropdown-item" style="color: 272343;" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}

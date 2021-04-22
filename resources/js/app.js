@@ -16,8 +16,21 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
+    tipologie:[],
   },
   mounted(){
+    axios
+      .get('http://127.0.0.1:8000/api/types')
+      .then((result) => {
+        this.tipologie = result.data.response;
+
+      //   this.tipologie.forEach((element, index) => {
+      //     if (!this.tipoScelto.includes(element.nome)) {
+      //       this.tipoScelto.push(element);
+      //     };
+      // });
+    });
+
     this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
@@ -45,6 +58,7 @@ var chiamate = new Vue({
     this.restaurant_plates
 
   },
+  
   methods:{
     ristorante_id(id){
         this.id_ristorante = id;
