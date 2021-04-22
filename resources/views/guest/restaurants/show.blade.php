@@ -196,8 +196,8 @@
         <form method="POST" action="{{ route('add.carrello.post') }}">
           @csrf
           @method('POST')
-
-          <div @click="showCarrello" class="carrello">
+            {{-- ccarrello col click --}}
+          <div @click="showCarrello" class="carrello carr-header">
            <i class="fas fa-shopping-cart"></i>
           </div>  
 
@@ -233,12 +233,7 @@
               @csrf
               @method('POST')
 
-            <!-- <div @click="showCarrello" class="carrello">
-              <i class="fas fa-shopping-cart"></i>
-            </div>  -->
-
-
-            <div :class="show" class="oggetti_carrello ">
+            <div class="oggetti_carrello ">
               <h5>Il mio carrello</h5>
               <hr>
               <div v-for="(piatto, index) in carrello" class="container-piatti">

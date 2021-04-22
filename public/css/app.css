@@ -11880,11 +11880,6 @@ body {
   padding: 10px;
 }
 
-.oggetti_carrello carr-header {
-  position: absolute;
-  top: 10px;
-}
-
 .oggetti_carrello h5 {
   color: black;
   text-align: center;
@@ -11908,5 +11903,11 @@ body {
 
 .hide {
   display: none;
+}
+
+.carr-header {
+  position: absolute;
+  top: 5px;
+  right: 25px;
 }
 
