@@ -37,56 +37,11 @@
  <h1>Scegli il tipo di cucina</h1>
 <div class="container-tipologie">
      
-      
+      <div class="tipologie" v-for="(element, index) in tipologie">
+        <img :src="element.immagine" alt="">
+          <p>@{{element.nome}}</p>
+      </div>    
 
-      <div class="tipologie">
-     <img src="https://images.lacucinaitaliana.it/wp-content/uploads/2017/10/Pizza.jpg" alt="">
-      <a href="#">Pizza</a>
-      </div>
-
-      <div class="tipologie">
-     <img src="https://www.agenziaformativaulisse.it/formazione/wp-content/uploads/2016/12/cucina-messicana.jpg" alt="">
-      <a href="#">Messicano</a>
-      </div>
-
-      <div class="tipologie">
-     <img src="https://lh3.googleusercontent.com/proxy/qFMy7NY7nCQ7fIDDHhEbe_afGafY9cGrpz2oqbonOc9Djr46XynZqkGeEwgpBnP0-gcdNwf8Bhrws4IlJUVuP_add2_ZvYO3j9lkQfAuGNbcWVl9rIm0oAttT-E" alt="">
-      <a href="#">Fast-food</a>
-     </div>
-
-      <div class="tipologie">
-       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-tipici-cinesi.jpg?w=744&h=418&a=c" alt=""> 
-      <a href="#">Cinese</a>
-      </div>
-
-      <div class="tipologie">
-       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-cucina-giapponese.jpg?w=744&h=418&a=c" alt=""> 
-      <a href="#">Giapponese</a>
-      </div>
-      <div class="tipologie">
-     <img src="https://images.lacucinaitaliana.it/wp-content/uploads/2017/10/Pizza.jpg" alt="">
-      <a href="#">Pizza</a>
-      </div>
-
-      <div class="tipologie">
-     <img src="https://www.agenziaformativaulisse.it/formazione/wp-content/uploads/2016/12/cucina-messicana.jpg" alt="">
-      <a href="#">Messicano</a>
-      </div>
-
-      <div class="tipologie">
-     <img src="https://lh3.googleusercontent.com/proxy/qFMy7NY7nCQ7fIDDHhEbe_afGafY9cGrpz2oqbonOc9Djr46XynZqkGeEwgpBnP0-gcdNwf8Bhrws4IlJUVuP_add2_ZvYO3j9lkQfAuGNbcWVl9rIm0oAttT-E" alt="">
-      <a href="#">Fast-food</a>
-     </div>
-
-      <div class="tipologie">
-       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-tipici-cinesi.jpg?w=744&h=418&a=c" alt=""> 
-      <a href="#">Cinese</a>
-      </div>
-
-      <div class="tipologie">
-       <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/07/piatti-cucina-giapponese.jpg?w=744&h=418&a=c" alt=""> 
-      <a href="#">Giapponese</a>
-      </div>
 </div>
 
 <!-- SEGLI RISTORANTE -->
