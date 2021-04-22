@@ -62576,23 +62576,33 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#myChart',
   data: {
-    arrayOrdini: ''
+    arrayOrdini: '',
+    nomi: [],
+    quantita: [],
+    mese: []
   },
   mounted: function mounted() {
     var _this4 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/orders').then(function (result) {
-      _this4.arrayOrdini = result.data.response; // console.log(this.arrayOrdini);
+      _this4.arrayOrdini = result.data.response;
+      console.log(_this4.arrayOrdini);
 
-      _this4.arrayOrdini.forEach(function (element) {});
+      _this4.arrayOrdini.forEach(function (element) {
+        if (element.pagamento_avvenuto == 1 && element.created_at.slice(0, 7) == '2021-04') {
+          _this4.quantita.push(element);
+        }
+      }); // console.log(this.quantita.length);
+
     });
+    var tot = this.quantita.length;
     var ctx = document.getElementById('myChart');
     var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
       type: 'doughnut',
       data: {
-        labels: ['pizza', 'hamburger', 'patatine', 'supplì'],
+        labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
         datasets: [{
-          data: [12, 19, 3, 5],
+          data: [2, 5, 6, 7, 4, 5, 6, 7, 5, 3, 2, 2],
           backgroundColor: ['rgba(255, 99, 132, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(75, 192, 192, 0.4)'],
           borderColor: ['rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)'],
           borderWidth: 1
@@ -62676,8 +62686,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
