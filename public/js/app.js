@@ -62447,11 +62447,19 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     id_ristorante: '',
     show: "",
     contatore: 0,
-    carrello: []
+    carrello: [],
+    tipologie: []
   },
   mounted: function mounted() {
     var _this = this;
 
+    axios.get('http://127.0.0.1:8000/api/types').then(function (result) {
+      _this.tipologie = result.data.response; //   this.tipologie.forEach((element, index) => {
+      //     if (!this.tipoScelto.includes(element.nome)) {
+      //       this.tipoScelto.push(element);
+      //     };
+      // });
+    });
     this.show = 'hide', axios.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);

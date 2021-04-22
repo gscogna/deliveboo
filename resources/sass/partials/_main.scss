@@ -16,23 +16,47 @@ main{
     // background: linear-gradient(to right, #ffffff, hsla(184, 76%, 81%, 0.788));
     display:flex;
     justify-content:center;
-    flex-direction:row;
-    width: 100%;
-    height: 200px;
-
+    flex-wrap:wrap;
+    width: 70%;
+    margin:0 auto;
 
     .tipologie{
-      width:200px;
+      width:calc(100% / 5);
       padding:20px;
       display:flex;
       justify-content:space-between;
       flex-direction: column;
+
+      @media screen and(max-width: 1200px){
+        width:calc(100% / 5);
+        
+        
+      }
+
+      @media screen and(max-width: 768px){
+        width:calc(100% / 5 -10px);
+        
+        
+      }
+
+      @media screen and (max-width: 576px) {
+        width:calc(100% / 2);
+        
+
+    }
+
+      img{
+        width: 100%;
+        border-radius:50%;
+
+      }
       
       &:hover{
         @include transition;
         transform: scale(1.2);
         z-index: 70;
       }
+   
 
     a{
       
@@ -40,12 +64,14 @@ main{
       color:#272343;
       text-align:center;
       font-weight: bold;
-    }
-      img{
-        width: 100%;
-        border-radius:50%;
 
+      @media screen and(max-width: 768px){
+        font-size: 15px;
+        
+        
       }
+    }
+      
 
    }
  }
@@ -120,12 +146,7 @@ main{
 
         }
 
-        // &:hover img{
-        //   width:100%;
-        //   opacity:0.5;
-        // }
-
-
+     
         .card-img-top {   
           display:flex;
           justify-content:center;
@@ -175,7 +196,23 @@ main{
     }
   }   // fine sezione ristoranti guest
 
-
+  .card-restaurant{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    dispaly:flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      text-align:center;
+      font-size: 25px;
+      color:#272343;
+      font-weight:bold;
+      text-transform: capitalize;
+    }
+    .btn-menu{
+      background-color:red;
+    }
+  }
 
 }//fine main
 

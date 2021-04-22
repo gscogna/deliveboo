@@ -1,0 +1,95 @@
+ .aut-card-body{
+     background-color:rgba(255, 191, 0, 0.3);
+     width: 30%;
+     margin:0 auto;
+     padding:10px;
+     border-radius:10px;
+    border:2px solid rgba(255, 191, 0) ;
+     font-weight: bold;
+    
+}
+.cards{
+    border-radius:10px;
+    border:1px solid #272343;
+    box-shadow: 2px 2px 2px #272343;
+    img{
+        margin:0 auto;
+        width:100%;
+        padding:10px;
+        border-radius:10%;
+    }
+
+
+.card-body-rist{
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    margin:10px;
+    padding:10px;
+    
+
+    .btn-ordini{
+        background-color:rgb(183, 220, 226);
+        width:100%;
+        border-radius:10px;
+        padding:5px;
+        margin-bottom:10px;
+        a{
+            color:black;
+            
+        }
+    }
+    .btn-piatti{
+        background-color:rgb(161, 138, 226);
+        width:100%;
+        border-radius:10px;
+        padding:5px;
+        margin-bottom:10px;
+        a{
+            font-weight: bold;
+        }
+    }
+    .btn-modifica{
+        background-color:rgb(255, 244, 148);
+        width:100%;
+        border-radius:10px;
+        padding:5px;
+        margin-bottom:10px;
+        a{
+            font-weight: bold;
+        }
+    }
+    .btn-cancella{
+        background-color:rgb(255, 125, 125);
+        width:100%;
+        border-radius:10px;
+        padding:5px;
+        margin-bottom:10px;
+
+        a{
+            font-weight: bold;
+        }
+    }
+}
+}
+.contenitore-aggiungi-ristorante{
+    display:flex;
+    flex-direction:column;   
+    align-items:center;
+    
+    p{
+        font-size:25px;
+        font-weight:bold;
+        margin-top:20px;
+        
+    }
+    .far{
+        font-size:150px;
+        color:rgba(255, 191, 0);
+        margin-top:15px;
+        
+    }
+    .btn{
+        margin-top:30px; 
+    }
+}
