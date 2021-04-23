@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.ristoranteAdmin')
 @section('header.content')
 @section('title', 'I tuoi piatti')
 
