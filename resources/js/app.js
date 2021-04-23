@@ -180,63 +180,59 @@ var chiamate = new Vue({
 //   // document.getElementById('prezzo').innerHtml+=data.response;
 // });
 
-var app = new Vue({
-  el: '#myChart',
+let app = new Vue({
+  el: "#myChart",
   data: {
-    arrayOrdini: '',
-    nomi: [],
-    quantita: [],
-    mese: [],
-
+      ordiniMese: [],
+      ordini: ''
   },
-  mounted(){
-    axios
-    .get('http://localhost:8000/api/orders')
-    .then((result)=> {
-      this.arrayOrdini = result.data.response;
-      console.log(this.arrayOrdini);
-            this.arrayOrdini.forEach(element => {
 
-                if(element.pagamento_avvenuto == 1 && element.created_at.slice(0,7) == '2021-04'){
-                  this.quantita.push(element);
-                }
-                
-              })
-              // console.log(this.quantita.length);
-            });
+  mounted() {
+      axios
+      .get('http://127.0.0.1:8000/api/orders/1')
+      .then((response) => {
+          this.ordini = response.data; 
 
-            var tot = this.quantita.length;
-            var ctx = document.getElementById('myChart');
-            var myChart = new Chart(ctx, {
+          for (let i = 1; i <= 12; i++) {
+
+              let ordiniSomma = 0;
+
+              this.ordini.forEach((element) => {
+
+                  if ( i == element.created_at.substr(5, 2) ) {
+                      ordiniSomma++; 
+                  }
+
+              });
+
+              this.ordiniMese.push(ordiniSomma);
+            }
+            console.log(this.ordiniMese);
+
+          let ctx = document.getElementById('myChart');
+          var myChart = new Chart(ctx, {
               type: 'doughnut',
               data: {
-                    labels: ['Gen','Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott','Nov','Dic'],
-                    datasets: [{
-                        data: [2,5,6,7,4,5,6,7,5,3,2,2],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(255, 206, 86, 0.4)',
-                            'rgba(54, 162, 235, 0.4)',
-                            'rgba(75, 192, 192, 0.4)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(75, 192, 192, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                // options: {
-                //     scales: {
-                //         y: {
-                //             beginAtZero: true
-                //         }
-                //     }
-                // }
-            });
-
-
-      }
+                  labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                  datasets: [{
+                      data: this.ordiniMese, 
+                      backgroundColor: [
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(255, 159, 64, 0.8)',
+                        'rgba(67, 97, 238, 0.8)',
+                        'rgba(79, 119, 45, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(158, 42, 43, 0.8)',
+                        'rgba(164, 44, 214, 0.8)',
+                        'rgba(229, 56, 59, 0.8)',
+                        'rgba(255, 195, 0, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                      ]
+                  }]
+              },
+          });
+      })
+  }
 });
