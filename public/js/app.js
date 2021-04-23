@@ -62451,9 +62451,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     show: "",
     contatore: 0,
     carrello: [],
-    carrelloSalvato: '',
+    carrelloSalvato: [],
     stored_datas: '',
-    tipologie: []
+    tipologie: [],
+    array: []
   },
   mounted: function mounted() {
     var _this = this;
@@ -62473,7 +62474,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         if (item.user_id == _this.id_ristorante) {
           _this.piattiRistorante.push(item);
 
-          item.contatore = 0;
+          item.contatore = 1;
         }
       }); // console.log(this.id_ristorante);
       // console.log(this.piattiRistorante);
@@ -62555,20 +62556,11 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     },
     add_to_chart: function add_to_chart(index) {
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello); // Save
+        this.carrello.push(this.piattiRistorante[index]);
+      }
 
-        localStorage[this.carrello] = JSON.stringify(this.carrello); // Retrieve
-
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
-        console.log(this.stored_datas);
-      } // this.carrello.forEach(item =>{
-      //   this.carrelloSalvato = localStorage[item];
-      // })
-      // console.log('carrellosalvato ' + this.carrelloSalvato);
-
-
-      this.piattiRistorante[index].contatore++;
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
     }
   } // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
 
