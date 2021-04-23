@@ -62452,9 +62452,12 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     contatore: 0,
     carrello: [],
     carrelloSalvato: [],
-    stored_datas: '',
+    sommaPrezzo: 0,
     tipologie: [],
-    array: []
+    array: [],
+    finalPrice: 0,
+    finalPriceSaved: 0,
+    userid: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62466,6 +62469,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       //     };
       // });
     });
+    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
@@ -62561,10 +62565,25 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
       this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
-    }
-  } // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
+      console.log(this.carrelloSalvato); // ottengo il prezzo totale
 
-});
+      for (var k in this.carrelloSalvato) {
+        // console.log(this.carrelloSalvato[k].prezzo);
+        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      }
+
+      this.userid = this.carrelloSalvato[0].user_id;
+      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      console.log(this.sommaPrezzo);
+    }
+  }
+}); // fetch('http://localhost:8000/api/plate').then(function (response){
+//   return response.json();
+// }).then(function(data) {
+//   // document.getElementById('prezzo').innerHtml+=data.response;
+// });
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#myChart',
   data: {
@@ -62676,12 +62695,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

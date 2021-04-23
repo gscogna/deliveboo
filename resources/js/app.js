@@ -19,9 +19,12 @@ var chiamate = new Vue({
     contatore: 0,
     carrello: [],
     carrelloSalvato: [],
-    stored_datas: '',
+    sommaPrezzo: 0,
     tipologie:[],
-    array: []
+    array: [],
+    finalPrice: 0,
+    finalPriceSaved: 0,
+    userid: 0,
   },
   mounted(){
     axios
@@ -35,6 +38,9 @@ var chiamate = new Vue({
       //     };
       // });
     });
+
+    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+
 
     this.show = 'hide',
     axios
@@ -145,24 +151,34 @@ var chiamate = new Vue({
         this.carrello.push(this.piattiRistorante[index]);
         
       }
-      
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
       this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
 
+      console.log(this.carrelloSalvato);
+      
+      // ottengo il prezzo totale
+      
+      for(var k in this.carrelloSalvato){
+        // console.log(this.carrelloSalvato[k].prezzo);
+        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+        
+      }
+      this.userid = this.carrelloSalvato[0].user_id;
+      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
 
+      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+
+      console.log(this.sommaPrezzo);
     },
 
   }
-
-  // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
-
-
 });  
 
-
-
-
-
+// fetch('http://localhost:8000/api/plate').then(function (response){
+//   return response.json();
+// }).then(function(data) {
+//   // document.getElementById('prezzo').innerHtml+=data.response;
+// });
 
 var app = new Vue({
   el: '#myChart',

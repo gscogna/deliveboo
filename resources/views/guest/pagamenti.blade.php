@@ -23,6 +23,7 @@
       <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
         @csrf
         @method('POST')
+        <div id="app">
         <div class="form-group">
             <label for="inputNome">Nome</label>
             <input name="nome" type="text" class="form-control" id="inputNome" placeholder="Inserisci nome...">
@@ -36,8 +37,11 @@
             <input name="indirizzo_consegna" type="text" class="form-control" id="inputIndirizzo" placeholder="Inserisci nome...">
         </div>
         <div>
-            <p>Prezzo totale: totcarello</p>
+            <p >@{{ finalPriceSaved }}</p>
         </div>
+    </div>
+    <input id="restaurant_id" name="user_id" type="hidden" :value="userid" readonly>
+
         <section>
           <div class="bt-drop-in-wrapper">
               <div id="bt-dropin"></div>
@@ -54,7 +58,7 @@
     </div>
   </div>
 </div>
-<script>
+<script >
  var form = document.querySelector('#payment-form');
                 var client_token = "{{ $token }}";
                 braintree.dropin.create({
