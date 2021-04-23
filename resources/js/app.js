@@ -18,9 +18,10 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
-    carrelloSalvato: '',
+    carrelloSalvato: [],
     stored_datas: '',
     tipologie:[],
+    array: []
   },
   mounted(){
     axios
@@ -44,7 +45,7 @@ var chiamate = new Vue({
       this.arrayPiatti.forEach((item) => {
         if(item.user_id == this.id_ristorante){
           this.piattiRistorante.push(item);
-          item.contatore = 0;
+          item.contatore = 1;
         }
       });
       // console.log(this.id_ristorante);
@@ -141,19 +142,12 @@ var chiamate = new Vue({
     add_to_chart(index) {
 
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello);
-
-        console.log(this.stored_datas);
-
+        this.carrello.push(this.piattiRistorante[index]);
+        
       }
-
-      // this.carrello.forEach(item =>{
-      //   this.carrelloSalvato = localStorage[item];
-      // })
-      // console.log('carrellosalvato ' + this.carrelloSalvato);
-
-      this.piattiRistorante[index].contatore++;
+      
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
 
 
     },
