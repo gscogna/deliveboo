@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,11 @@ class RestaurantController extends Controller
 
     public function statistiche()
     {
-        return view('admin.modifiche-ristorante.statistiche');
+        $order = Order::where('user_id', Auth::id())->first();
+        $data = [
+            'orders' => $order->user_id
+        ];
+        return view('admin.modifiche-ristorante.statistiche', $data);
     }
 
     /**

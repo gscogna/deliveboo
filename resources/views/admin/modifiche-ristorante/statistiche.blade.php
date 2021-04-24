@@ -8,4 +8,8 @@
     </div>
 </div>
 
+<script> 
+    let orderid = {{ $orders }}
+</script>
+
 @endsection

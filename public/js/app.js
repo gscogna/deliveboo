@@ -62457,7 +62457,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     array: [],
     finalPrice: 0,
     finalPriceSaved: 0,
-    userid: 0
+    userid: 0,
+    useridfinale: 0,
+    user: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62470,6 +62472,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       // });
     });
     this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    this.user = localStorage.getItem(this.useridfinale);
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
@@ -62570,11 +62573,14 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       for (var k in this.carrelloSalvato) {
         // console.log(this.carrelloSalvato[k].prezzo);
         localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+        localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
       }
 
-      this.userid = this.carrelloSalvato[0].user_id;
       this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      this.userid = JSON.parse(localStorage.getItem(this.userid));
       localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      console.log(this.userid);
       console.log(this.sommaPrezzo);
     }
   }
@@ -62593,7 +62599,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this4 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/orders/1').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://127.0.0.1:8000/api/orders/".concat(orderid)).then(function (response) {
       _this4.ordini = response.data;
 
       var _loop = function _loop(i) {
@@ -62693,8 +62699,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 

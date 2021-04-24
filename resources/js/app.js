@@ -25,6 +25,8 @@ var chiamate = new Vue({
     finalPrice: 0,
     finalPriceSaved: 0,
     userid: 0,
+    useridfinale: 0,
+    user: 0
   },
   mounted(){
     axios
@@ -40,6 +42,7 @@ var chiamate = new Vue({
     });
 
     this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    this.user = localStorage.getItem(this.useridfinale);
 
 
     this.show = 'hide',
@@ -162,18 +165,21 @@ var chiamate = new Vue({
         // console.log(this.carrelloSalvato[k].prezzo);
         localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
         
+        localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id))
       }
-      this.userid = this.carrelloSalvato[0].user_id;
       this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      this.userid = JSON.parse(localStorage.getItem(this.userid));
+      
 
       localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
 
+      console.log(this.userid);
       console.log(this.sommaPrezzo);
     },
 
   }
 });  
-
 // fetch('http://localhost:8000/api/plate').then(function (response){
 //   return response.json();
 // }).then(function(data) {
@@ -189,7 +195,7 @@ let app = new Vue({
 
   mounted() {
       axios
-      .get('http://127.0.0.1:8000/api/orders/1')
+      .get(`http://127.0.0.1:8000/api/orders/${orderid}`)
       .then((response) => {
           this.ordini = response.data; 
 
