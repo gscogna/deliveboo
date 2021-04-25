@@ -8,7 +8,7 @@
     <div>
     <div class="sidebar" data-color="orange">
   <!--
-      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+      Tip 1: Puoi cambiare colore inserendo uno di questi prefissati s vuo altrimenti nn tuccà: data-color="blue | green | orange | red | yellow"
   -->
       <div class="logo">
           <a class="navbar-brand simple text logo-normal text-center" href="{{ url('/') }}">
@@ -19,38 +19,11 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">        
           <li class="active ">
-              <a href="#">
+              <a href="{{ url('admin/plates') }}">
 
                     <i class="now-ui-icons design_app"></i>
 
                   <p>Dashboard</p>
-              </a>
-          </li>
-
-          <li>
-              <a href="#">
-
-                    <i class="now-ui-icons education_atom"></i>
-
-                  <p>Icons</p>
-              </a>
-          </li>
-
-          <li>
-              <a href="#">
-
-                    <i class="now-ui-icons location_map-big"></i>
-
-                  <p>Maps</p>
-              </a>
-          </li>
-
-          <li>
-              <a href="#">
-
-                    <i class="now-ui-icons ui-1_bell-53"></i>
-
-                  <p>Notifications</p>
               </a>
           </li>
 
@@ -110,7 +83,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form>
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
+                <input type="text" value="" class="form-control" placeholder="Cerca...">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <i class="now-ui-icons ui-1_zoom-bold"></i>
@@ -162,8 +135,8 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Global Sales</h5>
-                <h4 class="card-title">Shipped Products</h4>
+                <h5 class="card-category">Vendite Globali</h5>
+                <h4 class="card-title">Prodotti Spediti</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -181,8 +154,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">2018 Sales</h5>
-                <h4 class="card-title">All products</h4>
+                <h5 class="card-category">Vendite 2021</h5>
+                <h4 class="card-title">Tutti i prodotti</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -200,8 +173,8 @@
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Email Statistics</h5>
-                <h4 class="card-title">24 Hours Performance</h4>
+                <h5 class="card-category">Statistiche piatti</h5>
+                <h4 class="card-title">Performance delle ultime 24 ore</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
