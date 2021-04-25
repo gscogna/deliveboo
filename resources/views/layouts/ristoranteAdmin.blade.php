@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,6 @@
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">" />
 
     <!-- Styles -->
     <link href="{{ asset('cssB/now-ui-dashboard.css')}}" rel="stylesheet">
@@ -24,8 +23,7 @@
 </head>
 <body>
     <div id="app">
-        @include('partials.navbar')
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
         @include('partials.footer')

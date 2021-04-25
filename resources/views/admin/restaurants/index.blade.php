@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-    <div class="wrapper">
+    <div>
     <div class="sidebar" data-color="orange">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
       <div class="logo">
-          <a href="#" class="simple-text logo-normal">
-            Deliveroo
+          <a class="navbar-brand simple text logo-normal text-center" href="{{ url('/') }}">
+            DELIVEROO
           </a>
       </div>
 
@@ -55,11 +55,11 @@
           </li>
 
           <li>
-              <a href="#">
+              <a href="{{ route('admin.home') }}">
 
                     <i class="now-ui-icons users_single-02"></i>
 
-                  <p>User Profile</p>
+                  <p>Torna al tuo ristorante</p>
               </a>
           </li>
 
@@ -82,11 +82,15 @@
           </li>
 
           <li class="active-pro">
-              <a href="#">
-
-                    <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-
-                  <p>Upgrade to PRO</p>
+              <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                {{ __('Logout') }}
+              </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
               </a>
           </li>
         </ul>
@@ -430,7 +434,7 @@
     </div>
   </div>
 <div class="container">
-  <table class="table">
+  <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">ID</th>
