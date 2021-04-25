@@ -12,7 +12,7 @@
   -->
       <div class="logo">
           <a class="navbar-brand simple text logo-normal text-center" href="{{ url('/') }}">
-            DELIVEROO
+            DELIVEBOO
           </a>
       </div>
 
@@ -64,20 +64,11 @@
           </li>
 
           <li>
-              <a href="#">
+              <a href="{{ route('admin.tabelle') }}">
 
                     <i class="now-ui-icons design_bullet-list-67"></i>
 
-                  <p>Table List</p>
-              </a>
-          </li>
-
-          <li>
-              <a href="#">
-
-                    <i class="now-ui-icons text_caps-small"></i>
-
-                  <p>Typography</p>
+                  <p>Lista tabella</p>
               </a>
           </li>
 
@@ -173,17 +164,6 @@
               <div class="card-header">
                 <h5 class="card-category">Global Sales</h5>
                 <h4 class="card-title">Shipped Products</h4>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -203,17 +183,6 @@
               <div class="card-header">
                 <h5 class="card-category">2018 Sales</h5>
                 <h4 class="card-title">All products</h4>
-                <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -252,8 +221,8 @@
           <div class="col-md-6">
             <div class="card  card-tasks">
               <div class="card-header ">
-                <h5 class="card-category">Backend development</h5>
-                <h4 class="card-title">Tasks</h4>
+                <h5 class="card-category">Backend development /Frontend</h5>
+                <h4 class="card-title">Compiti</h4>
               </div>
               <div class="card-body ">
                 <div class="table-full-width table-responsive">
@@ -268,7 +237,7 @@
                             </label>
                           </div>
                         </td>
-                        <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
+                        <td class="text-left">Concludere la parte grafica e l interfaccia che comprenda anche la sezione dell'Admin</td>
                         <td class="td-actions text-right">
                           <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                             <i class="now-ui-icons ui-2_settings-90"></i>
@@ -287,7 +256,7 @@
                             </label>
                           </div>
                         </td>
-                        <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                        <td class="text-left">Completare e mettere in ordine la parte del supporto del carrello e pagamenti</td>
                         <td class="td-actions text-right">
                           <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                             <i class="now-ui-icons ui-2_settings-90"></i>
@@ -306,7 +275,7 @@
                             </label>
                           </div>
                         </td>
-                        <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                        <td class="text-left">Controllare e far si che tutto funzioni perfettamente, collaudi e aggiustamenti vari.
                         </td>
                         <td class="td-actions text-right">
                           <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
@@ -332,95 +301,95 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-category">All Persons List</h5>
-                <h4 class="card-title"> Employees Stats</h4>
+                <h5 class="card-category">Tutta la lista del personale</h5>
+                <h4 class="card-title">Statistiche dei dipendenti</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Name
+                        Nome
                       </th>
                       <th>
-                        Country
+                        Paese
                       </th>
                       <th>
-                        City
+                        Città
                       </th>
                       <th class="text-right">
-                        Salary
+                        Salario
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          Dakota Rice
+                          Gennaro Luca Scognamiglio
                         </td>
                         <td>
-                          Niger
+                          Italia
                         </td>
                         <td>
-                          Oud-Turnhout
+                          Napoli
                         </td>
                         <td class="text-right">
-                          $36,738
+                          €96,738
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Minerva Hooper
+                          Sara Gorletta
                         </td>
                         <td>
-                          Curaçao
+                          Argentina
                         </td>
                         <td>
-                          Sinaai-Waas
+                          Mendoza
                         </td>
                         <td class="text-right">
-                          $23,789
+                          €23,789
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Sage Rodriguez
+                          Ilaria Mammuccari
                         </td>
                         <td>
-                          Netherlands
+                          Francia
                         </td>
                         <td>
-                          Baileux
+                          Bordeaux
                         </td>
                         <td class="text-right">
-                          $56,142
+                          €56,142
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Doris Greene
+                          Simone Cardinale
                         </td>
                         <td>
-                          Malawi
+                          Spagna
                         </td>
                         <td>
-                          Feldkirchen in Kärnten
+                          Barcellona
                         </td>
                         <td class="text-right">
-                          $63,542
+                          €26,542
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          Mason Porter
+                          Andrea Corrò
                         </td>
                         <td>
-                          Chile
+                          Cile
                         </td>
                         <td>
-                          Gloucester
+                          Santiago del Cile
                         </td>
                         <td class="text-right">
-                          $78,615
+                          €38,615
                         </td>
                       </tr>
                     </tbody>
@@ -433,50 +402,4 @@
       </div>
     </div>
   </div>
-<div class="container">
-  <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Immagine</th>
-          <th scope="col">Prezzo</th>
-          <th scope="col">Ingredienti</th>
-          <th scope="col">Visibile</th>
-          <th scope="col">Dettagli</th>
-          <th scope="col">Modifica</th>
-          <th scope="col">Cancella</th>
-        </tr>
-      </thead>
-      <tbody>
-        <a class="btn btn-success mb-3" href=" {{ route('plates.create') }}">Inserisci un piatto</a>
-        @foreach ($plates as $plate)
-          @if($plate->user_id == Auth::id())
-            <tr>
-                <td>{{ $plate->id }}</td>
-                <td>{{ $plate->nome }}</td>
-                <td>{{ $plate->immagine }}</td>
-                <td>{{ $plate->prezzo }}</td>
-                <td>{{ $plate->ingredienti }}</td>
-                  @if ( $plate->visibile == 1)
-                    <td>Si</td>
-                  @else
-                      <td>No</td>
-                  @endif
-
-                <td><a href="{{ route('plates.show', $plate) }}"><button type="button" class="btn btn-info">Dettagli</button></a></td>
-                <td><a href="{{ route('plates.edit', $plate) }}"><button type="button" class="btn btn-warning">Modifica</button></a></td>
-                <td>
-                    <form method="POST" action="{{ route('plates.destroy', $plate) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger">Cancella</button>
-                    </form>
-                </td>
-            </tr>
-          @endif
-        @endforeach
-      </tbody>
-    </table>
-</div>
 @endsection

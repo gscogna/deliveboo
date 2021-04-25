@@ -25,6 +25,10 @@ class RestaurantController extends Controller
         return view('admin.modifiche-ristorante.statistiche');
     }
 
+    public function tabelle()
+    {
+        return view('admin.restaurants.tabelle');
+    }
     /**
      * Display a listing of the resource.
      *
