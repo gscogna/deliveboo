@@ -1,25 +1,89 @@
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family: Gotham,Arial,Helvetica Neue,Helvetica,sans-serif;
 }
+.navbar-show{
+ // background:darkgray;
+ // width:500px;
+  //height:200px;
+  
+  .collapse-show{
+     width:100%;
+     background-color: rgba(255, 191, 0, 0.9);
+     height:80px;
+     position:fixed;
+      top:0;
+      left:0;
+      z-index:3000;
+      display:flex;
+      justify-content: space-between;
 
-.header_diversa{
-  height: 100px;
-  background: lightgrey;
+     .navbar-nav-show-left{
+       width:400px;
+        background:violet;
+
+         
+
+          a{
+            color:black;
+            font-size: 25px;
+            .fas{
+              color:black;
+            }
+          }
+         
+    }
+    .navbar-nav-show-right{
+      background:yellow;
+      display:flex;
+      flex-direction:row;
+      padding-right:30px;
+      justify-content:space-around;
+      align-items:center;
+    
+  
+    // 
+    //   }
+    
+  
+    .list-item{
+      color: #272343;
+      text-decoration: underline;
+        text-transform: uppercase;
+      font-size: 20px;
+      a{
+      color: #272343;
+      }
+    }
+  
+    .nav-item {
+      color: #272343;
+      text-transform: uppercase;
+      font-size: 20px;
+      padding-right:20px;
+      
+    }
+    }
+  
+  }
 }
+ //collapse-show
 
+    
 
 .carousel-item{
-  height:450px;
+  height:400px;
+  width:100%;
+margin-top:80px;
 
   .title-color{
     color:#fff;
   }
-  .btn-color{
-    background: #000;
-    color:#fff;
-    &:hover{
-      color:gray;
-    }
+  // .btn-color{
+  //   background: #000;
+  //   color:#fff;
+  //   &:hover{
+  //     color:gray;
+  //   }
   }
   .slide-btn{
     display: inline-block;
@@ -34,9 +98,9 @@ body{
       animation-timing-function:ease-in-out;
       animation-iteration-count: 1;
     }
-    
+
   }
-  
+
     @keyframes slide-btn{
     16%{
       transform: translateY(8px);
@@ -57,24 +121,24 @@ body{
       transform: translateY(0);
     }
   }
-}
-  
-  
+
+
+
   .carousel-image-1{
   background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),
-  url('https://cdn.pixabay.com/photo/2020/06/08/16/49/pizza-5275191_960_720.jpg');
-  background-size: cover;
+  url('https://images.agi.it/pictures/agi/agi/2019/11/04/120651443-21e8cec9-0cd9-45a5-b7a7-c4389b844a8e.jpg');
+  background-size:cover;
 }
 
 .carousel-image-2{
   background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),
-  url('https://cdn.pixabay.com/photo/2020/01/17/16/42/food-4773380_960_720.jpg');
+  url('https://www.saporie.com/content/dam/saporie/it/news/news/cenettaromanticaacasa-173699.jpg.sprimg..jpg');
   background-size:cover;
 }
 
 .carousel-image-3{
   background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.4)),
-  url('https://cdn.pixabay.com/photo/2018/01/04/11/40/food-3060458_960_720.jpg');
+  url('https://businessmirror.com.ph/wp-content/uploads/2020/06/Dont-miss-all-food-you-love-order-now-at-foodpanda-.jpg');
   background-size:cover;
 }
 
@@ -87,75 +151,188 @@ body{
 
 
 // sezione piatti e tipologie
+
+.text-ordina{
+  padding: 24px 0 12px;
+ text-align:center;
+  font-weight: 600;
+  font-size: 48px;
+  color: #000;
+}
 #products{
-  background: black;
-    .product-title{
-      color:white;
-    }
-  .single-item{
-    display:inline-block;
-    vertical-align: middle;
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(247,241,241);
-    position: relative;
-    transition-duration:0.3s;
-    transition-property: transform;
-    cursor:pointer;
-    &:hover,
-    &:focus,
-    &:active{
-      transform:translateY(-5px);
+  background: lightyellow;;
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+
+    .container2{
+     background-color:orange;
+        width:100%;
+         display:flex;
+         flex-direction:row;
+
+    #product-items{
+      background: black;
+      width:80%;
+      padding:20px;
+      margin-left:30px;
+      height:500px;
+      margin:auto;  
+    //   ::-webkit-scrollbar {
+    //     width: 0px;
+    //     background: transparent; /* make scrollbar transparent */
+    // }
+      overflow-y:scroll;
+
     }
 
-    &::before{
-      pointer-events: none;
-      position:absolute;
-      z-index:-1;
-      content:"";
-      top:100%;
-      left:5%;
-      height: 10px;
-      width: 90%;
-      opacity:0;
-      background: radial-gradient(ellipse at center, rgba(248,248,248,0.35)0%, rgba(247,244,244,0)80%);
-      transition-duration:0.3s;
-      transition-property:transform,opacity;
-      &:hover,
-      &:active{
-        opacity: 1;
-        transform: translateY(5px);
-      }
+   .product-title{
+      width:1200px;
+     background:black;
+      padding-right:30px;
+      
     }
-    .img-container{
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: perspective(1px) translateZ(0);
-      transform: perspective(1px) translateZ(0);
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-      -webkit-transition-duration: 0.3s;
-      transition-duration: 0.3s;
-      -webkit-transition-property: box-shadow, transform;
-      transition-property: box-shadow, transform;
-      &:hover{
-        box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-      .product-img{
-        &:focus,
-        &:active{
-          box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
-          -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+
+    .contenitore-piatti-img{
+      width:400px;
+      background:white;
+      display:flex;      
+      justify-content:center; 
+      flex-direction:column;
+      padding:5px;
+      border-radius:10px;
+      border:2px solid lightgrey;
+      box-shadow: 3px 3px 3px ligthgrey;
+
+
+      .img-container{
+       // background-color:red;
+        width:250px;
+        height:200px;
+        display:flex;
+        flex-direction: row;
+        justify-content:center; 
+        margin-top:10px;
+        margin-left:40px;
+        padding:3px;
+        // position: relative;
+        // overflow: hidden;
+        // cursor: pointer;
+        // display: inline-block;
+        // vertical-align: middle;
+        // -webkit-transform: perspective(1px) translateZ(0);
+        // transform: perspective(1px) translateZ(0);
+        // box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        // -webkit-transition-duration: 0.3s;
+        // transition-duration: 0.3s;
+        // -webkit-transition-property: box-shadow, transform;
+        // transition-property: box-shadow, transform;
+        // &:hover{
+        //   box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
+        //   -webkit-transform: scale(1.1);
+        //   transform: scale(1.1);
+        // }
+        img{
+          width:100%;
+          background:yellow;
+          
         }
+
+        // .product-img{
+        //   &:focus,
+        //   &:active{
+        //     box-shadow: 1px 0px 1px 4px rgba(247, 243, 243, 0.932);
+        //     -webkit-transform: scale(1.1);
+        //     transform: scale(1.1);
+        //   }
+
+        // }
       }
     }
-  }
+      .card-piatti{
+        width:300px;
+       // background:pink;
+        display:flex;
+        flex-direction:column;
+        height: 200px;
+        margin-top:20px;
+        h5{
+          font-size:30px;
+          text-align:center;
+          font-weight: 400;
+          text-transform:capitalize;
+        }
+
+        .card-text{
+          text-align:center;
+          font-size:15px;
+          text-transform:capitalize;
+         
+          
+          ul{
+            text-decoration: none;
+          }
+
+        }
+        .prezzo-card{
+          font-size:20px;
+         // background: red;        
+          margin-top:30px;
+          padding-left:5px;
+         
   
-}
+        }
+
+      }
+      
+
+
+    }
+  // .single-item{
+  //   display:inline-block;
+  //   vertical-align: middle;
+  //   transform: perspective(1px) translateZ(0);
+  //   box-shadow: 0 0 1px rgb(247,241,241);
+  //   position: relative;
+  //   transition-duration:0.3s;
+  //   transition-property: transform;
+  //   cursor:pointer;
+  //   &:hover,
+  //   &:focus,
+  //   &:active{
+  //     transform:translateY(-5px);
+  //   }
+
+    // &::before{
+    //   pointer-events: none;
+    //   position:absolute;
+    //   z-index:-1;
+    //   content:"";
+    //   top:100%;
+    //   left:5%;
+    //   height: 10px;
+    //   width: 90%;
+    //   opacity:0;
+    //   background: radial-gradient(ellipse at center, rgba(248,248,248,0.35)0%, rgba(247,244,244,0)80%);
+    //   transition-duration:0.3s;
+    //   transition-property:transform,opacity;
+    //   &:hover,
+    //   &:active{
+    //     opacity: 1;
+    //     transform: translateY(5px);
+    //   }
+    }
+
+
+// }
+
+// }
+
+
+//fine contenitore-piatti
+
 
 // Sezione sec
 

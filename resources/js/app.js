@@ -46,6 +46,15 @@ var chiamate = new Vue({
     console.log(this.finalPriceSaved);
     // console.log(this.user);
 
+    for(var h in this.finalPriceSaved){
+      this.sommaPrezzo +=this.finalPriceSaved[h].prezzo;
+      this.userid = this.finalPriceSaved[h].user_id;
+    }
+
+    console.log(this.userid);
+
+    // console.log(this.userFinale);
+    console.log(this.finalPriceSaved);
 
     this.show = 'hide',
     axios
@@ -157,9 +166,9 @@ var chiamate = new Vue({
         
       }
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
-      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+      // this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
 
-      console.log(this.carrelloSalvato);
+      // console.log(this.carrelloSalvato);
       
       // ottengo il prezzo totale
       for(var k in this.carrelloSalvato){
