@@ -49,22 +49,27 @@ color: #fff;
     
     .contenitore-carrello{
         width:100%;
-       // background: yellow;
+        background: yellow;
         display:flex;
         flex-direction:row;
         flex-wrap:nowrap;
+        justify-content:space-between;
         padding:10px;
         overflow-y:scroll;
         
-        .quantita{
-            background: brown;
-            width:30px;
-        }
-        .nome_piatto input{
+        // .quantita{
+        //     display:flex;
+        //     background: brown;
+        //     width:30px;
+        // }
+        .contenitore_nome_piatto{
+           font-size:20px;
             background: coral;
             width:150px;
+
         }
-        .prezzo_p input{
+        .contenitore_prezzo_p{
+            font-size:20px;
             background: cornflowerblue;
             width:50px;
         }

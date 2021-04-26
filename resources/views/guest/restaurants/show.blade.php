@@ -96,14 +96,11 @@
                   @endguest
                 </ul>
               </div>
-            </div>
+            
           </nav>
         </div>
       
-
-
       <div class="jumbotrone">
-      </div>
       {{-- Sezione slider --}}
       <section id="main">
         <div id="Carousel" class="carousel slide" data-ride="carousel">
@@ -149,6 +146,9 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
+            </div><!-- fine jumbotron -->
+
+
       </section>
       {{-- Sezione info ristorante e vario --}}
       <!-- <section id="ristorante-info">
@@ -161,41 +161,29 @@
       <section id="products" class="products py-5">
      
         <div class="container2">
-          <div class="row">
-            <div class="col-10 mx-auto col-sm-6 text-center">
-              
-            </div>
-          </div>
+         
 
             <div class="row product-items" id="product-items">
               {{-- singolo oggetto --}}
               <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
 
-                <div class="contenitore-piatti-img single-item">
-
-                <div class="card-piatti">
-                    <div class="card-text ">
-                      <h5 name="nome" id="item-name">@{{ item.nome }}</h5>
-                      <p>@{{ item.ingredienti }} </p>
-                           
-                        
-                      
-
-                      <div class="prezzo-card"name="prezzo" >
-                      <i class="fas fa-euro-sign"></i>
-                        <span>@{{ item.prezzo }}</span>
-                      </div>
-
-                    </div>
-                    
-                   </div>  <!-- /card-piatti -->
+                <div class="contenitore-piatti-img">
 
                   <div class="img-container">
-                    <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
+                      <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
                   </div>
 
-
-                  
+                  <div class="card-piatti">                   
+                      <h5>@{{ item.nome }}</h5>
+                      <div class="card-text ">
+                      <p>@{{ item.ingredienti }} </p>
+                  </div>
+                      <div class="prezzo-card"name="prezzo" >
+                        <i class="fas fa-euro-sign"></i>
+                        <span>@{{ item.prezzo }}</span>
+                      </div>
+                                       
+                   </div>  <!-- /card-piatti -->                 
 
                 </div> <!-- /card -->
 
@@ -249,44 +237,53 @@
           </div>
             
               <div class="contenitore-carrello">
+                
                   <form method="POST" action="{{ route('add.carrello.post') }}">
                   @csrf
                   @method('POST')
                 
                   <div class="quantita">
 
-                  <div v-for="(piatto, index) in carrello">
+                  <!-- <div v-for="(piatto, index) in carrello">
                     <p>@{{ piatto }}</p>
                   </div> 
-                  
-                  <div v-for="(val, index) in piattiRistorante">
+                   -->
+                  <!-- <div v-for="(val, index) in piattiRistorante">
                     <p>@{{ val.contatore }}</p>
-                    </div>
-                    
-                  </div> 
-                                   
-                  <div v-for="item in piattiRistorante">
-                    
-                    <div class="nome_piatto">                
-                    <input type="text" name="nome" :value="item.nome" readonly>
-                    </div> 
-                   
+                    </div> -->                    
+                  </div>
 
+                    <div class="contenitore_nome_piatto">
+                      <div v-for="item in piattiRistorante">
+                        <div class="nome_piatto"> 
+                          <span>@{{item.nome}}</span>
+                        </div> 
+                    </div>
+                  </div>      
+                    <div class="conteinitore_prezzo_p">
+                    <div v-for="item in piattiRistorante">
+                  <input type="text" name="nome" type="hidden" :value="item.nome" readonly>                     -->
+                   
                     <div class="prezzo_p">
                     <input type="number" name="prezzo" :value="item.prezzo" readonly>
+                    <span>@{{item.prezzo}}</span>
                     </div>
                     
                   </div>             
                  
+                    </div>          
+                  
                 </form>     
 
               </div>   <!-- fine contenitore-carrello -->
                
           
             <div class="container-btn-pag">
-            
+              <a href="{{route('payment.process')}}">
               <button type="submit" class="btn-pagamento">Vai al pagamento</button>
             
+              </a>
+              
             </div>
          
                
@@ -350,5 +347,7 @@
         </div>
       </footer>
     </div>
-  </div>
+   </div> 
+</div>
+</div>
 </body>

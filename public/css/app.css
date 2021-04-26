@@ -11695,6 +11695,7 @@ body {
 }
 
 #products {
+  background: lightyellow;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -11703,15 +11704,19 @@ body {
 }
 
 #products .container2 {
+  background-color: orange;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
 #products .container2 #product-items {
-  width: 100%;
+  background: black;
+  width: 80%;
   padding: 20px;
   margin-left: 30px;
+  height: 500px;
+  margin: auto;
   overflow-y: scroll;
 }
 
@@ -11722,22 +11727,24 @@ body {
 }
 
 #products .container2 .contenitore-piatti-img {
+  width: 400px;
   background: white;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
   border-radius: 10px;
   border: 2px solid lightgrey;
   box-shadow: 3px 3px 3px ligthgrey;
-  justify-content: space-around;
-  padding: 5px;
 }
 
 #products .container2 .contenitore-piatti-img .img-container {
-  background-color: red;
-  width: 150px;
-  height: 100px;
+  width: 250px;
+  height: 200px;
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
+  justify-content: center;
+  margin-top: 10px;
   margin-left: 40px;
   padding: 3px;
 }
@@ -11748,34 +11755,34 @@ body {
 }
 
 #products .container2 .card-piatti {
-  border: 2px solid grey;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px lightgrey;
   width: 300px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 300px;
+  flex-direction: column;
+  height: 200px;
   margin-top: 20px;
 }
 
-#products .container2 .card-piatti .card-text {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+#products .container2 .card-piatti h5 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
   text-transform: capitalize;
-  padding-top: 30px;
-  padding-left: 20px;
-  width: 40%;
+}
+
+#products .container2 .card-piatti .card-text {
+  text-align: center;
+  font-size: 15px;
+  text-transform: capitalize;
 }
 
 #products .container2 .card-piatti .card-text ul {
   text-decoration: none;
 }
 
-#products .container2 .prezzo-card {
-  background: red;
-  margin-top: 40px;
+#products .container2 .card-piatti .prezzo-card {
+  font-size: 20px;
+  margin-top: 30px;
+  padding-left: 5px;
 }
 
 #about-sec {
@@ -12001,24 +12008,23 @@ body {
 
 #carr .contenitore-carrello {
   width: 100%;
+  background: yellow;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
   padding: 10px;
   overflow-y: scroll;
 }
 
-#carr .contenitore-carrello .quantita {
-  background: brown;
-  width: 30px;
-}
-
-#carr .contenitore-carrello .nome_piatto input {
+#carr .contenitore-carrello .contenitore_nome_piatto {
+  font-size: 20px;
   background: coral;
   width: 150px;
 }
 
-#carr .contenitore-carrello .prezzo_p input {
+#carr .contenitore-carrello .contenitore_prezzo_p {
+  font-size: 20px;
   background: cornflowerblue;
   width: 50px;
 }

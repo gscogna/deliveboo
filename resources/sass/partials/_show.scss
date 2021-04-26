@@ -160,7 +160,7 @@ margin-top:80px;
   color: #000;
 }
 #products{
-  //background: lightyellow;;
+  background: lightyellow;;
   width:100%;
   margin:0 auto;
   display:flex;
@@ -168,17 +168,22 @@ margin-top:80px;
   flex-wrap:nowrap;
 
     .container2{
-     // background-color:orange;
+     background-color:orange;
         width:100%;
          display:flex;
          flex-direction:row;
 
     #product-items{
-      //background: black;
-      width:100%;
+      background: black;
+      width:80%;
       padding:20px;
       margin-left:30px;
-     
+      height:500px;
+      margin:auto;  
+    //   ::-webkit-scrollbar {
+    //     width: 0px;
+    //     background: transparent; /* make scrollbar transparent */
+    // }
       overflow-y:scroll;
 
     }
@@ -187,25 +192,29 @@ margin-top:80px;
       width:1200px;
      background:black;
       padding-right:30px;
+      
     }
 
     .contenitore-piatti-img{
+      width:400px;
       background:white;
-      display:flex;
+      display:flex;      
+      justify-content:center; 
+      flex-direction:column;
+      padding:5px;
       border-radius:10px;
       border:2px solid lightgrey;
       box-shadow: 3px 3px 3px ligthgrey;
-      justify-content: space-around; 
-      padding:5px;
 
 
       .img-container{
-        background-color:red;
-        width:150px;
-        height:100px;
+       // background-color:red;
+        width:250px;
+        height:200px;
         display:flex;
         flex-direction: row;
-        margin-top:30px;
+        justify-content:center; 
+        margin-top:10px;
         margin-left:40px;
         padding:3px;
         // position: relative;
@@ -228,6 +237,7 @@ margin-top:80px;
         img{
           width:100%;
           background:yellow;
+          
         }
 
         // .product-img{
@@ -242,40 +252,41 @@ margin-top:80px;
       }
     }
       .card-piatti{
-        border:2px solid grey;
-        border-radius:10px;
-        box-shadow: 3px 3px 3px lightgrey;
         width:300px;
-        //ackground:pink;
+       // background:pink;
         display:flex;
-        flex-direction:row;
-        flex-wrap: wrap;
-        height: 300px;
+        flex-direction:column;
+        height: 200px;
         margin-top:20px;
+        h5{
+          font-size:30px;
+          text-align:center;
+          font-weight: 400;
+          text-transform:capitalize;
+        }
 
         .card-text{
-          display:flex;
-          justify-content:flex-start;
-          flex-direction:column;
+          text-align:center;
+          font-size:15px;
           text-transform:capitalize;
-          padding-top:30px;
-          padding-left:20px;
-          width:40%;
+         
+          
           ul{
             text-decoration: none;
           }
 
-
-
+        }
+        .prezzo-card{
+          font-size:20px;
+         // background: red;        
+          margin-top:30px;
+          padding-left:5px;
+         
+  
         }
 
-
       }
-      .prezzo-card{
-        background: red;
-        margin-top:40px;
-
-      }
+      
 
 
     }
