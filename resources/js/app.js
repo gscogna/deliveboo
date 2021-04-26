@@ -173,9 +173,10 @@ var app = new Vue({
     mese: [],
 
   },
+  
   mounted(){
     axios
-    .get('http://localhost:8000/api/orders')
+    .get(`http://localhost:8000/api/orders/${orderid}`)
     .then((result)=> {
       this.arrayOrdini = result.data.response;
       console.log(this.arrayOrdini);
@@ -220,7 +221,5 @@ var app = new Vue({
                 //     }
                 // }
             });
-
-
       }
 });

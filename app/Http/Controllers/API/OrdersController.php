@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
-    public function index(){
+    public function index($id){
 
-        $orders = Order::all();
+        $orders = Order::where('user_id', $id)->get();
     
-        return response()->json([
-            'success' => true,
-            'response' => $orders
-        ]);
+        // return response()->json([
+        //     'success' => true,
+        //     'response' => $orders
+        // ]);
+        return response()->json($orders);
     }
 }

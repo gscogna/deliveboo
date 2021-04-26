@@ -62576,7 +62576,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this4 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/orders').then(function (result) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:8000/api/orders/".concat(orderid)).then(function (result) {
       _this4.arrayOrdini = result.data.response;
       console.log(_this4.arrayOrdini);
 
