@@ -62465,15 +62465,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/types').then(function (result) {
-      _this.tipologie = result.data.response; //   this.tipologie.forEach((element, index) => {
-      //     if (!this.tipoScelto.includes(element.nome)) {
-      //       this.tipoScelto.push(element);
-      //     };
-      // });
-    });
-    this.user = localStorage.getItem(this.useridfinale);
-    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
-    console.log(this.finalPriceSaved); // console.log(this.user);
+      _this.tipologie = result.data.response;
+    }); // this.userFinale = localStorage.getItem(this.userProva);
 
     for (var h in this.finalPriceSaved) {
       this.sommaPrezzo += this.finalPriceSaved[h].prezzo;
@@ -62498,7 +62491,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     });
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/restaurant').then(function (result) {
-      _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
+      _this.arrayRistoranti = result.data.response;
+      console.log(_this.arrayRistoranti);
     });
     this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
     this.restaurant_plates;
@@ -62599,12 +62593,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       // console.log(this.userid);
     }
   }
-}); // fetch('http://localhost:8000/api/plate').then(function (response){
-//   return response.json();
-// }).then(function(data) {
-//   // document.getElementById('prezzo').innerHtml+=data.response;
-// });
-
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#myChart",
   data: {
