@@ -41,8 +41,10 @@ var chiamate = new Vue({
       // });
     });
 
-    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
     this.user = localStorage.getItem(this.useridfinale);
+    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    console.log(this.finalPriceSaved);
+    // console.log(this.user);
 
 
     this.show = 'hide',
@@ -160,22 +162,27 @@ var chiamate = new Vue({
       console.log(this.carrelloSalvato);
       
       // ottengo il prezzo totale
-      
       for(var k in this.carrelloSalvato){
-        // console.log(this.carrelloSalvato[k].prezzo);
         localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
-        
-        localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id))
       }
       this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      this.userid = JSON.parse(localStorage.getItem(this.userid));
-      
-
       localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
-      localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
 
-      console.log(this.userid);
-      console.log(this.sommaPrezzo);
+
+      // this.carrelloSalvato.forEach(element => {
+      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
+      // });
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+
+      // console.log(this.sommaPrezzo);
+
+      // for(var k in this.carrelloSalvato){
+      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      // }
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.userid);
     },
 
   }

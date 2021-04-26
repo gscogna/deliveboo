@@ -38,7 +38,7 @@
         </div>
         <div>
             <p >@{{ finalPriceSaved }}</p>
-            <input id="userid" name="user_id" type="hidden" min="1" :value="user" readonly>
+            <input id="userid" name="user_id" min="1" :value="user" readonly>
         </div>
     </div>
    
