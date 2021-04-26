@@ -14,6 +14,7 @@
     <script src="https://js.braintreegateway.com/web/3.76.1/js/data-collector.min.js"></script>
 
   <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,13 +26,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
 
         @include('partials.header')
         <main class="py-4">
             @yield('content')
         </main>
         @include('partials.footer')
-    </div>
 </body>
 </html>

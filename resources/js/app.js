@@ -18,9 +18,15 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
-    carrelloSalvato: '',
-    stored_datas: '',
+    carrelloSalvato: [],
+    sommaPrezzo: 0,
     tipologie:[],
+    array: [],
+    finalPrice: 0,
+    finalPriceSaved: 0,
+    userid: 0,
+    userProva: 0,
+    userFinale: 0,
   },
   mounted(){
     axios
@@ -35,6 +41,19 @@ var chiamate = new Vue({
       // });
     });
 
+    // this.userFinale = localStorage.getItem(this.userProva);
+    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+
+    for(var h in this.finalPriceSaved){
+      this.sommaPrezzo +=this.finalPriceSaved[h].prezzo;
+      this.userid = this.finalPriceSaved[h].user_id;
+    }
+
+    console.log(this.userid);
+
+    // console.log(this.userFinale);
+    console.log(this.finalPriceSaved);
+
     this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
@@ -44,7 +63,7 @@ var chiamate = new Vue({
       this.arrayPiatti.forEach((item) => {
         if(item.user_id == this.id_ristorante){
           this.piattiRistorante.push(item);
-          item.contatore = 0;
+          item.contatore = 1;
         }
       });
       // console.log(this.id_ristorante);
@@ -141,88 +160,103 @@ var chiamate = new Vue({
     add_to_chart(index) {
 
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello);
-
-        // Save
-        localStorage[this.carrello] = JSON.stringify(this.carrello);
-
-        // Retrieve
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
-
-        console.log(this.stored_datas);
-
+        this.carrello.push(this.piattiRistorante[index]);
+        
       }
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      // this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
 
-      // this.carrello.forEach(item =>{
-      //   this.carrelloSalvato = localStorage[item];
-      // })
-      // console.log('carrellosalvato ' + this.carrelloSalvato);
+      // console.log(this.carrelloSalvato);
+      
+      // ottengo il prezzo totale
+      
+      // for(var k in this.carrelloSalvato){
+      //   // console.log(this.carrelloSalvato[k].prezzo);
+        
+      //   localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      // }
+      // this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      
+      // localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      
+      // console.log(this.sommaPrezzo);
 
-      this.piattiRistorante[index].contatore++;
+      // user id
+      // for(var h in this.carrelloSalvato){
 
-
+      //   this.userid= this.carrelloSalvato[h].user_id;
+      // }
+      // localStorage.setItem(this.userProva, this.userid);
+      
+      // console.log(this.userid);
     },
 
   }
-
-  // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
-
-
 });  
 
-
-
-
-
+// fetch('http://localhost:8000/api/plate').then(function (response){
+//   return response.json();
+// }).then(function(data) {
+//   // document.getElementById('prezzo').innerHtml+=data.response;
+// });
 
 var app = new Vue({
   el: '#myChart',
   data: {
-    arrayOrdini: ''
+    arrayOrdini: '',
+    nomi: [],
+    quantita: [],
+    mese: [],
 
   },
   mounted(){
     axios
     .get('http://localhost:8000/api/orders')
     .then((result)=> {
-            this.arrayOrdini = result.data.response;
-            // console.log(this.arrayOrdini);
+      this.arrayOrdini = result.data.response;
+      console.log(this.arrayOrdini);
             this.arrayOrdini.forEach(element => {
-                
-            })
-      });
-    
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['pizza', 'hamburger', 'patatine', 'supplì'],
-                datasets: [{
-                    data: [12, 19, 3, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.4)',
-                        'rgba(255, 206, 86, 0.4)',
-                        'rgba(54, 162, 235, 0.4)',
-                        'rgba(75, 192, 192, 0.4)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(75, 192, 192, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            // options: {
-            //     scales: {
-            //         y: {
-            //             beginAtZero: true
-            //         }
-            //     }
-            // }
-        });
 
-  }
+                if(element.pagamento_avvenuto == 1 && element.created_at.slice(0,7) == '2021-04'){
+                  this.quantita.push(element);
+                }
+                
+              })
+              // console.log(this.quantita.length);
+            });
+
+            var tot = this.quantita.length;
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                    labels: ['Gen','Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott','Nov','Dic'],
+                    datasets: [{
+                        data: [2,5,6,7,4,5,6,7,5,3,2,2],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.4)',
+                            'rgba(255, 206, 86, 0.4)',
+                            'rgba(54, 162, 235, 0.4)',
+                            'rgba(75, 192, 192, 0.4)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                // options: {
+                //     scales: {
+                //         y: {
+                //             beginAtZero: true
+                //         }
+                //     }
+                // }
+            });
+
+
+      }
 });
