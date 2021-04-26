@@ -62595,6 +62595,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/orders/1').then(function (response) {
       _this4.ordini = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:8000/api/orders/".concat(orderid)).then(function (result) {
+      _this4.arrayOrdini = result.data.response;
+      console.log(_this4.arrayOrdini);
 
       var _loop = function _loop(i) {
         var ordiniSomma = 0;
@@ -62693,6 +62696,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");

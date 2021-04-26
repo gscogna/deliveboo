@@ -93,8 +93,6 @@
           </nav>
         </div>
       </div>
-      <div class="jumbotrone">
-      </div>
       {{-- Sezione slider --}}
       <section id="main">
         <div id="Carousel" class="carousel slide" data-ride="carousel">
