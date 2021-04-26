@@ -24,13 +24,10 @@
 <body>
     <div id="app">
       
-
         <div class="layover">
         
            <nav class="navbar-show navbar-expand-md" style="width: 100%;">
-           <!-- <div class="container2"> -->
-
-            
+           <!-- <div class="container2"> -->            
               <div class="collapse-show navbar-collapse">
                 <!-- Left Side Of Navbar -->
                   @if (Auth::user())
@@ -95,11 +92,10 @@
                     </li>
                   @endguest
                 </ul>
-              </div>
-            
+              </div>           
           </nav>
         </div>
-      </div>
+
       {{-- Sezione slider --}}
       <section id="main">
         <div id="Carousel" class="carousel slide" data-ride="carousel">
@@ -123,8 +119,7 @@
                 <div class="container">
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
                     <h1 class="display -3 title-color">Mangiare a tutte le ore</h1>
-                    <p class="lead">Sempre insieme</p>
-                     
+                    <p class="lead">Sempre insieme</p>                     
                   </div>
                 </div>
               </div>
@@ -132,12 +127,11 @@
                 <div class="container">
                   <div class="carousel-caption d-none d-sm-block text-right mb-5">
                     <h1 class="display -3 title-color">Tutto quello che hai voglia di mangiare</h1>
-                    <p class="lead">Scoprilo qui con noi</p>
-                     
+                    <p class="lead">Scoprilo qui con noi</p>                     
                   </div>
                 </div>
               </div>
-              </div>
+           
               <a href="#Carousel" data-slide="prev" class="carousel-control-prev">
                 <span class="carousel-control-prev-icon"></span>
               </a>
@@ -346,7 +340,6 @@
         </div>
       </footer>
     </div>
-   </div> 
-</div>
-</div>
+ 
+
 </body>
