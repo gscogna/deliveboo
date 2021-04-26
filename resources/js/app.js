@@ -222,8 +222,8 @@ let app = new Vue({
             }
             console.log(this.ordiniMese);
 
-          let ctx = document.getElementById('myChart');
-          var myChart = new Chart(ctx, {
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
               type: 'doughnut',
               data: {
                   labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
@@ -247,5 +247,5 @@ let app = new Vue({
               },
           });
       })
-  }
+  },
 });
