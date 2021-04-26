@@ -33,12 +33,6 @@ var chiamate = new Vue({
       .get('http://127.0.0.1:8000/api/types')
       .then((result) => {
         this.tipologie = result.data.response;
-
-      //   this.tipologie.forEach((element, index) => {
-      //     if (!this.tipoScelto.includes(element.nome)) {
-      //       this.tipoScelto.push(element);
-      //     };
-      // });
     });
 
     // this.userFinale = localStorage.getItem(this.userProva);
@@ -74,7 +68,7 @@ var chiamate = new Vue({
     .get('http://localhost:8000/api/restaurant')
     .then((result)=> {
       this.arrayRistoranti = result.data.response;
-      // console.log(this.arrayRistoranti);
+      console.log(this.arrayRistoranti);
     })
     this.id_ristorante= localStorage.id_ristorante,
     // console.log(this.id_ristorante),
@@ -194,11 +188,6 @@ var chiamate = new Vue({
   }
 });  
 
-// fetch('http://localhost:8000/api/plate').then(function (response){
-//   return response.json();
-// }).then(function(data) {
-//   // document.getElementById('prezzo').innerHtml+=data.response;
-// });
 
 var app = new Vue({
   el: '#myChart',
