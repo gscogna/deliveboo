@@ -62457,7 +62457,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     array: [],
     finalPrice: 0,
     finalPriceSaved: 0,
-    userid: 0
+    userid: 0,
+    useridfinale: 0,
+    user: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62469,7 +62471,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       //     };
       // });
     });
+    this.user = localStorage.getItem(this.useridfinale);
     this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    console.log(this.finalPriceSaved); // console.log(this.user);
+
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
@@ -62568,14 +62573,22 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       console.log(this.carrelloSalvato); // ottengo il prezzo totale
 
       for (var k in this.carrelloSalvato) {
-        // console.log(this.carrelloSalvato[k].prezzo);
         localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
       }
 
-      this.userid = this.carrelloSalvato[0].user_id;
       this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
-      console.log(this.sommaPrezzo);
+      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo)); // this.carrelloSalvato.forEach(element => {
+      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
+      // });
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.sommaPrezzo);
+      // for(var k in this.carrelloSalvato){
+      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      // }
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.userid);
     }
   }
 }); // fetch('http://localhost:8000/api/plate').then(function (response){
@@ -62593,7 +62606,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   mounted: function mounted() {
     var _this4 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/orders/1').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://127.0.0.1:8000/api/orders/".concat(orderid)).then(function (response) {
       _this4.ordini = response.data;
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:8000/api/orders/".concat(orderid)).then(function (result) {
       _this4.arrayOrdini = result.data.response;

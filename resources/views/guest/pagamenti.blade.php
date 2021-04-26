@@ -38,9 +38,10 @@
         </div>
         <div>
             <p >@{{ finalPriceSaved }}</p>
+            <input id="userid" name="user_id" min="1" :value="user" readonly>
         </div>
     </div>
-    <input id="restaurant_id" name="user_id" type="hidden" :value="userid" readonly>
+   
 
         <section>
           <div class="bt-drop-in-wrapper">
