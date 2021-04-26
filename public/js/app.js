@@ -62458,8 +62458,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     finalPrice: 0,
     finalPriceSaved: 0,
     userid: 0,
-    useridfinale: 0,
-    user: 0
+    userProva: 0,
+    userFinale: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62467,6 +62467,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/types').then(function (result) {
       _this.tipologie = result.data.response;
     }); // this.userFinale = localStorage.getItem(this.userProva);
+
+    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+    console.log(this.carrelloSalvato);
 
     for (var h in this.finalPriceSaved) {
       this.sommaPrezzo += this.finalPriceSaved[h].prezzo;
@@ -62573,23 +62576,18 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello)); // this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
       // console.log(this.carrelloSalvato);
       // ottengo il prezzo totale
-
-      for (var k in this.carrelloSalvato) {
-        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
-      }
-
-      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo)); // this.carrelloSalvato.forEach(element => {
-      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
-      // });
-      // this.userid = JSON.parse(localStorage.getItem(this.userid));
-      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
-      // console.log(this.sommaPrezzo);
       // for(var k in this.carrelloSalvato){
-      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      //   // console.log(this.carrelloSalvato[k].prezzo);
+      //   localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
       // }
-      // this.userid = JSON.parse(localStorage.getItem(this.userid));
-      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      // localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      // console.log(this.sommaPrezzo);
+      // user id
+      // for(var h in this.carrelloSalvato){
+      //   this.userid= this.carrelloSalvato[h].user_id;
+      // }
+      // localStorage.setItem(this.userProva, this.userid);
       // console.log(this.userid);
     }
   }
@@ -62703,8 +62701,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

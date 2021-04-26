@@ -25,8 +25,8 @@ var chiamate = new Vue({
     finalPrice: 0,
     finalPriceSaved: 0,
     userid: 0,
-    useridfinale: 0,
-    user: 0
+    userProva: 0,
+    userFinale: 0,
   },
   mounted(){
     axios
@@ -35,11 +35,9 @@ var chiamate = new Vue({
         this.tipologie = result.data.response;
     });
 
-    this.user = localStorage.getItem(this.useridfinale);
-    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
-    console.log(this.finalPriceSaved);
-    // console.log(this.user);
-
+    // this.userFinale = localStorage.getItem(this.userProva);
+    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+    console.log(this.carrelloSalvato);
     for(var h in this.finalPriceSaved){
       this.sommaPrezzo +=this.finalPriceSaved[h].prezzo;
       this.userid = this.finalPriceSaved[h].user_id;
@@ -165,31 +163,31 @@ var chiamate = new Vue({
       // console.log(this.carrelloSalvato);
       
       // ottengo il prezzo totale
-      for(var k in this.carrelloSalvato){
-        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
-      }
-      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
-
-
-      // this.carrelloSalvato.forEach(element => {
-      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
-      // });
-      // this.userid = JSON.parse(localStorage.getItem(this.userid));
-      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
-
+      
+      // for(var k in this.carrelloSalvato){
+      //   // console.log(this.carrelloSalvato[k].prezzo);
+        
+      //   localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      // }
+      // this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      
+      // localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      
       // console.log(this.sommaPrezzo);
 
-      // for(var k in this.carrelloSalvato){
-      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      // user id
+      // for(var h in this.carrelloSalvato){
+
+      //   this.userid= this.carrelloSalvato[h].user_id;
       // }
-      // this.userid = JSON.parse(localStorage.getItem(this.userid));
-      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // localStorage.setItem(this.userProva, this.userid);
+      
       // console.log(this.userid);
+
     },
 
   }
-});  
+});   
 
 
 let app = new Vue({
