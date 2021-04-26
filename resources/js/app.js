@@ -222,24 +222,6 @@ let app = new Vue({
             }
             console.log(this.ordiniMese);
 
-  },
-  mounted(){
-    axios
-    .get('http://localhost:8000/api/orders')
-    .then((result)=> {
-      this.arrayOrdini = result.data.response;
-      console.log(this.arrayOrdini);
-            this.arrayOrdini.forEach(element => {
-
-                if(element.pagamento_avvenuto == 1 && element.created_at.slice(0,7) == '2021-04'){
-                  this.quantita.push(element);
-                }
-                
-              })
-              // console.log(this.quantita.length);
-            });
-
-            var tot = this.quantita.length;
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
               type: 'doughnut',
@@ -265,5 +247,5 @@ let app = new Vue({
               },
           });
       })
-  }
+  },
 });
