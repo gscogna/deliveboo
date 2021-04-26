@@ -15,6 +15,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->onDelete('cascade');
+            $table->foreign('user_id')
+                    ->references('user_id')
+                    ->on('restaurants');
             $table->string('nome')->nullable();
             $table->float('prezzo_totale', 6, 2)->nullable();
             $table->string('indirizzo_consegna');

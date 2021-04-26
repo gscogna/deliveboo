@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ class PagamentiController extends Controller
         return view('guest.pagamenti', compact('token'));
         }
 
-        public function checkout(Request $request)
+        public function checkout(Request $request, Restaurant $restaurant)
         {
 
             $data = $request->all();
@@ -49,10 +50,8 @@ class PagamentiController extends Controller
                 //popolo db ordini
                 $order = new Order();
                 $order->pagamento_avvenuto = true;
-                
-                if($request->has('plates')){
-                    $order->plates()->sync($request['plates']);
-                }
+                $order->user_id = $data['user_id'];
+
                 $order->fill($data);
                 $order->save();
                 return view('guest.checkout');

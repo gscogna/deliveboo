@@ -20,8 +20,8 @@ class OrdersSeeder extends Seeder
           $newOrder ->prezzo_totale = $faker->randomFloat(2, 1, 1000);
           $newOrder ->indirizzo_consegna = $faker->streetAddress();
           $newOrder ->pagamento_avvenuto = $faker->boolean();
-          $usersCount = Count(User::all()->toArray());
-          $newOrder ->user_id = rand(1, $usersCount);
+          $newOrder->nome = $faker->name();
+          $newOrder->email = $faker->email();
 
           $newOrder-> save();
       }

@@ -62451,9 +62451,15 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     show: "",
     contatore: 0,
     carrello: [],
-    carrelloSalvato: '',
-    stored_datas: '',
-    tipologie: []
+    carrelloSalvato: [],
+    sommaPrezzo: 0,
+    tipologie: [],
+    array: [],
+    finalPrice: 0,
+    finalPriceSaved: 0,
+    userid: 0,
+    useridfinale: 0,
+    user: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62465,6 +62471,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       //     };
       // });
     });
+    this.user = localStorage.getItem(this.useridfinale);
+    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    console.log(this.finalPriceSaved); // console.log(this.user);
+
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
@@ -62473,7 +62483,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         if (item.user_id == _this.id_ristorante) {
           _this.piattiRistorante.push(item);
 
-          item.contatore = 0;
+          item.contatore = 1;
         }
       }); // console.log(this.id_ristorante);
       // console.log(this.piattiRistorante);
@@ -62555,56 +62565,81 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     },
     add_to_chart: function add_to_chart(index) {
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello); // Save
+        this.carrello.push(this.piattiRistorante[index]);
+      }
 
-        localStorage[this.carrello] = JSON.stringify(this.carrello); // Retrieve
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+      console.log(this.carrelloSalvato); // ottengo il prezzo totale
 
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
-        console.log(this.stored_datas);
-      } // this.carrello.forEach(item =>{
-      //   this.carrelloSalvato = localStorage[item];
-      // })
-      // console.log('carrellosalvato ' + this.carrelloSalvato);
+      for (var k in this.carrelloSalvato) {
+        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      }
 
-
-      this.piattiRistorante[index].contatore++;
+      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo)); // this.carrelloSalvato.forEach(element => {
+      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
+      // });
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.sommaPrezzo);
+      // for(var k in this.carrelloSalvato){
+      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      // }
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.userid);
     }
-  } // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
+  }
+}); // fetch('http://localhost:8000/api/plate').then(function (response){
+//   return response.json();
+// }).then(function(data) {
+//   // document.getElementById('prezzo').innerHtml+=data.response;
+// });
 
-});
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#myChart',
+  el: "#myChart",
   data: {
-    arrayOrdini: ''
+    ordiniMese: [],
+    ordini: ''
   },
   mounted: function mounted() {
     var _this4 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/orders').then(function (result) {
-      _this4.arrayOrdini = result.data.response; // console.log(this.arrayOrdini);
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://127.0.0.1:8000/api/orders/".concat(orderid)).then(function (response) {
+      _this4.ordini = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:8000/api/orders/".concat(orderid)).then(function (result) {
+      _this4.arrayOrdini = result.data.response;
+      console.log(_this4.arrayOrdini);
 
-      _this4.arrayOrdini.forEach(function (element) {});
-    });
-    var ctx = document.getElementById('myChart');
-    var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['pizza', 'hamburger', 'patatine', 'supplì'],
-        datasets: [{
-          data: [12, 19, 3, 5],
-          backgroundColor: ['rgba(255, 99, 132, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(75, 192, 192, 0.4)'],
-          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)', 'rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)'],
-          borderWidth: 1
-        }]
-      } // options: {
-      //     scales: {
-      //         y: {
-      //             beginAtZero: true
-      //         }
-      //     }
-      // }
+      var _loop = function _loop(i) {
+        var ordiniSomma = 0;
 
+        _this4.ordini.forEach(function (element) {
+          if (i == element.created_at.substr(5, 2)) {
+            ordiniSomma++;
+          }
+        });
+
+        _this4.ordiniMese.push(ordiniSomma);
+      };
+
+      for (var i = 1; i <= 12; i++) {
+        _loop(i);
+      }
+
+      console.log(_this4.ordiniMese);
+      var ctx = document.getElementById('myChart');
+      var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+          datasets: [{
+            data: _this4.ordiniMese,
+            backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(67, 97, 238, 0.8)', 'rgba(79, 119, 45, 0.8)', 'rgba(153, 102, 255, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(158, 42, 43, 0.8)', 'rgba(164, 44, 214, 0.8)', 'rgba(229, 56, 59, 0.8)', 'rgba(255, 195, 0, 0.8)', 'rgba(75, 192, 192, 0.8)']
+          }]
+        }
+      });
     });
   }
 });
@@ -62674,8 +62709,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\39388\Documents\Corso_Boolean\mamp_public\laravel\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

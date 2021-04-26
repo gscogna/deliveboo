@@ -93,8 +93,6 @@
           </nav>
         </div>
       </div>
-      <div class="jumbotrone">
-      </div>
       {{-- Sezione slider --}}
       <section id="main">
         <div id="Carousel" class="carousel slide" data-ride="carousel">
@@ -206,18 +204,11 @@
           <i class="fas fa-shopping-cart"></i>
         </div>
         <div :class="show" class="oggetti_carrello">
-          <div v-for="(piatto, index) in carrello" class="container-piatti">
-            <p>@{{ piatto }}</p>
-          </div>
-          <div v-for="(val, index) in piattiRistorante" class="container-contatore">
-            <p>@{{ val.contatore }}</p>
+          <div v-for="(piatto, index) in carrelloSalvato" class="container-piatti">
+            <p>@{{ piatto.nome }}</p>
+            <p>@{{ piatto.contatore }}</p>
           </div>
           <button type="submit" class="btn btn-primary">Primary</button>
-  
-          <div v-for="item in piattiRistorante" class="input">
-            <input type="text" name="nome" :value="item.nome" readonly>
-            <input type="number" name="prezzo" :value="item.prezzo" readonly>
-          </div>
   
   
           </form>

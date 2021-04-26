@@ -18,9 +18,15 @@ var chiamate = new Vue({
     show: "",
     contatore: 0,
     carrello: [],
-    carrelloSalvato: '',
-    stored_datas: '',
+    carrelloSalvato: [],
+    sommaPrezzo: 0,
     tipologie:[],
+    array: [],
+    finalPrice: 0,
+    finalPriceSaved: 0,
+    userid: 0,
+    useridfinale: 0,
+    user: 0
   },
   mounted(){
     axios
@@ -35,6 +41,12 @@ var chiamate = new Vue({
       // });
     });
 
+    this.user = localStorage.getItem(this.useridfinale);
+    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    console.log(this.finalPriceSaved);
+    // console.log(this.user);
+
+
     this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
@@ -44,7 +56,7 @@ var chiamate = new Vue({
       this.arrayPiatti.forEach((item) => {
         if(item.user_id == this.id_ristorante){
           this.piattiRistorante.push(item);
-          item.contatore = 0;
+          item.contatore = 1;
         }
       });
       // console.log(this.id_ristorante);
@@ -141,88 +153,99 @@ var chiamate = new Vue({
     add_to_chart(index) {
 
       if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index].nome);
-        console.log('carrello' + this.carrello);
-
-        // Save
-        localStorage[this.carrello] = JSON.stringify(this.carrello);
-
-        // Retrieve
-        this.stored_datas = JSON.parse(localStorage[this.carrello]);
-
-        console.log(this.stored_datas);
-
+        this.carrello.push(this.piattiRistorante[index]);
+        
       }
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
 
-      // this.carrello.forEach(item =>{
-      //   this.carrelloSalvato = localStorage[item];
-      // })
-      // console.log('carrellosalvato ' + this.carrelloSalvato);
+      console.log(this.carrelloSalvato);
+      
+      // ottengo il prezzo totale
+      for(var k in this.carrelloSalvato){
+        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      }
+      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
 
-      this.piattiRistorante[index].contatore++;
 
+      // this.carrelloSalvato.forEach(element => {
+      //   localStorage.setItem(this.userid, JSON.stringify(element.user_id));
+      // });
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
 
+      // console.log(this.sommaPrezzo);
+
+      // for(var k in this.carrelloSalvato){
+      //   localStorage.setItem(this.userid, JSON.stringify(this.carrelloSalvato[k].user_id));
+      // }
+      // this.userid = JSON.parse(localStorage.getItem(this.userid));
+      // localStorage.setItem(this.useridfinale, JSON.stringify(this.userid));
+      // console.log(this.userid);
     },
 
   }
-
-  // this.utenti[this.contatoreUtente].messaggio[index].menu = ( this.utenti[this.contatoreUtente].messaggio[index].menu == 'hidden' ) ?  'show' : 'hidden';
-
-
 });  
+// fetch('http://localhost:8000/api/plate').then(function (response){
+//   return response.json();
+// }).then(function(data) {
+//   // document.getElementById('prezzo').innerHtml+=data.response;
+// });
 
-
-
-
-
-
-var app = new Vue({
-  el: '#myChart',
+let app = new Vue({
+  el: "#myChart",
   data: {
-    arrayOrdini: ''
-
+      ordiniMese: [],
+      ordini: ''
   },
-  mounted(){
-    axios
-    .get('http://localhost:8000/api/orders')
-    .then((result)=> {
-            this.arrayOrdini = result.data.response;
-            // console.log(this.arrayOrdini);
-            this.arrayOrdini.forEach(element => {
-                
-            })
-      });
-    
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['pizza', 'hamburger', 'patatine', 'supplì'],
-                datasets: [{
-                    data: [12, 19, 3, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.4)',
-                        'rgba(255, 206, 86, 0.4)',
-                        'rgba(54, 162, 235, 0.4)',
-                        'rgba(75, 192, 192, 0.4)',
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(75, 192, 192, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            // options: {
-            //     scales: {
-            //         y: {
-            //             beginAtZero: true
-            //         }
-            //     }
-            // }
-        });
 
-  }
+  mounted() {
+      axios
+      .get(`http://127.0.0.1:8000/api/orders/${orderid}`)
+      .then((response) => {
+          this.ordini = response.data; 
+
+          for (let i = 1; i <= 12; i++) {
+
+              let ordiniSomma = 0;
+
+              this.ordini.forEach((element) => {
+
+                  if ( i == element.created_at.substr(5, 2) ) {
+                      ordiniSomma++; 
+                  }
+
+              });
+
+              this.ordiniMese.push(ordiniSomma);
+            }
+            console.log(this.ordiniMese);
+
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                  labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                  datasets: [{
+                      data: this.ordiniMese, 
+                      backgroundColor: [
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(255, 159, 64, 0.8)',
+                        'rgba(67, 97, 238, 0.8)',
+                        'rgba(79, 119, 45, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(158, 42, 43, 0.8)',
+                        'rgba(164, 44, 214, 0.8)',
+                        'rgba(229, 56, 59, 0.8)',
+                        'rgba(255, 195, 0, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                      ]
+                  }]
+              },
+          });
+      })
+  },
 });
