@@ -62457,7 +62457,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     array: [],
     finalPrice: 0,
     finalPriceSaved: 0,
-    userid: 0
+    userid: 0,
+    userProva: 0,
+    userFinale: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62468,8 +62470,18 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       //       this.tipoScelto.push(element);
       //     };
       // });
-    });
-    this.finalPriceSaved = localStorage.getItem(this.finalPrice);
+    }); // this.userFinale = localStorage.getItem(this.userProva);
+
+    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+
+    for (var h in this.finalPriceSaved) {
+      this.sommaPrezzo += this.finalPriceSaved[h].prezzo;
+      this.userid = this.finalPriceSaved[h].user_id;
+    }
+
+    console.log(this.userid); // console.log(this.userFinale);
+
+    console.log(this.finalPriceSaved);
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
       _this.arrayPiatti = result.data.response;
       console.log(_this.arrayPiatti);
@@ -62563,19 +62575,22 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         this.carrello.push(this.piattiRistorante[index]);
       }
 
-      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
-      this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
-      console.log(this.carrelloSalvato); // ottengo il prezzo totale
-
-      for (var k in this.carrelloSalvato) {
-        // console.log(this.carrelloSalvato[k].prezzo);
-        localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
-      }
-
-      this.userid = this.carrelloSalvato[0].user_id;
-      this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
-      console.log(this.sommaPrezzo);
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello)); // this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
+      // console.log(this.carrelloSalvato);
+      // ottengo il prezzo totale
+      // for(var k in this.carrelloSalvato){
+      //   // console.log(this.carrelloSalvato[k].prezzo);
+      //   localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
+      // }
+      // this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
+      // localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
+      // console.log(this.sommaPrezzo);
+      // user id
+      // for(var h in this.carrelloSalvato){
+      //   this.userid= this.carrelloSalvato[h].user_id;
+      // }
+      // localStorage.setItem(this.userProva, this.userid);
+      // console.log(this.userid);
     }
   }
 }); // fetch('http://localhost:8000/api/plate').then(function (response){

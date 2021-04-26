@@ -37,7 +37,9 @@
             <input name="indirizzo_consegna" type="text" class="form-control" id="inputIndirizzo" placeholder="Inserisci nome...">
         </div>
         <div>
-            <p >@{{ finalPriceSaved }}</p>
+            <p >@{{ sommaPrezzo }}</p>
+            <input id="userid" name="user_id"  min="1" :value="userid" readonly>
+
         </div>
     </div>
     <input id="restaurant_id" name="user_id" type="hidden" :value="userid" readonly>
