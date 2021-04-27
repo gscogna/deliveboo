@@ -25,9 +25,7 @@
 </head>
 <body style="font-family: 'Poppins', sans-serif;">
     <div id="app">
-        <div style="width: 100%; height: 400px; background-color: #0f2a4b">
-
-        </div>
+        <div style="width: 100%; height: 400px; background-color: #0f2a4b"></div>
         <main>
             @yield('content')
         </main>

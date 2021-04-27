@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-prov')
 @section('title', 'Crea il tuo ristorante')
 
 @section('content')
@@ -12,7 +12,7 @@
       </ul>
   </div>
 @endif
-    <form action="{{ route('restaurants.store') }}" method="post" enctype="multipart/form-data">
+    <form class="mt-4" action="{{ route('restaurants.store') }}" method="post" enctype="multipart/form-data">
         @method('POST')
         @csrf
         {{-- nome --}}
@@ -40,7 +40,10 @@
         </div>
         @endforeach
        
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn mt-4" style="background-color:#0f2a4b">
+          <a style="color:white " href="{{ url('admin/plates') }}">Indietro</a>
+      </button>
+      <button type="submit" class="btn mt-4"style="background-color:#0f2a4b; color: white">Salva</button>
       </form>
 </div>
 @endsection
