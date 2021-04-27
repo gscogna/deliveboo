@@ -10948,29 +10948,50 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
+body #app {
+  width: 100%;
+}
+
+.navbar-brand img {
+  width: 100%;
+  margin-top: 80px;
+  height: 600px;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-brand img {
+    display: none;
+  }
 .navbar-brand {
   font-size: 30px;
   font-weight: bold;
   font-style: inherit;
 }
 
+@media screen and (max-width: 766px) {
+  .navbar-brand img {
+    display: none;
+  }
+}
+
 header {
+  background-color: green;
   width: 100%;
-  height: 500px;
-  background-image: url("https://www.vitaminity.com/it/pub/media/blog/cache/840x473/magefan_blog/VITAMINITY_CIBI_SANI.jpg");
+  height: 620px;
+  margin-top: 140px;
+  padding: 20px 0;
+  background-image: url("");
   background-position: center;
   background-size: cover;
 }
 
 header .layover {
-  margin: 70px auto 10px auto;
-  width: 80%;
+  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 header nav {
-  background-color: rgba(255, 191, 0, 0.7);
+  background-color: #ffbf00b3;
   position: fixed;
   z-index: 80;
   top: 0;
@@ -10982,6 +11003,7 @@ header nav div ul li {
 }
 
 header .header-content-guest {
+  background-color: darkblue;
   display: flex;
   justify-content: center;
   background-color: transparent;
@@ -10998,6 +11020,7 @@ header .header-content-guest .hcg-left {
   width: 50%;
   height: 300px;
   margin-top: 60px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11011,7 +11034,9 @@ header .header-content-guest .hcg-left {
 }
 
 header .header-content-guest .hcg-left h2 {
-  color: white;
+  color: #272343;
+  font-weight: bold;
+  padding-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 70px;
   text-align: center;
@@ -11042,81 +11067,63 @@ header .header-content-guest .hcg-left .header-searchbar {
 }
 
 header .header-content-guest .hcg-left .header-searchbar input {
-  width: 300px;
-  height: 50px;
-  border-radius: 5px;
+  width: 500px;
+  height: 100px;
+  border-radius: 15px;
   margin-top: 20px;
   text-align: justify;
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
 }
 
-header .header-content-guest .hcg-left .header-searchbar .container-search {
+header .header-content-guest .hcg-left .header-searchbar .search-results {
   background-color: white;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 766px) {
-  header .header-content-guest .hcg-left .header-searchbar .container-search {
+  header .header-content-guest .hcg-left .header-searchbar .search-results {
     background-color: transparent;
     border-radius: 10px;
+    height: 50px;
   }
 }
 
-header .header-content-guest .hcg-left .header-searchbar .container-search ul {
+header .header-content-guest .hcg-left .header-searchbar .search-results ul {
   list-style: none;
 }
 
-header .header-content-guest .hcg-left .header-searchbar .container-search ul li {
+header .header-content-guest .hcg-left .header-searchbar .search-results ul li {
   width: 100%;
-  font-size: 20px;
+  height: 80px;
+  font-size: 30px;
   text-transform: capitalize;
 }
 
-header .header-content-guest .hcg-left .header-searchbar .container-search ul li:hover {
+header .header-content-guest .hcg-left .header-searchbar .search-results ul li:hover {
   background-color: rgba(255, 191, 0, 0.4);
   cursor: pointer;
 }
 
-header .header-content-guest div.hcg-right {
-  width: 60%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 992px) {
-  header .header-content-guest div.hcg-right {
-    height: 200px;
-  }
-}
-
-header .header-content-guest div.hcg-right i {
-  font-size: 200px;
-  color: #ffbf00;
-  margin-right: 30px;
-  margin-top: 50px;
+header .header-content-guest img {
+  height: 600px;
+  width: 100%;
 }
 
 .nav-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  text-transform: uppercase;
-  font-size: 20px;
+}
+
+.nav-item .nav-link:hover {
+  text-decoration: underline;
 }
 
 .list-item2 {
   margin-top: 8px;
   margin-right: 20px;
   vertical-align: middle;
-}
-
-.list-item2 a {
-  color: #272343;
-  text-decoration: underline;
-  text-transform: uppercase;
-  font-size: 20px;
 }
 
 footer {
@@ -11218,6 +11225,7 @@ footer .font .twt-lightblue:hover {
 main {
   width: 100%;
   background-color: #fffffe;
+  margin-top: 150px;
 }
 
 main h1 {
@@ -11362,6 +11370,11 @@ main .choose-restaurant .guest-restaurants .card {
   }
 }
 
+main .choose-restaurant .guest-restaurants .card:hover {
+  background-color: grey;
+  opacity: 0.5;
+}
+
 main .choose-restaurant .guest-restaurants .card .card-img-top {
   display: flex;
   justify-content: center;
@@ -11370,17 +11383,14 @@ main .choose-restaurant .guest-restaurants .card .card-img-top {
   position: relative;
 }
 
-main .choose-restaurant .guest-restaurants .card .card-img-top:hover {
-  background-color: black;
-  opacity: 0.6;
-}
-
 main .choose-restaurant .guest-restaurants .card .card-img-top img {
   width: 100%;
   padding: 10px;
 }
 
 main .choose-restaurant .guest-restaurants .card .cover-layover {
+  display: flex;
+  flex-direction: column;
   display: none;
   position: absolute;
   top: 50%;
@@ -11388,6 +11398,11 @@ main .choose-restaurant .guest-restaurants .card .cover-layover {
   transform: translate(-50%, -50%);
   color: #FFBF00;
   font-size: 60px;
+}
+
+main .choose-restaurant .guest-restaurants .card .cover-layover .font-cover {
+  display: flex;
+  justify-content: center;
 }
 
 main .choose-restaurant .guest-restaurants .card .card-img-top:hover .cover-layover {
@@ -11401,38 +11416,11 @@ main .choose-restaurant .guest-restaurants .card a {
 main .choose-restaurant .guest-restaurants .card p {
   color: #272343;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 20px;
   text-align: center;
   margin: 0px auto 10px auto;
-}
-
-main .card-restaurant {
-  width: 200px;
-  border: 1px solid #FFBF00;
-  border-radius: 5px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-main .card-restaurant img {
-  width: 100%;
-}
-
-main .card-restaurant p {
-  text-align: center;
-  font-size: 25px;
-  color: #272343;
-  font-weight: bold;
   text-transform: capitalize;
-}
-
-main .card-restaurant .btn-menu {
-  border-radius: 10px;
-  background-color: rgba(255, 191, 0, 0.2);
-  padding: 5px;
 }
 
 .banner {
@@ -11542,15 +11530,6 @@ body {
 .navbar-show .collapse-show .navbar-nav-show-left {
   width: 400px;
   background: violet;
-}
-
-.navbar-show .collapse-show .navbar-nav-show-left a {
-  color: black;
-  font-size: 25px;
-}
-
-.navbar-show .collapse-show .navbar-nav-show-left a .fas {
-  color: black;
 }
 
 .navbar-show .collapse-show .navbar-nav-show-right {
@@ -11678,10 +11657,11 @@ body {
 }
 
 .text-ordina {
-  padding: 24px 0 12px;
-  text-align: center;
+  padding: 30px 0 15px;
+  text-align: justify;
+  margin-left: 15px;
   font-weight: 600;
-  font-size: 48px;
+  font-size: 45px;
   color: #000;
 }
 
@@ -11691,66 +11671,62 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
 }
 
 #products .container2 {
-  background-color: orange;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #products .container2 #product-items {
-  background: black;
-  width: 80%;
+  width: 100%;
   padding: 20px;
   margin-left: 30px;
   height: 500px;
-  margin: auto;
+  margin: 0 auto;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
-#products .container2 .product-title {
-  width: 1200px;
-  background: black;
-  padding-right: 30px;
+#products .container2 #product-items ::-webkit-scrollbar {
+  display: none;
 }
 
 #products .container2 .contenitore-piatti-img {
-  width: 400px;
+  width: 100%;
   background: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 5px;
+  margin-left: 5px;
   border-radius: 10px;
-  border: 2px solid lightgrey;
-  box-shadow: 3px 3px 3px ligthgrey;
+  border: 3px solid lightgrey;
+  box-shadow: 3px 3px 3px grey;
 }
 
 #products .container2 .contenitore-piatti-img .img-container {
-  width: 250px;
+  width: 100%;
   height: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 40px;
+  margin: 0 auto;
   padding: 3px;
 }
 
 #products .container2 .contenitore-piatti-img .img-container img {
   width: 100%;
-  background: yellow;
+  margin: 0 auto;
 }
 
 #products .container2 .card-piatti {
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 200px;
   margin-top: 20px;
+  padding-bottom: 10px;
 }
 
 #products .container2 .card-piatti h5 {
@@ -11772,8 +11748,23 @@ body {
 
 #products .container2 .card-piatti .prezzo-card {
   font-size: 20px;
+  text-align: center;
   margin-top: 30px;
   padding-left: 5px;
+}
+
+#products .container2 .card-piatti .contenitore-btn-aggiungi {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+#products .container2 .card-piatti .contenitore-btn-aggiungi .btn-aggiungi {
+  width: 100px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #00c79c;
+  font-size: 15px;
 }
 
 #about-sec {
@@ -11965,8 +11956,8 @@ body {
   align-items: center;
   box-shadow: 2px 2px 2px 2px lightgrey;
   margin-top: 50px;
-  width: 500px;
-  height: 400px;
+  width: 600px;
+  height: 500px;
   border-radius: 10px;
   padding: 10px;
   margin-right: 50px;
@@ -11980,32 +11971,47 @@ body {
 
 #carr .img-carr {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #carr .img-carr .moto {
-  width: 10%;
-  margin: 0 auto;
+  width: 15%;
+  padding: 10px;
 }
 
 #carr .img-carr .pollice {
-  width: 10%;
-  margin: 0 auto;
+  width: 15%;
+  padding: 10px;
 }
 
 #carr .img-carr .tempo {
-  width: 10%;
-  margin: 0 auto;
+  width: 15%;
+  padding: 10px;
+}
+
+#carr .text-img-carr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#carr .text-img-carr small {
+  padding: 0 5px 0 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #carr .contenitore-carrello {
   width: 100%;
   background: yellow;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 #carr .contenitore-carrello .contenitore_nome_piatto {
@@ -12028,23 +12034,16 @@ body {
 #carr .container-btn-pag .btn-pagamento {
   width: 200px;
   padding: 10px;
-  border-radius: 15px;
-}
-
-.carr-header {
+  border-radius: 20px;
+  background-color: #00c79c;
   font-size: 20px;
-  position: absolute;
-  z-index: 20000;
-  top: 15px;
-  right: 30px;
-  padding-left: 50px;
 }
 
-.carr-header .show {
+.show {
   display: block;
 }
 
-.carr-header .hide {
+.hide {
   display: none;
 }
 
