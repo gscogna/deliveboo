@@ -221,7 +221,7 @@ let app = new Vue({
 
             var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
-              type: 'doughnut',
+              type: 'pie',
               data: {
                   labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
                   datasets: [{

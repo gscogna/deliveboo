@@ -62623,7 +62623,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       console.log(_this4.ordiniMese);
       var ctx = document.getElementById('myChart');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
-        type: 'doughnut',
+        type: 'pie',
         data: {
           labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
           datasets: [{
@@ -62701,8 +62701,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Users\simon\Desktop\Boolean\mamp_public\deliveboo_finale\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
