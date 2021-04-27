@@ -1,31 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.admin-prov')
 @section('title', 'Dettagli del tuo piatto')
 @section('content')
 <div class="container">
-    <h4 class="pt-5">Dettaglio Piatto</h4>
-    <table class="table table-dark table-striped">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Prezzo</th>
-                    <th>immagine</th>
-                    <th>Ingredienti</th>
-                    <th>Visibile</th>
-                </tr>
-            </thead>
-            <tbody>            
-                <tr>
-                    <td>{{ $plate->id }}</td>
-                    <td>{{ $plate->nome }}</td>
-                    <td>{{ $plate->prezzo }}</td>
-                    <td><img src="{{ asset('storage/' .$plate->immagine) }}" alt=""></td>
-                    <td>{{ $plate->ingredienti }}</td>
-                    <td>{{ $plate->visibile }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </table>
+    <h2 class="pt-5 text-center">Dettaglio Piatto</h2>
+    <div class="card mb-5" style="width: 30rem; margin: auto; border: 4px solid #0f2a4b;">
+        <img class="card-img-top" src="{{ asset('storage/' .$plate->immagine) }}" alt="img piatto">
+        <div class="card-body">
+          <h3 class="card-title text-center">Nome: {{ $plate->nome }}</h3>
+          <h4 class="card-text text-center">Ingredienti: {{ $plate->ingredienti }}</h4>
+          <h5 class="card-text text-center">Prezzo: {{ $plate->prezzo }}</h5>
+          <button class="btn pl-4 pr-4" style="background-color:#0f2a4b">
+            <a style="color:white " href="{{ url('admin/plates') }}">Indietro</a>
+        </button>
+        </div>
+    </div>
 </div>
 @endsection

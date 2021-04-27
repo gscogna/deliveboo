@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-prov')
 @section('title', 'Modifica il tuo ristorante')
 
 @section('content')
@@ -12,7 +12,7 @@
         </ul>
     </div>
 @endif
-    <form action="{{ route('restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
+    <form class="mt-4" action="{{ route('restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         {{-- nome --}}
@@ -50,8 +50,10 @@
         </div>
         @endforeach --}}
 
-       
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn mt-4" style="background-color:#0f2a4b">
+          <a style="color:white " href="{{ url('/admin') }}">Indietro</a>
+      </button>
+      <button type="submit" style="background-color:#0f2a4b; color: white" class="btn mt-4">Salva</button>
       </form>
 </div>
 @endsection

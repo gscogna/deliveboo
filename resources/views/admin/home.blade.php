@@ -1,38 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.admin-prov')
 @section('title', 'Dashboard')
+
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card-a text-center">
-                <div class="aut-card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('Autenticazione corretta') }}
-                </div>
-            </div>
-            <div>
-               
-            </div>
             @if ($restaurants)
             @foreach ($restaurants as $restaurant)
-            <div class="cards mt-4 text-center" style="width: 18rem; margin: auto;" enctype=“multipart/form-data”>
+            <div class="cards mt-4 mb-4 text-center" style="width: 18rem; margin: auto;" enctype=“multipart/form-data”>
                 <img src=" {{ asset('storage/' .$restaurant -> immagine) }}" class="card-img-top" alt="...">
 
             <div class="card-body-rist">
                
                     
                 <div class="card-text">
-                    <span>
-                    Nome ristorante: 
-                    </span>    
                     <p>
-                    {{ $restaurant -> nome }}
+                    Nome ristorante: {{ $restaurant -> nome }}
                     </p>
 
                 </div>
@@ -70,6 +52,5 @@
         
         @endif
         </div>
-    </div>
 </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-prov')
 @section('title', 'Modifica il tuo piatto')
 
 @section('content')
@@ -15,9 +15,8 @@
 @endif
         @method('PUT')
         @csrf
-        <a href="{{ route('plates.index') }}"><button type="button" class="btn btn-info">Indietro</button></a>
         {{-- nome --}}
-        <div class="mb-3">
+        <div class="mb-3 mt-4">
           <label for="exampleInputEmail1"  class="form-label">Nome piatto</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nome" value="{{ $plate-> nome }}">
         </div>
@@ -27,10 +26,10 @@
             <input type="number" class="form-control" id="exampleInputEmail1" step="any" aria-describedby="emailHelp" value="{{ $plate-> prezzo }}" name="prezzo">
           </div>
           {{-- immagine --}}
-          @if ($plate)
+          {{-- @if ($plate)
               <h2>Immagine</h2>
               <img style="width: 10rem;"  src="{{ asset($plate->immagine) }}" alt="">
-          @endif
+          @endif --}}
           <form method="POST" action="{{ route('plates.update', $plate) }}" enctype="multipart/form-data">
             <div class="form-group">
               <label for="immagine">Carica l'immagine</label>
@@ -44,7 +43,7 @@
           </div>
           {{-- visibile --}}
          <h2>Visibile si/no</h2>
-         <div class="form-check">
+         <div class="form-check mb-4">
 
             <input type="radio" name="visibile" id="visibile" value= 1 @if($plate->visibile == 1) checked @elseif($plate->visibile == 0) unchecked @endif>
             <label class="form-check-label" for="flexRadioDefault1" name="visibile">
@@ -57,7 +56,10 @@
             </label>
           </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <button class="btn" style="background-color:#0f2a4b">
+            <a style="color:white " href="{{ url('admin/plates') }}">Indietro</a>
+        </button>
+        <button type="submit" class="btn" style="background-color:#0f2a4b; color:white " >Salva</button>
     </div>
 </form>
 @endsection
