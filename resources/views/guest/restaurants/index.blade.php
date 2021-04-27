@@ -33,11 +33,12 @@
 @endsection
 
 @section('content')
+<button @click="showAll" type="button" class="btn btn-primary">Mostra tutti i ristranti</button>
  <!-- TIPOLOGIE -->
  <h1>Scegli il tipo di cucina</h1>
 <div class="container-tipologie">
      
-      <div class="tipologie" v-for="(element, index) in tipologie">
+      <div @click="filterPlate(index)" class="tipologie" v-for="(element, index) in tipologie">
         <img :src="element.immagine" alt="">
           <p>@{{element.nome}}</p>
          
@@ -52,7 +53,7 @@
 
       <div class="guest-restaurants">
 
-        <div v-for="(element, index) in arrayRistoranti" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
+        <div v-for="(element, index) in arrayMostrato" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
 
           <div class="card-img-top">
             <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">

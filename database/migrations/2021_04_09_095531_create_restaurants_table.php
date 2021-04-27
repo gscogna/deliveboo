@@ -18,6 +18,7 @@ class CreateRestaurantsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nome')->unique();
             $table->string('indirizzo');
+            $table->string('tipologia')->nullable();
             $table->string('immagine');
             $table->string('slug');
             $table->timestamps();
