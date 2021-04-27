@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="main-panel" id="main-panel" style="height: 100vh">
+    <div class="main-panel" id="main-panel" style="height: 100vh;padding: 40px;">
 
         <h1 style="background-color:#ebecf1 ">Statistiche</h1>
 
@@ -57,7 +57,7 @@
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
 
-            <table class="table p-4">
+            <table class="table mt-4">
         <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
