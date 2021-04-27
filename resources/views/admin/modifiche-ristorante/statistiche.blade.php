@@ -7,9 +7,7 @@
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
 </div>
-
 <script> 
     let orderid = {{ $orders }}
 </script>
-
 @endsection

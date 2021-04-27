@@ -25,12 +25,12 @@
 </head>
 <body style="font-family: 'Poppins', sans-serif;">
     <div id="app">
+        <div style="width: 100%; height: 400px; background-color: #0f2a4b">
 
-        @include('partials.header')
-        <main class="py-4">
+        </div>
+        <main>
             @yield('content')
         </main>
-        @include('partials.footer')
     </div>
 </body>
 </html>

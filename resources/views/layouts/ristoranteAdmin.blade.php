@@ -15,23 +15,25 @@
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
     <link href="{{ asset('cssB/now-ui-dashboard.css')}}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body style="font-family: 'Poppins', sans-serif;">
     <div id="app">
         <main>
             @yield('content')
         </main>
-        @include('partials.footer')
     </div>
 </body>
     <script src="{{ asset('jsB/core/jquery.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('jsB/core/popper.min.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('jsB/core/bootstrap.min.js')}}" type="text/javascript"></script>
+    {{-- <script src="{{ asset('jsB/core/bootstrap.min.js')}}" type="text/javascript"></script> --}}
     <script src="{{ asset('jsB/plugins/perfect-scrollbar.jquery.min.js')}}" type="text/javascript"></script>
 
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->

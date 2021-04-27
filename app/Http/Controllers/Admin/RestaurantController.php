@@ -23,10 +23,16 @@ class RestaurantController extends Controller
 
     public function statistiche()
     {
-        $order = Order::where('user_id', Auth::id())->first();
-        $data = [
-            'orders' => $order->user_id
-        ];
+            $order = Order::where('user_id', Auth::id())->first();
+            if($order){
+                $data = [
+                    'orders' => $order->user_id
+                ];
+            } else {
+                $data = [
+                    'orders' => ''
+                ];
+            }
         return view('admin.modifiche-ristorante.statistiche', $data);
     }
 
