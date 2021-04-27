@@ -1,0 +1,13 @@
+.posizionamento{
+    position: absolute;
+    top:50;
+    right:0;
+}
+
+.statistiche{
+    display: flex;
+    justify-content: space-evenly;
+    .table-celestina{
+        background-color:#6981f1;
+    }   
+}

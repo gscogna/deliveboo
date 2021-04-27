@@ -90,6 +90,14 @@
       </nav>
       <!-- End Navbar -->
       <div class="panel-header panel-header-lg">
+        {{-- <img src="https://i.pinimg.com/originals/fa/93/b4/fa93b4ffee72b457f38998277337001d.gif" alt="circle"> --}}
+        <div class="container">
+          <div class="row">
+              <div class="neons col-12">
+                <h4>Deliveboo Night</h4>
+              </div>
+          </div>
+        </div>
       </div>
       <div class="content">
           <div class="row mt-5 mb-5">

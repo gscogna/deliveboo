@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Codystar:300&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -12209,5 +12209,69 @@ body {
   text-decoration: underline;
   text-transform: uppercase;
   font-size: 20px;
+}
+
+.jumbotron-admin {
+  width: 100%;
+  height: 250px;
+  background-color: #0f2a4b;
+}
+
+.sfondo-dinamico {
+  background-image: url("https://i.pinimg.com/originals/2e/e6/99/2ee6998e34c3e2eff7b894c66cfc5267.jpg");
+  background-size: cover;
+}
+
+.neons {
+  background-color: transparent;
+  text-align: center;
+  font-family: "Codystar";
+}
+
+.neons h4 {
+  font-size: 8rem;
+  text-align: center;
+  font-weight: bold;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    color: #fff;
+    text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 90px #00fff2;
+  }
+
+  to {
+    color: gray;
+    text-shadow: 0 0 20px #00fff2, 0 0 30px #00fff2, 0 0 40px #00fff2, 0 0 50px #00fff2, 0 0 60px #00fff2, 0 0 70px #00fff2, 0 0 80px #00fff2, 0 1 90px #00fff2;
+  }
+}
+
+.posizionamento {
+  position: absolute;
+  top: 50;
+  right: 0;
+}
+
+.statistiche {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.statistiche .table-celestina {
+  background-color: #6981f1;
+}
+
+.button-admin {
+  background-color: #0f2a4b;
+}
+
+.button-admin a {
+  color: white;
+}
+
+.button-admin span {
+  color: white;
 }
 

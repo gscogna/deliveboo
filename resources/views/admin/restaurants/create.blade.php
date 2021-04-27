@@ -58,10 +58,12 @@
                   </div>
                   
 
-                    <button class="btn" style="background-color:#0f2a4b">
-                        <a style="color:white " href="{{ url('admin/plates') }}">Indietro</a>
+                    <button class="btn button-admin">
+                        <a href="{{ url('admin/plates') }}">Indietro</a>
                     </button>
-                    <button type="submit" class="btn" style="background-color:#0f2a4b; color:white ">Salva</button>
+                    <button type="submit" class="btn button-admin">
+                        <span>Salva</span>
+                    </button>
             </form>
       </div>
 @endsection
