@@ -17,7 +17,7 @@
         @if (!Auth::user())
         <ul class="list-unstyled list-group">
           <li><a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{asset('../img/1.png')}}" alt="logo">
+            {{-- <img src="{{asset('../img/1.png')}}" alt="logo"> --}}
           </a></li>
         </ul>
         @endif
