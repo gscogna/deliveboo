@@ -26,12 +26,10 @@
         <main>
             @yield('content')
         </main>
-        @include('partials.footer')
     </div>
 </body>
     <script src="{{ asset('jsB/core/jquery.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('jsB/core/popper.min.js')}}" type="text/javascript"></script>
-    <script src="{{ asset('jsB/core/bootstrap.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('jsB/plugins/perfect-scrollbar.jquery.min.js')}}" type="text/javascript"></script>
 
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
