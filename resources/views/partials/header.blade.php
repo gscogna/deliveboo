@@ -17,7 +17,7 @@
         @if (!Auth::user())
         <ul class="list-unstyled list-group">
           <li><a class="navbar-brand" href="{{ url('/') }}">
-            DELIVEBOO
+            <img src="{{ asset('../img/Logo2.png') }}" alt="">
           </a></li>
         </ul>
         @endif

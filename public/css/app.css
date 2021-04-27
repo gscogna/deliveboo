@@ -10964,13 +10964,13 @@ header {
 
 header .layover {
   margin: 70px auto 10px auto;
-  width: 80%;
+  width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 header nav {
-  background-color: rgba(255, 191, 0, 0.7);
+  background-color: #ffbf00;
   position: fixed;
   z-index: 80;
   top: 0;
@@ -11077,25 +11077,23 @@ header .header-content-guest .hcg-left .header-searchbar .container-search ul li
   cursor: pointer;
 }
 
-header .header-content-guest div.hcg-right {
-  width: 60%;
+header .header-content-guest .hcg-right {
+  width: 100%;
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@media screen and (max-width: 992px) {
-  header .header-content-guest div.hcg-right {
-    height: 200px;
-  }
+header .header-content-guest .hcg-right img {
+  width: 50%;
+  height: 300px;
 }
 
-header .header-content-guest div.hcg-right i {
-  font-size: 200px;
-  color: #ffbf00;
-  margin-right: 30px;
-  margin-top: 50px;
+@media screen and (max-width: 992px) {
+  header .header-content-guest .hcg-right {
+    height: 200px;
+  }
 }
 
 .nav-item {
@@ -11495,7 +11493,7 @@ main .card-restaurant .btn-menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  fex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 20px;
 }
 

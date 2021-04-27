@@ -14,9 +14,10 @@
               <ul>
                 <li v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" @click="click_restaurant_choice(index)" :key="val.nome">@{{ val.nome }}</li>
               </ul>
-            </div> <!-- /search-result -->
-
-          </div> <!-- /container-search -->
+            </div>
+            <!-- /search-result -->
+          </div>
+          <!-- /container-search -->
           
         </div> <!-- "" -->
 
@@ -25,9 +26,7 @@
     </div> <!-- /hcg-left -->
 
     <div class="hcg-right">
-        <img src="{{asset('')}}" alt="">
-        <i class="fas fa-angle-double-right"></i>
-        <i class="fas fa-house-user"></i>
+        <img  style="width:50%;height:300px;margin-top:200px;" src="{{asset('img/deliveboo.gif')}}" alt="deliveboo-gif">
     </div>
   </div>
 @endsection
