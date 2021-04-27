@@ -10948,15 +10948,6 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
-body {
-  width: 100%;
-  background-color: #f7f7f7;
-}
-
-body #app {
-  width: 100%;
-}
-
 .navbar-brand {
   font-size: 30px;
   font-weight: bold;

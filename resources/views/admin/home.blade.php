@@ -19,15 +19,15 @@
 
                 </div>
 
-                <button class="btn-ordini">
+                {{-- <button class="btn-ordini">
                     <a href="{{ route('admin.statistiche') }}">Ordini e Statistiche</a>
-                </button>
-                <a href="{{ route('plates.index') }}">
-                    <button type="submite" class="btn-piatti">Vai ai piatti</button>
-                </a>
+                </button> --}}
                 
                 <a href="{{ route('restaurants.edit', $restaurant->user_id) }}">
                     <button type="button" class="btn-modifica">Modifica</button>
+                </a>
+                <a href="{{ route('plates.index') }}">
+                    <button type="submite" class="btn-piatti">Vai ai piatti</button>
                 </a>
                 <form method="POST" action="{{ route('restaurants.destroy', $restaurant) }}">
                     @csrf
