@@ -12,7 +12,7 @@
 
             <div class="search-results" @keyup="div_restaurants">
               <ul>
-                <li v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" @click="click_restaurant_choice(index)" :key="val.nome">@{{ val.nome }}</li>
+                <li @click="click_restaurant_choice(index)" v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" :key="val.nome">@{{ val.nome }}</li>
               </ul>
             </div> 
 
@@ -55,26 +55,25 @@
       <div class="guest-restaurants">
 
         <div v-for="(element, index) in arrayMostrato" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
-        <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
-          <div class="card-img-top">
-            <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
-            <div class="cover-layover">
-              <div class="font-cover">
-                <i class="fas fa-utensils"></i>
-              </div>
-              <div class="text-cover">
-                <p>Scopri di più</p>
-              </div>             
-            </div>            
-          </div>
-          
-          
-         
-            <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
-          </a>
+            <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+                  <div class="card-img-top">
+                      <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
+                      <div class="cover-layover">
+                          <div class="font-cover">
+                            <i class="fas fa-utensils"></i>
+                          </div>
+                          <div class="text-cover">
+                              <p>Scopri di più</p>
+                          </div>             
+                      </div>            
+                  </div>
+              
+              
+            
+                <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
+              </a>
 
-           <!-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}">
-            <button  type="button" name="button">@{{element.nome}}</button> </a> -->
+           
 
         </div>
         
@@ -87,22 +86,22 @@
            <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
            <div class="cover-layover">
            <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
-           <div class="font-cover">
-                <i class="fas fa-utensils"></i>
-              </div>
-              <div class="text-cover">
-                <p>Scopri di più</p>
-              </div>
-            </div>
+              <div class="font-cover">
+                    <i class="fas fa-utensils"></i>
+                  </div>
+                  <div class="text-cover">
+                    <p>Scopri di più</p>
+                  </div>
+                </div>
             </a>
           </div>                 
 
 
-          <p class="rainbow-text">@{{item.nome}}</p>
+          {{-- <p class="rainbow-text">@{{item.nome}}</p> --}}
           <!-- <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
             <!-- <button class="btn-menu" type="button" name="button">Vai al menù</button> 
           </a> -->
-          <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
+          <p @click='restaurant_plates(item.user_id)'>@{{item.nome}}</p>
           
         </div>
         
