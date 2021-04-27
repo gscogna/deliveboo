@@ -62459,7 +62459,8 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     finalPriceSaved: 0,
     userid: 0,
     userProva: 0,
-    userFinale: 0
+    userFinale: 0,
+    commonArray: []
   },
   mounted: function mounted() {
     var _this = this;
@@ -62468,20 +62469,18 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       _this.tipologie = result.data.response;
     }); // this.userFinale = localStorage.getItem(this.userProva);
 
-    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato));
-    console.log(this.carrelloSalvato);
+    this.finalPriceSaved = JSON.parse(localStorage.getItem(this.carrelloSalvato)); // console.log(this.carrelloSalvato);
 
     for (var h in this.finalPriceSaved) {
       this.sommaPrezzo += this.finalPriceSaved[h].prezzo;
       this.userid = this.finalPriceSaved[h].user_id;
-    }
+    } // console.log(this.userid);
+    // // console.log(this.userFinale);
+    // console.log(this.finalPriceSaved);
 
-    console.log(this.userid); // console.log(this.userFinale);
 
-    console.log(this.finalPriceSaved);
     this.show = 'hide', axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/plate').then(function (result) {
-      _this.arrayPiatti = result.data.response;
-      console.log(_this.arrayPiatti);
+      _this.arrayPiatti = result.data.response; // console.log(this.arrayPiatti);
 
       _this.arrayPiatti.forEach(function (item) {
         if (item.user_id == _this.id_ristorante) {
@@ -62494,16 +62493,31 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     });
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/restaurant').then(function (result) {
-      _this.arrayRistoranti = result.data.response;
-      console.log(_this.arrayRistoranti);
-    });
-    this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
-    this.restaurant_plates;
+      _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
+
+      for (var j in _this.arrayRistoranti) {
+        _this.arrayRistoranti[j].tipologia = _this.arrayRistoranti[j].tipologia.split();
+        console.log(_this.arrayRistoranti[j].tipologia);
+
+        for (var h in _this.tipologie) {
+          if (_this.arrayRistoranti[j].tipologia.includes(_this.tipologie[h].id)) {
+            _this.commonArray.push(_this.arrayRistoranti[j].tipologia);
+          }
+
+          ;
+        }
+
+        ;
+      }
+
+      ;
+      console.log(_this.commonArray);
+    }, this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
+    this.restaurant_plates);
   },
   methods: {
     ristorante_id: function ristorante_id(id) {
-      this.id_ristorante = id;
-      console.log(this.id_ristorante);
+      this.id_ristorante = id; // console.log(this.id_ristorante);
     },
     restaurant_plates: function restaurant_plates(id) {
       var _this2 = this;
@@ -62524,10 +62538,6 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       // console.log(this.search);
       this.ristorantiSelezionati = [];
       this.arrayRistoranti.forEach(function (item) {
-        //   if(item.nome == this.search){
-        //     this.ristorantiSelezionati.push(item);
-        //   }
-        // });
         if (item.nome.indexOf(_this3.search) > -1) {
           _this3.ristorantiSelezionati.push(item);
         }
@@ -62537,7 +62547,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         if (_this3.search == '' || _this3.search != _this3.ristoranteScelto.nome) {
           _this3.ristoranteScelto = [];
         }
-      }); // console.log(this.ristorantiSelezionati);
+      });
     },
     div_restaurants: function div_restaurants() {
       if (this.search == '') {
@@ -62545,20 +62555,14 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
     },
     click_restaurant_choice: function click_restaurant_choice(index) {
-      // this.ristorantiSelezionati = [];
-      // console.log(this.ristorantiSelezionati);
-      // console.log(item);
       this.ristoranteScelto = [];
       this.ristoranteScelto.push(this.ristorantiSelezionati[index]);
       this.ristorantiSelezionati = [];
       this.search = this.ristoranteScelto[0].nome;
       this.ristoranteScelto.forEach(function (item) {
         console.log(item.nome);
-      }); // console.log(this.ristoranteScelto);
+      });
     },
-    // vedi(){
-    //   console.log(this.piattiRistorante);
-    // },
     // carrello
     showCarrello: function showCarrello() {
       if (this.show == "hide") {
@@ -62573,22 +62577,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         this.carrello.push(this.piattiRistorante[index]);
       }
 
-      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello)); // this.carrelloSalvato = JSON.parse(localStorage.getItem(this.carrelloSalvato));
-      // console.log(this.carrelloSalvato);
-      // ottengo il prezzo totale
-      // for(var k in this.carrelloSalvato){
-      //   // console.log(this.carrelloSalvato[k].prezzo);
-      //   localStorage.setItem(this.sommaPrezzo, JSON.stringify(this.carrelloSalvato[k].prezzo));
-      // }
-      // this.sommaPrezzo += JSON.parse(localStorage.getItem(this.sommaPrezzo));
-      // localStorage.setItem(this.finalPrice, JSON.stringify(this.sommaPrezzo));
-      // console.log(this.sommaPrezzo);
-      // user id
-      // for(var h in this.carrelloSalvato){
-      //   this.userid= this.carrelloSalvato[h].user_id;
-      // }
-      // localStorage.setItem(this.userProva, this.userid);
-      // console.log(this.userid);
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
     }
   }
 });

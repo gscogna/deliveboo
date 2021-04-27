@@ -66,7 +66,7 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Type $type)
     {
         $newRestaurant = new Restaurant();
         $data = $request->validate([
@@ -90,6 +90,7 @@ class RestaurantController extends Controller
 
         if($request->has('types')){
             $newRestaurant->types()->sync($request['types']);
+            $newRestaurant->tipologia =  $request['types'];
         }
 
         return redirect()->route('admin.home', $data);
@@ -131,8 +132,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(Request $request, Restaurant $restaurant, Type $type)
     {
+        $type = Type::all();
         $data = $request->validate([
             'nome' => ['required',Rule::unique('restaurants')->ignore($restaurant)],
             'indirizzo' => 'required',
@@ -140,7 +142,9 @@ class RestaurantController extends Controller
         ]);
         if($request->has('types')){
             $restaurant->types()->sync($request['types']);
+            $restaurant->tipologia =  $request['types'];
         }
+
 
         if( $request->has('immagine') ) {
             $image = Storage::put('immagine_storage', $data['immagine']);
