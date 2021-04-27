@@ -1,23 +1,42 @@
+
+
+
+
 .navbar-brand{
-  font-size: 30px;
-  font-weight: bold;
-  font-style: inherit;
+
+
+  & img{
+    width:100%;
+    margin-top:80px;
+    height:600px;
+    @media screen and(max-width: 992px){
+      display: none;
+    }
+    @media screen and(max-width: 766px){
+      display: none;
+    }
+  }
 }
 header {
+  //background: linear-gradient(#e66465, #9198e5);
+
+background-color:green;
   width: 100%;
-  height:500px;
-  background-image: url('https://www.vitaminity.com/it/pub/media/blog/cache/840x473/magefan_blog/VITAMINITY_CIBI_SANI.jpg');
+  height:620px;
+  margin-top:140px;
+  padding:20px 0;
+  background-image: url('');
   background-position: center;
   background-size: cover;
 
   & .layover{
-    margin:70px auto 10px auto;
-    width: 80%;
+    //margin:70px auto 10px auto;
+    width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    //background-color: rgba(0, 0, 0, 0.3);
   }
   & nav {
-    background-color:rgb(255, 191, 0, 0.7) ;
+    background-color:#ffbf00b3 ;
    // background: linear-gradient(to center, #e2eeee, #FFBF00);
     position: fixed;
     z-index:80;
@@ -30,6 +49,7 @@ header {
   }
     // header-content guest
    & .header-content-guest{
+     background-color: darkblue;
      display: flex;
      justify-content: center;
      background-color:transparent;
@@ -42,9 +62,11 @@ header {
      }
 
      & .hcg-left{
+     //  background-color: cornflowerblue;
        width: 50%;
        height: 300px;
        margin-top:60px;
+       padding:20px;
        display: flex;
        flex-direction: column;
        justify-content: center;
@@ -56,10 +78,12 @@ header {
 
 
        & h2 {
-         color: white;
+        color:#272343;
+        font-weight:bold;
+        padding-top:20px;
          font-family:Arial, Helvetica, sans-serif;
-        font-size: 70px;
-        text-align: center;
+         font-size: 70px;
+         text-align: center;
         @media screen and(max-width: 992px){
           font-size: 40px;
         }
@@ -69,40 +93,46 @@ header {
        }
 
       & .header-searchbar{
-        padding-top: 20px;
-        display: flex;
-        align-items: flex-end;
+        //  background-color: cyan;
+          padding-top: 20px;
+          display: flex;
+          align-items: flex-end;
 
         @media screen and(max-width: 766px){
           flex-direction: column;
         }
 
-        & input{       
-          width: 300px;
-          height:50px;
-          border-radius: 5px; 
+        & input{
+          width: 500px;
+          height:100px;
+          border-radius: 15px;
           margin-top: 20px;
           text-align:justify;
           padding:10px;
-          font-size: 20px;
+          font-size: 40px;
 
         }
 
-        & .container-search {
+        & .search-results {
           background-color:white;
+          //height:80px;
+          border-radius: 15px;
+
           @media screen and(max-width: 766px){
           background-color: transparent;
           border-radius:10px;
-          
+          height:50px;
+
 
           }
           & ul {
             list-style: none;
-          
-            
+
+
             & li{
               width: 100%;
-              font-size:20px;
+              height:80px;
+              font-size:30px;
               text-transform: capitalize;
               &:hover{
                 background-color:rgb(255, 191, 0, 0.4);
@@ -114,29 +144,24 @@ header {
       }
 
      }
-     
-     & div.hcg-right{
-       width: 60%;
-       height: 300px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       @media screen and(max-width: 992px){
-        height: 200px;
-       }
 
-      //  & img {
-      //    height: 250px;
-      //    margin-right: 10px;
+    //  .hcg-right{
+    //   padding-left:50px;
+      
+      // width: 100%;
+      // height: 300px;
+    //  display: flex;
+    //    justify-content: center;
+    //    align-items: center;
+    //    @media screen and(max-width: 992px){
+    //     height: 200px;
+    //    }
 
-      //  }
-
-       & i {
-         font-size: 200px;
-        color:rgb(255, 191, 0);
-        margin-right: 30px;
-        margin-top:50px;
-
+       & img {
+        //margin-top:30px;
+        height:600px;
+       // margin-left:100px;
+        width:100%;
 
        }
      }
@@ -144,27 +169,22 @@ header {
 
    }
 
-   // header-content-guest @extend ;
-
-
-}
+// }
 
 .nav-item{
-display:flex;
-flex-direction: row;
-align-items:center;
-text-transform: uppercase;
-font-size:20px;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+
+  .nav-link:hover{
+    text-decoration: underline;
+  }
 }
 
 .list-item2{
   margin-top:8px;
   margin-right:20px;
   vertical-align: middle;
-  a{
-    color:#272343;
-    text-decoration:underline;
-    text-transform: uppercase;
-    font-size:20px;
-  }
+
+
 }

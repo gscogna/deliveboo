@@ -1,7 +1,7 @@
 <header >
   <div class="layover">
 
-    <nav class="navbar navbar-expand-md navbar-light position-fixed shadow-sm" style="width: 100%;">
+    <nav class="navbar navbar-expand-md position-fixed" style="width: 100%; height:140px;">
       <div class="container">
         
         @if (Auth::user())
@@ -17,7 +17,7 @@
         @if (!Auth::user())
         <ul class="list-unstyled list-group">
           <li><a class="navbar-brand" href="{{ url('/') }}">
-            DELIVEBOO
+            <img src="{{asset('../img/1.png')}}" alt="logo">
           </a></li>
         </ul>
         @endif
@@ -25,7 +25,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
-  
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
@@ -37,11 +37,11 @@
             <!-- Authentication Links -->
             @guest
             <li class="nav-item">
-              <a class="nav-link" style="color: #272343;" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a class="nav-link" style="color: #272343; font-size:25px; font-weight:bold;" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
             @if (Route::has('register'))
             <li class="nav-item">
-              <a class="nav-link" style="color: #272343;" href="{{ route('register') }}">{{ __('Register') }}</a>
+              <a class="nav-link" style="color: #272343;font-size:25px; font-weight:bold; margin-right:150px;" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
             @endif
             @else
@@ -72,7 +72,7 @@
           @endguest
         </ul>
       </div>
-    </div>
+    
    </nav>
   
    @yield('header.content')

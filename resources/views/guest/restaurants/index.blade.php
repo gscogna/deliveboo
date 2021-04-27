@@ -2,7 +2,7 @@
 @section('title', 'Deliveboo')
 
 @section('header.content')
-  <div class="container header-content-guest">
+<div class="container header-content-guest">
     <div class="hcg-left">
       <h2> Il piacere del cibo a casa tua</h2>
       <div class="header-searchbar">
@@ -14,22 +14,24 @@
               <ul>
                 <li v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" @click="click_restaurant_choice(index)" :key="val.nome">@{{ val.nome }}</li>
               </ul>
-            </div> <!-- /search-result -->
+            </div> 
 
-          </div> <!-- /container-search -->
+          </div> 
           
-        </div> <!-- "" -->
+        </div> 
 
-      </div><!-- /header-searchbar -->
+      </div>
 
-    </div> <!-- /hcg-left -->
-
+    </div> 
     <div class="hcg-right">
-        <img src="{{asset('')}}" alt="">
-        <i class="fas fa-angle-double-right"></i>
-        <i class="fas fa-house-user"></i>
+        <img src="{{asset('../img/deliveboo.gif')}}" style="margin-top:80px;"  alt="">
+       
     </div>
-  </div>
+
+    </div>
+
+
+
 @endsection
 
 @section('content')
@@ -39,8 +41,7 @@
      
       <div class="tipologie" v-for="(element, index) in tipologie">
         <img :src="element.immagine" alt="">
-          <p>@{{element.nome}}</p>
-         
+          <p>@{{element.nome}}</p>        
       </div>    
 
 </div>
@@ -52,29 +53,56 @@
 
       <div class="guest-restaurants">
 
-        <div v-for="(element, index) in arrayRistoranti" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
-
-          <div class="card-img-top">
+        <div class="card"   v-for="(element, index) in arrayRistoranti" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
+        <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+          <div class="card-img-top" >
             <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
             <div class="cover-layover">
-             <i class="fas fa-utensils"></i>
-            </div>
+              <div class="font-cover">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="text-cover">
+                <p>Scopri di più</p>
+              </div>             
+            </div>            
           </div>
           
           
-          <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+         
             <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
           </a>
-          {{-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">@{{element.nome}}</button> </a> --}}
+
+           <!-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}">
+            <button  type="button" name="button">@{{element.nome}}</button> </a> -->
+
         </div>
+        
 
         
-        <div class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
-          <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
+        <div class="card" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
+        
+          <div class="card-img-top">
+         
+           <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
+           <div class="cover-layover">
+           <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+           <div class="font-cover">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="text-cover">
+                <p>Scopri di più</p>
+              </div>
+            </div>
+            </a>
+          </div>                 
+
+
           <p class="rainbow-text">@{{item.nome}}</p>
-          <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
-            <button class="btn-menu" type="button" name="button">Vai al menù</button> 
-          </a>
+          <!-- <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
+            <!-- <button class="btn-menu" type="button" name="button">Vai al menù</button> 
+          </a> -->
+          <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
+          
         </div>
         
         
@@ -83,8 +111,18 @@
           nessun ristorante trovato
         </div>
 
-      </div>
+      </div><!-- fine choose-restaurant -->
       
+
+
+
+
+
+
+
+
+
+
       <h1>Consegniamo tutto ciò che vuoi</h1>
       <div class="container-section">
       <div class="section">
@@ -124,5 +162,5 @@
       
       
 
-  </div>
+ 
 @endsection

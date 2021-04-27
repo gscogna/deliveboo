@@ -34,7 +34,7 @@
                   <ul class="navbar-nav-show-left">
                       <li class="list-item">
                         
-                         <a class="navbar-brand" href="{{ url('/') }}"> 
+                         <a class="navbar-brand" href="{{ url('/') }}" > 
                         DELIVEBOO
                         <i class="fas fa-angle-double-right"></i>
                         </a>
@@ -45,9 +45,9 @@
                 @if (!Auth::user())
                   <ul class="list-unstyled list-group">
                     <li>
-                      <a class="navbar-brand" href="{{ url('/') }}">
+                      <a class="navbar-brand" href="{{ url('/') }}" style="padding-left:20px; color:black;">
                       DELIVEBOO
-                      <i class="fas fa-angle-double-right"></i>
+                      <i class="fas fa-angle-double-right" style="font-size:30px;"></i>
                     </a></li>
                   </ul>
                   @endif
@@ -56,8 +56,7 @@
         
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav-show-right">
-                  <!-- Authentication Links -->
-                  
+                  <!-- Authentication Links -->                  
                   @guest
                      <li class="nav-item">
                       <a class="nav-link" style="color: #272343;" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -91,6 +90,31 @@
                       </div>
                     </li>
                   @endguest
+
+                  {{-- carrello con il click --}}
+                  <form method="POST" action="{{ route('add.carrello.post') }}">
+                    @csrf
+                    @method('POST')                     
+                      <div @click="showCarrello" class="carrello carr-header">
+                      <i class="fas fa-shopping-cart"></i>
+                      </div>  
+       
+                      <div :class="show" class="oggetti_carrello carr-header">
+<!--                  
+                <div v-for="(piatto, index) in carrello" class="container-piatti">
+                  <p>@{{ piatto }}</p>
+                </div>
+                <div v-for="(val, index) in piattiRistorante">
+                  <p>@{{ val.contatore }}</p>
+                </div> -->
+                        <!-- <button type="submit" class="btn btn-primary">Primary</button> -->
+  
+              <!-- <div v-for="item in piattiRistorante" class="input">
+                <input type="text" name="nome" :value="item.nome" readonly>
+                <input type="number" name="prezzo" :value="item.prezzo" readonly>
+              </div> -->
+  
+                  </form>              
                 </ul>
               </div>           
           </nav>
@@ -149,14 +173,15 @@
       </section> -->
       {{-- Sezione prodotti e piatti --}}
 
-      <h1 class="text-ordina">Ordina i tuoi piatti</h1>
+      <h1 class="text-ordina">Nome del ristorante</h1>
 
-      <section id="products" class="products py-5">
      
-        <div class="container2">
-         
 
+      <section id="products">
+      
+        <div class="container2">        
             <div class="row product-items" id="product-items">
+           
               {{-- singolo oggetto --}}
               <div @click="add_to_chart(index)" v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
 
@@ -166,15 +191,19 @@
                       <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
                   </div>
 
-                  <div class="card-piatti">                   
-                      <h5>@{{ item.nome }}</h5>
-                      <div class="card-text ">
-                      <p>@{{ item.ingredienti }} </p>
-                  </div>
+                    <div class="card-piatti">                   
+                        <h5>@{{ item.nome }}</h5>
+                        <div class="card-text ">
+                        <p>@{{ item.ingredienti }} </p>
+                    </div>
                       <div class="prezzo-card"name="prezzo" >
                         <i class="fas fa-euro-sign"></i>
                         <span>@{{ item.prezzo }}</span>
+
                       </div>
+                      <span class="contenitore-btn-aggiungi">
+                        <button class="btn-aggiungi">Aggiungi</button>
+                      </span>
                                        
                    </div>  <!-- /card-piatti -->                 
 
@@ -227,6 +256,11 @@
           <img class="tempo" src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/svg/eta-icon-time-dark.svg" alt="">
           <img class="pollice" src="https://res.cloudinary.com/glovoapp/f_auto,q_auto/store_ratings/rating_regular.png" alt="">
           <img class="moto" src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/glyphs/store-delivery-light.svg" alt="">
+          </div>
+          <div class="text-img-carr">
+            <small>20'</small>
+            <small>97%</small>
+            <small>$1,99</small>
           </div>
             
               <div class="contenitore-carrello">
