@@ -62433,7 +62433,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -62460,7 +62463,9 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     userid: 0,
     userProva: 0,
     userFinale: 0,
-    commonArray: []
+    arrayAppoggio: [],
+    arrayMostrato: [],
+    elementoSelezionato: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62493,25 +62498,19 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     });
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://localhost:8000/api/restaurant').then(function (result) {
-      _this.arrayRistoranti = result.data.response; // console.log(this.arrayRistoranti);
+      _this.arrayRistoranti = result.data.response;
 
-      for (var j in _this.arrayRistoranti) {
-        _this.arrayRistoranti[j].tipologia = _this.arrayRistoranti[j].tipologia.split();
-        console.log(_this.arrayRistoranti[j].tipologia);
-
+      for (var k in _this.arrayRistoranti) {
         for (var h in _this.tipologie) {
-          if (_this.arrayRistoranti[j].tipologia.includes(_this.tipologie[h].id)) {
-            _this.commonArray.push(_this.arrayRistoranti[j].tipologia);
+          if (_this.arrayRistoranti[k].tipologia.includes(_this.tipologie[h].id)) {
+            _this.arrayRistoranti[k].tipologia += " " + _this.tipologie[h].nome;
+          } else if (_this.arrayRistoranti[k].tipologia == "null") {
+            _this.arrayRistoranti[k].tipologia = [];
           }
-
-          ;
         }
-
-        ;
       }
 
-      ;
-      console.log(_this.commonArray);
+      _this.arrayMostrato = _this.arrayRistoranti;
     }, this.id_ristorante = localStorage.id_ristorante, // console.log(this.id_ristorante),
     this.restaurant_plates);
   },
@@ -62578,6 +62577,35 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }
 
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+    },
+    filterPlate: function filterPlate(index) {
+      var _this4 = this;
+
+      this.arrayAppoggio = [];
+      this.elementoSelezionato = this.tipologie[index];
+
+      for (var k in this.arrayRistoranti) {
+        this.arrayAppoggio.push(this.arrayRistoranti[k].tipologia); // if(this.arrayRistoranti[k].tipologia.includes(this.elementoSelezionato.nome)){
+        //   this.arrayMostrato = this.arrayRistoranti[k];
+        // }
+      }
+
+      this.arrayMostrato = [];
+      this.arrayRistoranti.forEach(function (element) {
+        console.log(element.tipologia.includes(_this4.elementoSelezionato.nome));
+
+        if (element.tipologia.includes(_this4.elementoSelezionato.nome) == true) {
+          _this4.arrayMostrato.push(element);
+        }
+      });
+      console.log(this.arrayMostrato); // console.log(this.arrayAppoggio);
+      // console.log(this.arrayMostrato);
+    },
+    showAll: function showAll() {
+      console.log(this.arrayRistoranti);
+      this.arrayMostrato = [];
+      this.arrayMostrato = this.arrayRistoranti;
+      console.log(this.arrayMostrato);
     }
   }
 });
@@ -62588,35 +62616,35 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ordini: ''
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://127.0.0.1:8000/api/orders/".concat(orderid)).then(function (response) {
-      _this4.ordini = response.data;
+      _this5.ordini = response.data;
 
       var _loop = function _loop(i) {
         var ordiniSomma = 0;
 
-        _this4.ordini.forEach(function (element) {
+        _this5.ordini.forEach(function (element) {
           if (i == element.created_at.substr(5, 2)) {
             ordiniSomma++;
           }
         });
 
-        _this4.ordiniMese.push(ordiniSomma);
+        _this5.ordiniMese.push(ordiniSomma);
       };
 
       for (var i = 1; i <= 12; i++) {
         _loop(i);
       }
 
-      console.log(_this4.ordiniMese);
+      console.log(_this5.ordiniMese);
       var ctx = document.getElementById('myChart');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
         type: 'doughnut',
         data: {
           labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
           datasets: [{
-            data: _this4.ordiniMese,
+            data: _this5.ordiniMese,
             backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(67, 97, 238, 0.8)', 'rgba(79, 119, 45, 0.8)', 'rgba(153, 102, 255, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(158, 42, 43, 0.8)', 'rgba(164, 44, 214, 0.8)', 'rgba(229, 56, 59, 0.8)', 'rgba(255, 195, 0, 0.8)', 'rgba(75, 192, 192, 0.8)']
           }]
         }

@@ -84,15 +84,17 @@ class RestaurantController extends Controller
             $image = Storage::put('ristorante_storage', $data['immagine']);
             $data['immagine'] = $image;
         }
+        
+        $variabile = implode($request['types']); 
+        $newRestaurant->tipologia = $variabile;
         $newRestaurant -> fill($data);
         
         $newRestaurant-> save();
-
         if($request->has('types')){
             $newRestaurant->types()->sync($request['types']);
             $newRestaurant->tipologia =  $request['types'];
         }
-
+        // dd($request['types']);
         return redirect()->route('admin.home', $data);
     }
 

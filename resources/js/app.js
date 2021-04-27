@@ -2,6 +2,7 @@ require('./bootstrap');
 import Vue from 'vue';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
+import { includes } from 'lodash';
 
 
 
@@ -27,9 +28,12 @@ var chiamate = new Vue({
     userid: 0,
     userProva: 0,
     userFinale: 0,
-    commonArray:[],
+    arrayAppoggio: [],
+    arrayMostrato: [],
+    elementoSelezionato: 0,
   },
   mounted(){
+
     axios
       .get('http://127.0.0.1:8000/api/types')
       .then((result) => {
@@ -48,7 +52,6 @@ var chiamate = new Vue({
 
     // // console.log(this.userFinale);
     // console.log(this.finalPriceSaved);
-
     this.show = 'hide',
     axios
     .get('http://localhost:8000/api/plate')
@@ -69,23 +72,25 @@ var chiamate = new Vue({
     .get('http://localhost:8000/api/restaurant')
     .then((result)=> {
       this.arrayRistoranti = result.data.response;
-      // console.log(this.arrayRistoranti);
-      for (var j in this.arrayRistoranti){
-        this.arrayRistoranti[j].tipologia = this.arrayRistoranti[j].tipologia.split();
-        console.log(this.arrayRistoranti[j].tipologia);
+      for(var k in this.arrayRistoranti){
         for(var h in this.tipologie){
-          if(this.arrayRistoranti[j].tipologia.includes(this.tipologie[h].id)){
-            this.commonArray.push(this.arrayRistoranti[j].tipologia);
-          };
-        };
-      };
-          console.log(this.commonArray);
+          if(this.arrayRistoranti[k].tipologia.includes(this.tipologie[h].id)){
+            this.arrayRistoranti[k].tipologia += " " + this.tipologie[h].nome;
+          } else if(this.arrayRistoranti[k].tipologia == "null"){
+            this.arrayRistoranti[k].tipologia = [];
+          }
+          
+        }
+      }
+      this.arrayMostrato = this.arrayRistoranti;
     },
     this.id_ristorante= localStorage.id_ristorante,
     // console.log(this.id_ristorante),
     this.restaurant_plates
-    )},
+    )
+  },
   
+
   methods:{
     ristorante_id(id){
         this.id_ristorante = id;
@@ -156,6 +161,38 @@ var chiamate = new Vue({
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
     },
 
+    filterPlate(index){
+      this.arrayAppoggio = [];
+      this.elementoSelezionato = this.tipologie[index];
+      for(var k in this.arrayRistoranti){
+        this.arrayAppoggio.push(this.arrayRistoranti[k].tipologia);
+        // if(this.arrayRistoranti[k].tipologia.includes(this.elementoSelezionato.nome)){
+        //   this.arrayMostrato = this.arrayRistoranti[k];
+        // }
+        
+      }
+      
+      this.arrayMostrato = [];
+      this.arrayRistoranti.forEach(element=>{
+        console.log(element.tipologia.includes(this.elementoSelezionato.nome));
+        if(element.tipologia.includes(this.elementoSelezionato.nome) == true){
+          this.arrayMostrato.push(element);
+        }
+      })
+      console.log(this.arrayMostrato);
+      
+
+
+      // console.log(this.arrayAppoggio);
+      // console.log(this.arrayMostrato);
+    },
+
+    showAll(){
+      console.log(this.arrayRistoranti);
+      this.arrayMostrato = [];
+      this.arrayMostrato = this.arrayRistoranti;
+      console.log(this.arrayMostrato);
+    }
   }
 });   
 
