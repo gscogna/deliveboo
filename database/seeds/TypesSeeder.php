@@ -50,20 +50,12 @@ class TypesSeeder extends Seeder
               'immagine' => "https://qul.imgix.net/8f770481-80bf-4a9a-999e-8561ab3513c9/529430_sld.jpg",
             ],
             [
-              'nome' => 'Vegano',
-              'immagine' => "https://foodandnutrition.org/wp-content/uploads/big-bowl-vegetables-1047798504-1-780x520.jpg",
-            ],
-            [
               'nome' => 'Indiano',
               'immagine' => "https://i.pinimg.com/originals/2d/b2/69/2db269005db3400cced1ee4b608ce47f.jpg",
             ],
-            [
-              'nome' => 'Pesce',
-              'immagine' => "https://www.vistanet.it/cagliari/wp-content/uploads/sites/2/2019/05/gamberoni-770x480.jpg",
-            ],
           ];
 
-          for($i = 0; $i < 10; $i++){
+          for($i = 0; $i < 8; $i++){
             $newType = new Type();
             $newType -> nome = $newTypes[$i]['nome'];
             $newType -> immagine = $newTypes[$i]['immagine'];

@@ -175,7 +175,7 @@ var chiamate = new Vue({
       this.arrayMostrato = [];
       this.arrayRistoranti.forEach(element=>{
         console.log(element.tipologia.includes(this.elementoSelezionato.nome));
-        if(element.tipologia.includes(this.elementoSelezionato.nome) == true){
+        if(element.tipologia.includes(this.elementoSelezionato.nome)){
           this.arrayMostrato.push(element);
         }
       })
