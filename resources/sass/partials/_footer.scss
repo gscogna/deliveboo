@@ -1,6 +1,6 @@
 footer {
     width: 100%;
-    background-color:black;
+    background-color:#2e3333;
 
     .container {
             display:flex;
@@ -11,7 +11,7 @@ footer {
         width: calc(100% / 4);
         margin:30px;
         padding: 20px;
-        background-color:#464646;
+        background-color:#434848;
         color:white;
         
         @media screen and(max-width:992px) {
@@ -40,7 +40,7 @@ footer {
             text-decoration: none;
             color:rgb(209, 207, 204);
             &:hover{
-                color:#ffd803;  
+                color:#00c79c;  
               @include transition;
 
             }
@@ -63,16 +63,19 @@ footer {
         padding:20px;
     }
     .fb-blue:hover{
-        color:blue;
+        color:#6565f0;
         cursor:pointer;
+        @include transition;
     }
     .inst-red:hover{
-        color:red;
+        color:#f36161;
         cursor:pointer;
+        @include transition;
     }
     .twt-lightblue:hover{
-        color:lightblue;
+        color:#7cd3f0;
         cursor:pointer;
+        @include transition;
     }
   }
 }

@@ -8,7 +8,7 @@
         <ul class="list-unstyled list-group d-flex">          
           <li class="list-item">
             <a class="navbar-brand" href="{{ url('/') }}">
-            DELIVEBOO
+            <img class="logo" src="{{ asset('img/Logo2.png') }}" alt="">
             </a>
           </li>         
         </ul>
@@ -17,7 +17,7 @@
         @if (!Auth::user())
         <ul class="list-unstyled list-group">
           <li><a class="navbar-brand" href="{{ url('/') }}">
-            DELIVEBOO
+            <img class="logo" src="{{ asset('img/Logo2.png') }}" alt="">
           </a></li>
         </ul>
         @endif

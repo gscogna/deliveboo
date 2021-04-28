@@ -4,7 +4,7 @@
 @section('header.content')
   <div class="container header-content-guest">
     <div class="hcg-left">
-      <h2> Il piacere del cibo a casa tua</h2>
+      <h1> Il piacere del cibo a casa tua</h1>
       <div class="header-searchbar">
         <div class="pippo">
           <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
@@ -24,18 +24,17 @@
 
     </div> <!-- /hcg-left -->
 
-    <div class="hcg-right">
+    {{-- <div class="hcg-right">
         <img src="{{asset('')}}" alt="">
         <i class="fas fa-angle-double-right"></i>
         <i class="fas fa-house-user"></i>
-    </div>
+    </div> --}}
   </div>
 @endsection
 
 @section('content')
-<button @click="showAll" type="button" class="btn btn-primary">Mostra tutti i ristranti</button>
  <!-- TIPOLOGIE -->
- <h1>Scegli il tipo di cucina</h1>
+ <h2>Scegli il tipo di cucina</h2>
 <div class="container-tipologie">
      
       <div @click="filterPlate(index)" class="tipologie" v-for="(element, index) in tipologie">
@@ -47,23 +46,26 @@
 </div>
 
 <!-- SEGLI RISTORANTE -->
-<h1  class="text-center">Scegli il ristorante da cui ordinare</h1>
+<div class="container-titoli d-flex align-items-center flex-column">
+  
+  <h2  class="text-center">Scegli il ristorante da cui ordinare</h2>
+  <button @click="showAll" type="button" class="btn mostra-tutti">Mostra tutti i ristranti</button>
+</div>
   <div class="choose-restaurant">
       {{-- <h2>ristoranti</h2> --}}
 
       <div class="guest-restaurants">
 
         <div v-for="(element, index) in arrayMostrato" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
-
-          <div class="card-img-top">
-            <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
-            <div class="cover-layover">
-             <i class="fas fa-utensils"></i>
-            </div>
-          </div>
-          
           
           <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
+            <div class="card-img-top">
+              <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
+              <div class="cover-layover">
+              <i class="fas fa-utensils"></i>
+              </div>
+            </div>
+          
             <p @click='restaurant_plates(element.user_id)'>@{{element.nome}}</p>
           </a>
           {{-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">@{{element.nome}}</button> </a> --}}
@@ -86,7 +88,7 @@
 
       </div>
       
-      <h1>Consegniamo tutto ciò che vuoi</h1>
+      <h2>Consegniamo tutto ciò che vuoi</h2>
       <div class="container-section">
       <div class="section">
         <img src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/why-glovo/restaurants.svg" alt="">
