@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail; 
+use App\Mail\SendNewMail;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -51,8 +53,9 @@ class PagamentiController extends Controller
                 $order = new Order();
                 $order->pagamento_avvenuto = true;
                 $order->user_id = $data['user_id'];
-
                 $order->fill($data);
+
+                Mail::to('info@boolpress.com')->send(new SendNewMail ($order));
                 $order->save();
                 return view('guest.checkout');
             } else {
