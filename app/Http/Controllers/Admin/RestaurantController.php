@@ -24,9 +24,15 @@ class RestaurantController extends Controller
     public function statistiche()
     {
             $order = Order::where('user_id', Auth::id())->first();
+
+            $neworder = Order::all();
+
+
+
             if($order){
                 $data = [
-                    'orders' => $order->user_id
+                    'orders' => $order->user_id,
+                    'ordini' => $neworder
                 ];
             } else {
                 $data = [

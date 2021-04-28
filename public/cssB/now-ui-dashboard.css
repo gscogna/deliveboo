@@ -3865,6 +3865,7 @@ Created using IcoMoon - icomoon.io
 .off-canvas-sidebar .nav {
   margin-top: 20px;
   display: block;
+  font-size: 20px;
 }
 
 .sidebar .nav .caret,
@@ -3903,7 +3904,7 @@ Created using IcoMoon - icomoon.io
 .sidebar .nav li:focus:not(.active)>a,
 .off-canvas-sidebar .nav li:hover:not(.active)>a,
 .off-canvas-sidebar .nav li:focus:not(.active)>a {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .sidebar .nav li:hover:not(.active)>a i,
@@ -3999,9 +4000,8 @@ Created using IcoMoon - icomoon.io
   content: '';
   position: absolute;
   bottom: 0;
-  right: 15px;
   height: 1px;
-  width: calc(100% - 30px);
+  width: calc(84%);
   background-color: rgba(255, 255, 255, 0.5);
 }
 

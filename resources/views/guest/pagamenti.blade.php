@@ -39,6 +39,8 @@
         <div>
             <h4> Totale da pagare: @{{ finalPrice }} €</h4>
             <input type="hidden" id="userid" name="user_id" min="1" :value="userid" readonly>
+            <input type="hidden" id="prezzo" name="prezzo_totale" min="1" :value="finalPrice" readonly>
+
         </div>
     </div>
    
