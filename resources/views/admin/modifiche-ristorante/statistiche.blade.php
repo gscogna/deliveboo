@@ -33,7 +33,11 @@
                     <td>{{ $order->indirizzo_consegna }}</td>
                     <td>{{ $order->email}}</td>
                     <td>{{ $order->prezzo_totale}}</td>
-                    <td>{{ $order->pagamento_avvenuto }}</td>
+                    @if($order->pagamento_avvenuto == 1) 
+                    <td>Si</td>
+                    @elseif($order->pagamento_avvenuto == 0)
+                    <td>No</td>
+                    @endif
                     @endforeach
                     </tr>
                     <tr>
