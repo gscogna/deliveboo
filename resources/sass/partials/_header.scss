@@ -23,7 +23,7 @@ header {
     background-position: center;
   }
   & nav {
-    background-color:rgb(255, 191, 0, 0.7) ;
+    background-color:rgb(255, 191, 0) ;
    // background: linear-gradient(to center, #e2eeee, #FFBF00);
     position: fixed;
     z-index:80;
@@ -80,7 +80,7 @@ header {
         }
 
         & input{       
-          width: 600px;
+          width: 400px;
           border-radius: 10px; 
           margin-top: 20px;
           outline: none;
