@@ -1,0 +1,82 @@
+footer {
+    width: 100%;
+    background-color:#2e3333;
+
+    .container {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+    
+    .card { 
+        width: calc(100% / 4);
+        margin:30px;
+        padding: 20px;
+        background-color:#434848;
+        color:white;
+        
+        @media screen and(max-width:992px) {
+          width: 100%;
+          margin: 10px auto;
+          text-align: center;
+        }
+        @media screen and(max-width: 768px){
+          width: calc(100% / 2 - 10px);
+          margin-bottom: 20px;
+          
+        }
+        
+        @media screen and (max-width: 576px) {
+            width: 100%;
+            margin-bottom: 20px;
+            
+        }
+
+     h3{
+        font-size: 30px;
+      }
+      ul{
+          list-style: none;
+          & a{
+            text-decoration: none;
+            color:rgb(209, 207, 204);
+            &:hover{
+                color:#00c79c;  
+              @include transition;
+
+            }
+          }
+          li{
+            padding-top: 10px;
+
+          }
+        }
+     }   
+  }
+  .font{
+    color:white;
+    display:flex;
+    justify-content:center;
+    font-size: 30px;
+    padding-bottom:30px;
+
+    i{
+        padding:20px;
+    }
+    .fb-blue:hover{
+        color:#6565f0;
+        cursor:pointer;
+        @include transition;
+    }
+    .inst-red:hover{
+        color:#f36161;
+        cursor:pointer;
+        @include transition;
+    }
+    .twt-lightblue:hover{
+        color:#7cd3f0;
+        cursor:pointer;
+        @include transition;
+    }
+  }
+}
+  
