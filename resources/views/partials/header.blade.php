@@ -1,7 +1,7 @@
-<header >
+<header class="prova">
   <div class="layover">
 
-    <nav class="navbar navbar-expand-md position-fixed" style="width: 100%; height:140px;">
+    <nav class="navbar navbar-expand-md position-fixed">
       <div class="container">
         
         @if (Auth::user())

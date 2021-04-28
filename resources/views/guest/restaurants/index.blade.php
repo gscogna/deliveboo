@@ -2,42 +2,40 @@
 @section('title', 'Deliveboo')
 
 @section('header.content')
-<div class="container header-content-guest">
-    <div class="hcg-left">
-      <h2> Il piacere del cibo a casa tua</h2>
-      <div class="header-searchbar">
-        <div class="pippo">
-          <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
-          <div class="container-search">
+    
+<div class="header-content-guest">
+  <div class="hcg-left">
+    <h1> Il piacere del cibo a casa tua</h1>
+    <div class="header-searchbar">
+      <div class="pippo">
+        <input @keyup="search_restaurant" v-model='search' type="text" name="" value="" placeholder="cosa stai cercando?">
+        {{-- <button @click="showAll" type="button" class="btn btn-primary">Mostra tutti i ristranti</button> --}}
+        <div class="container-search">
 
-            <div class="search-results" @keyup="div_restaurants">
-              <ul>
-                <li @click="click_restaurant_choice(index)" v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" :key="val.nome">@{{ val.nome }}</li>
-              </ul>
-            </div> 
-
+          <div class="search-results" @keyup="div_restaurants">
+            <ul>
+              <li @click="click_restaurant_choice(index)" v-for="(val, index) in ristorantiSelezionati" v-if="search != ''" :key="val.nome">@{{ val.nome }}</li>
+            </ul>
           </div> 
-          
+
         </div> 
-
-      </div>
-
-    </div> 
-    <div class="hcg-right">
-        <img src="{{asset('../img/deliveboo.gif')}}" style="margin-top:80px;"  alt="">
-       
-    </div>
+        
+      </div> 
 
     </div>
 
+  </div> 
+  {{-- <div class="hcg-right">
+      <img src="{{asset('../img/deliveboo.gif')}}" style="margin-top:80px;"  alt="">
+  </div> --}}
 
-
+  </div>
 @endsection
 
 @section('content')
-<button @click="showAll" type="button" class="btn btn-primary">Mostra tutti i ristranti</button>
+
  <!-- TIPOLOGIE -->
- <h1>Scegli il tipo di cucina</h1>
+ <h2>Scegli il tipo di cucina</h2>
 <div class="container-tipologie">
      
       <div @click="filterPlate(index)" class="tipologie" v-for="(element, index) in tipologie">

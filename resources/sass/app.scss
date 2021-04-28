@@ -8,16 +8,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "partials/buttons";
 @import "partials/commons";
 @import "partials/header";
-@import "partials/footer";
 @import "partials/main";
+@import "partials/footer";
 @import "partials/show";
 @import "partials/registrazione";
 @import "partials/carrello";
 @import "partials/restaurantMain";
 @import "partials/statistics";
-@import "partials/buttons";
 
 
 

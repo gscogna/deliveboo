@@ -2,10 +2,9 @@
 
 
   // tipologie
-  h1{
+  h2{
     text-align:center;
     color:#272343;
-    background-color: white;
     margin-bottom:25px;
     margin-top:25px;
   }
@@ -19,20 +18,20 @@
     margin:0 auto;
 
     .tipologie{
-      width:calc(100% / 5);
+      width:calc(100% / 4);
       padding:20px;
       display:flex;
       justify-content:space-between;
       flex-direction: column;
 
       @media screen and(max-width: 1200px){
-        width:calc(100% / 5);
+        width:calc(100% / 4);
         
         
       }
 
       @media screen and(max-width: 768px){
-        width:calc(100% / 5 -10px);
+        width:calc(100% / 3 );
         
         
       }
@@ -74,18 +73,6 @@
 
  
 // inizio scegli ristorante
-  h1 {
-  font-size: 45px;
-  font-weight: bold;
-  color:#272343;
-}
-
-   h2 {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-
    .guest-restaurants{
     //background: linear-gradient(to right, #ffffff, hsla(184, 76%, 81%, 0.788));
     width: 100%;
@@ -206,7 +193,7 @@ width:100%;
 display:flex;
 flex-direction: row;
 justify-content: center;
-fex-wrap:wrap;
+flex-wrap:wrap;
 padding:20px;
 
 .section{
@@ -240,12 +227,12 @@ padding:20px;
   background-color: #fff;
 
    .container {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
 
-    @media screen and (max-width: 992px) {
-      flex-direction: column;
-    }
+    // @media screen and (max-width: 992px) {
+    //   flex-direction: column;
+    // }
     
   }
    .left-side-banner, .right-side-banner {
@@ -255,10 +242,6 @@ padding:20px;
     @media screen and (max-width: 992px) {
       width: 100%;
     }
-  }
-   h2 {
-    text-align: center;
-    color:#272343;
   }
    img{
     height: 350px;
