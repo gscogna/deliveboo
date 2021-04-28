@@ -1,17 +1,16 @@
 .posizionamento{
     position: absolute;
-    top:50;
     right:0;
 }
 
 .statistiche{
     display: flex;
     justify-content: space-evenly;
-    .table-celestina{
-        background-color:#6981f1;
-    }   
+    align-items: center;
+    // .table-celestina{
+    //     background-color:#6981f1;
+    // }   
 }
-
 
 .grafico{
     width: 100%;
