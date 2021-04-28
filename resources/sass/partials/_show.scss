@@ -1,9 +1,12 @@
 body{
   font-family: Gotham,Arial,Helvetica Neue,Helvetica,sans-serif;
 }
-#main{
-  margin-top: 87px;
+
+.pagina_color{
+  background-color:#a2a7c0;
+  
 }
+
  //collapse-show
 .carousel-item{
   height:600px;
@@ -78,9 +81,7 @@ body{
   color: #000;
 }
 #products{
-  background: #cef1e9;
   width:100%;
-  margin:0 auto;
   padding: 80px 0;
   display:flex;
   flex-direction: row;
@@ -150,10 +151,10 @@ body{
         //   -webkit-transform: scale(1.1);
         //   transform: scale(1.1);
         // }
-        img{
-          width:100%;
-          margin:0 auto;
-        }
+        // img{
+        //   width:100%;
+        //   margin:0 auto;
+        // }
         // .product-img{
         //   &:focus,
         //   &:active{
@@ -219,60 +220,22 @@ body{
     }
 
   }
-// }
-// }
-//fine contenitore-piatti
-// Sezione sec
-#about-sec{
-  margin-top: 25px;
-  background-color: aliceblue;
-  .watch-img{
-    margin-top: 35px;
-    animation-name: imgLeft;
-    animation-duration: 3s;
-  }
-  .text-color{
-    color: #000;
-  }
-  .about-text{
-  animation-name:textRight;
-  animation-duration: 3s;
-  }
-}
-    @keyframes textRight {
-    0%{
-      transform:translateX(30px);
-      opacity: 0;
-    }
-    100%{
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-    @keyframes imgLeft {
-    0%{
-      transform:translateX(-120px);
-      opacity: 0;
-    }
-    100%{
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
 
-  .prezzo-totale{
+//fine contenitore-piatti
+
+.prezzo-totale{
     text-align: center;
     font-weight: bold;
   }
-
-
+  
+  
   #carte{
-    width: 1000px;
-    background-color: #e1f8f3;
+    width: 80%;
+    background-color:#e1f8f3;
     padding-bottom: 80px;
     margin: auto;
     margin-bottom: 100px;
-    margin-top: 200px;
+    margin-top: 50px;
     @media screen and (max-width: 768px){
       width: 100%;
       padding-bottom: 80px;
@@ -305,3 +268,41 @@ body{
       }
     }
   }
+  
+  // Sezione sec
+  #about-sec{
+    margin-top: 25px;
+    background-color: aliceblue;
+    .watch-img{
+      margin-top: 35px;
+      animation-name: imgLeft;
+      animation-duration: 3s;
+    }
+    .text-color{
+      color: #000;
+    }
+    .about-text{
+    animation-name:textRight;
+    animation-duration: 3s;
+    }
+  }
+      @keyframes textRight {
+      0%{
+        transform:translateX(30px);
+        opacity: 0;
+      }
+      100%{
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+      @keyframes imgLeft {
+      0%{
+        transform:translateX(-120px);
+        opacity: 0;
+      }
+      100%{
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }

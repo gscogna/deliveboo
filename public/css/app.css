@@ -11253,11 +11253,6 @@ footer .font .twt-lightblue:hover {
   }
 }
 
-main {
-  width: 100%;
-  background-color: #fffffe;
-}
-
 main h2 {
   text-align: center;
   color: #272343;
@@ -11577,8 +11572,8 @@ body {
   font-family: Gotham, Arial, Helvetica Neue, Helvetica, sans-serif;
 }
 
-#main {
-  margin-top: 87px;
+.pagina_color {
+  background-color: #a2a7c0;
 }
 
 .carousel-item {
@@ -11687,9 +11682,7 @@ body {
 }
 
 #products {
-  background: #cef1e9;
   width: 100%;
-  margin: 0 auto;
   padding: 80px 0;
   display: flex;
   flex-direction: row;
@@ -11743,11 +11736,6 @@ body {
   flex-direction: row;
   margin: 0 auto;
   padding: 3px;
-}
-
-#products .container2 .contenitore-piatti-img .img-container img {
-  width: 100%;
-  margin: 0 auto;
 }
 
 #products .container2 .card-piatti {
@@ -11821,6 +11809,63 @@ body {
   }
 }
 
+.prezzo-totale {
+  text-align: center;
+  font-weight: bold;
+}
+
+#carte {
+  width: 80%;
+  background-color: #e1f8f3;
+  padding-bottom: 80px;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte {
+    width: 100%;
+    padding-bottom: 80px;
+  }
+}
+
+#carte .contenitore-sezione {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+#carte .contenitore-sezione .abc {
+  width: calc(100% / 2);
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte .contenitore-sezione .abc {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+#carte .contenitore-sezione .abc img {
+  width: 100%;
+}
+
+#carte .contenitore-sezione .testo {
+  text-align: center;
+  padding: 0 30px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte .contenitore-sezione .testo {
+    padding: 50px 0;
+  }
+}
+
 #about-sec {
   margin-top: 25px;
   background-color: aliceblue;
@@ -11890,63 +11935,6 @@ body {
   100% {
     transform: translateX(0);
     opacity: 1;
-  }
-}
-
-.prezzo-totale {
-  text-align: center;
-  font-weight: bold;
-}
-
-#carte {
-  width: 1000px;
-  background-color: #e1f8f3;
-  padding-bottom: 80px;
-  margin: auto;
-  margin-bottom: 100px;
-  margin-top: 200px;
-}
-
-@media screen and (max-width: 768px) {
-  #carte {
-    width: 100%;
-    padding-bottom: 80px;
-  }
-}
-
-#carte .contenitore-sezione {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding-top: 80px;
-}
-
-#carte .contenitore-sezione .abc {
-  width: calc(100% / 2);
-  padding: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  #carte .contenitore-sezione .abc {
-    width: 100%;
-    padding: 20px;
-  }
-}
-
-#carte .contenitore-sezione .abc img {
-  width: 100%;
-}
-
-#carte .contenitore-sezione .testo {
-  text-align: center;
-  padding: 0 30px;
-}
-
-@media screen and (max-width: 768px) {
-  #carte .contenitore-sezione .testo {
-    padding: 50px 0;
   }
 }
 
@@ -12419,7 +12407,7 @@ body {
 }
 
 .btn-esci {
-  background-color: #F94646;
+  background-color: #ff7d7d;
   width: 100%;
   border-radius: 10px;
   padding: 5px;

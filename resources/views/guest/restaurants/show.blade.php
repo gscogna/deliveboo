@@ -45,12 +45,15 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-            </div><!-- fine jumbotron -->
+        </div><!-- fine jumbotron -->
 
 
       </section>
-  @endsection
-     @section('content')
+    @endsection
+    @section('content')
+    <div class="container-fluid pagina_color">
+
+    
          {{-- Sezione info ristorante e vario --}}
       <!-- <section id="ristorante-info">
 
@@ -111,40 +114,6 @@
               </div> <!-- /@click -->
             
         </div> <!-- /contenitore-piatti-img -->
-
-
-
-        <!-- carrello header con click -->
-        <!-- <div id="carr-header">
-
-        <form method="POST" action="{{ route('add.carrello.post') }}">
-          @csrf
-          @method('POST')
-            {{-- carrello col click --}}
-          <div @click="showCarrello" class="carrello carr-header">
-           <i class="fas fa-shopping-cart"></i>
-          </div>  
-
-       
-        <div :class="show" class="oggetti_carrello carr-header">
-          <h5>Il mio carrello</h5>
-          <hr>
-          <div v-for="(piatto, index) in carrello" class="container-piatti">
-            <p>@{{ piatto }}</p>
-          </div>
-          <div v-for="(val, index) in piattiRistorante">
-            <p>@{{ val.contatore }}</p>
-          </div>
-          <button type="submit" class="btn btn-primary">Primary</button>
-  
-          <div v-for="item in piattiRistorante" class="input">
-            <input type="text" name="nome" :value="item.nome" readonly>
-            <input type="number" name="prezzo" :value="item.prezzo" readonly>
-          </div>
-  
-          </form>              
-        </div> -->
-
 
         <!--  carrello senza click-->
         <div id="carr">
@@ -208,5 +177,5 @@
 
 
       </section> <!-- fine section #products -->
-   
+   </div>
      @endsection
