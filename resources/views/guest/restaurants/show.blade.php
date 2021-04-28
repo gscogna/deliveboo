@@ -56,19 +56,16 @@
       </section> -->
       {{-- Sezione prodotti e piatti --}}
 
-      <h1 class="text-ordina">Nome del ristorante</h1>
-
      
 
       <section id="products">
       
         <div class="container2">        
-            <div class="row product-items" id="product-items">
            
               {{-- singolo oggetto --}}
-              <div v-for="(item,index) in piattiRistorante" class="col-10 col-sm-8 col-lg-4 mx-auto my-3">
+              <div class="contenitore-piatti-img" v-for="(item,index) in piattiRistorante">
 
-                <div class="contenitore-piatti-img">
+                
 
                   <div class="img-container">
                       <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
@@ -90,11 +87,7 @@
                                        
                    </div>  <!-- /card-piatti -->                 
 
-                </div> <!-- /card -->
-
               </div> <!-- /@click -->
-
-            </div><!-- /row -->
             
         </div> <!-- /contenitore-piatti-img -->
 
@@ -175,7 +168,7 @@
                     
                   </form>     
                   <div class="prezzo-totale">
-                    <p>Totale da pagare: @{{ sommaCarrelloFinale }} </p>
+                    <h5>Totale: @{{ sommaCarrelloFinale }} €</h5>
                   </div>  
 
               </div>   <!-- fine contenitore-carrello -->
