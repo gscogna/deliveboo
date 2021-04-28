@@ -15,10 +15,9 @@
             DELIVEBOO
           </a>
       </div>
-
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">        
-          <li class="active ">
+          <li>
               <a href="{{ url('admin/plates') }}">
 
                     <i class="now-ui-icons design_app"></i>
@@ -37,7 +36,7 @@
           </li>
 
           <li>
-            <a href="{{ route('plates.index') }}">
+            <a href="#">
               <i class="fas fa-utensils"></i>
               I tuoi piatti
             </a>
@@ -89,15 +88,14 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-        {{-- <img src="https://i.pinimg.com/originals/fa/93/b4/fa93b4ffee72b457f38998277337001d.gif" alt="circle"> --}}
+      <div class="panel-header panel-header-lg grafico sfondo_prova">
         <div class="container">
           <div class="row">
               <div class="neons col-12">
-                <h4>Deliveboo Night</h4>
+                <h4>DELIVEBOO</h4>
               </div>
+            </div>
           </div>
-        </div>
       </div>
       <div class="content">
           <div class="row mt-5 mb-5">
@@ -249,11 +247,6 @@
       </div>
     </div>
   </div>
-
-{{-- <script> 
-  let orderid = {{ $orders }}
-</script> --}}
-
 @endsection
 
 

@@ -12329,6 +12329,13 @@ body {
   background-color: #6981f1;
 }
 
+.grafico {
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/pianeti.gif");
+  background-size: cover;
+}
+
 .button-admin {
   background-color: #0f2a4b;
 }
