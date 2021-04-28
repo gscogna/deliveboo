@@ -2,7 +2,7 @@
 @section('title', 'Paga il tuo ordine')
 
 @section('content')
-<div class="container">
+<div class="container-pagamento d-flex justify-content-center">
   @if (session('success_message'))
                     <div class="alert alert-success">
                         {{ session('success_message') }}
@@ -19,7 +19,7 @@
                     </div>
                 @endif
   <div class="row">
-    <div class="col-md-8 col-ms-offset-1">
+    <div class="col-lg-12">
       <form id="payment-form" action="{{ route('payment.checkout') }}" method="post">
         @csrf
         @method('POST')
@@ -37,8 +37,8 @@
             <input name="indirizzo_consegna" type="text" class="form-control" id="inputIndirizzo" placeholder="Inserisci nome...">
         </div>
         <div>
-            <p >@{{ sommaPrezzo }}</p>
-            <input id="userid" name="user_id" min="1" :value="userid" readonly>
+            <h4> Totale da pagare: @{{ sommaPrezzo }} €</h4>
+            <input type="hidden" id="userid" name="user_id" min="1" :value="userid" readonly>
         </div>
     </div>
    
@@ -51,8 +51,8 @@
 
       <input type="hidden" id="nonce" name="payment_method_nonce"/>
 
-      <div class="buttons">
-          <button class="button btn btn-primary" type="submit"><span>Acquista</span></button>
+      <div class="buttons text-center">
+          <button class="button btn mostra-tutti" type="submit"><span>Acquista</span></button>
       </div>
   
       </form>

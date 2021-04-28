@@ -12,14 +12,29 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+            <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
     @endif
-    <h1>LA TRANSAZIONE E' AVVENUTA CON SUCCESSO</h1>
-    <button class="btn btn-success">
-        <a href="{{ url('/') }}">Torna alla homepage</a>
-    </button>
+    <div class="container-checkout d-flex align-items-center flex-column">
+        <h1>LA TRANSAZIONE E' AVVENUTA CON SUCCESSO</h1>
+        <button class="btn mostra-tutti">
+            <a href="{{ url('/') }}">Torna alla homepage</a>
+        </button>
+    </div>
 </div>
+
+{{-- Another section --}}
+<section id="about-sec">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12 text-center">
+          <img src="https://www.dolcesalato.com/wp-content/uploads/sites/5/2020/04/food-delivery-02.jpg" width="450" height="150" 
+          class="img-fluid watch-img">
+        </div>
+      </div>
+    </div>       
+    </div>
+  </section>
 @endsection

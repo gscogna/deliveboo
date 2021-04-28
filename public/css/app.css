@@ -11842,6 +11842,11 @@ body {
     opacity: 0;
   }
 
+  50% {
+    transform: translateX(15px);
+    opacity: 0;
+  }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -11851,6 +11856,11 @@ body {
 @keyframes textRight {
   0% {
     transform: translateX(30px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(15px);
     opacity: 0;
   }
 
@@ -11866,6 +11876,16 @@ body {
     opacity: 0;
   }
 
+  50% {
+    transform: translateX(-80px);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(-40px);
+    opacity: 1;
+  }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -11876,6 +11896,16 @@ body {
   0% {
     transform: translateX(-120px);
     opacity: 0;
+  }
+
+  50% {
+    transform: translateX(-80px);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateX(-40px);
+    opacity: 1;
   }
 
   100% {
@@ -12313,5 +12343,10 @@ body {
 
 .mostra-tutti {
   background-color: #00c79c;
+  color: white;
+}
+
+.mostra-tutti a {
+  color: white;
 }
 
