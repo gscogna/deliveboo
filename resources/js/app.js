@@ -31,6 +31,9 @@ var chiamate = new Vue({
     arrayAppoggio: [],
     arrayMostrato: [],
     elementoSelezionato: 0,
+    sommaCarrello: 0,
+    sommaCarrelloFinale: 0,
+    differenzaCarrello: 0,
   },
   mounted(){
 
@@ -45,6 +48,7 @@ var chiamate = new Vue({
     // console.log(this.carrelloSalvato);
     for(var h in this.finalPriceSaved){
       this.sommaPrezzo +=this.finalPriceSaved[h].prezzo;
+      this.finalPrice = this.sommaPrezzo.toFixed(2);
       this.userid = this.finalPriceSaved[h].user_id;
     }
 
@@ -153,13 +157,30 @@ var chiamate = new Vue({
     },
 
     add_to_chart(index) {
+      this.carrello.push(this.piattiRistorante[index]);
+      this.differenzaCarrello= 0;
+      this.carrello.forEach(element=>{
+       
+        this.differenzaCarrello += element.prezzo;
+      });
 
-      if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index]);
         
-      }
+      this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
     },
+
+    delete_to_chart(index){
+        this.carrello.splice(index,1);
+        this.differenzaCarrello= 0;
+          this.carrello.forEach(element=>{
+           
+            this.differenzaCarrello += element.prezzo;
+          });
+
+
+        this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
+        localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      },
 
     filterPlate(index){
       this.arrayAppoggio = [];

@@ -37,7 +37,7 @@
             <input name="indirizzo_consegna" type="text" class="form-control" id="inputIndirizzo" placeholder="Inserisci nome...">
         </div>
         <div>
-            <h4> Totale da pagare: @{{ sommaPrezzo }} €</h4>
+            <h4> Totale da pagare: @{{ finalPrice }} €</h4>
             <input type="hidden" id="userid" name="user_id" min="1" :value="userid" readonly>
         </div>
     </div>

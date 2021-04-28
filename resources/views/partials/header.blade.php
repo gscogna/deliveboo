@@ -1,6 +1,8 @@
 <header >
   <div class="layover">
 
+        
+    
     <nav class="navbar navbar-expand-md navbar-light position-fixed shadow-sm" style="width: 100%;">
       <div class="container">
         
@@ -8,7 +10,7 @@
         <ul class="list-unstyled list-group d-flex">          
           <li class="list-item">
             <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="{{ asset('img/Logo2.png') }}" alt="">
+              <img class="logo" src="{{ asset('img/Logo2.png') }}" alt="">
             </a>
           </li>         
         </ul>
@@ -25,13 +27,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
-  
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
             
           </ul>
-  
+          
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -45,11 +47,11 @@
             </li>
             @endif
             @else
-
+            
             <div class="list-item2">
-            <a href="{{ route('admin.home') }}">Torna al tuo ristorante</a>
+              <a href="{{ route('admin.home') }}">Torna al tuo ristorante</a>
            </div>
-
+           
             <li class="nav-item dropdown">
 
               <a id="navbarDropdown" style="color: #272343;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -63,7 +65,7 @@
                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
               </a>
-  
+              
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
               </form>
@@ -73,9 +75,10 @@
         </ul>
       </div>
     </div>
-   </nav>
+  </nav>
+
   
-   @yield('header.content')
+  @yield('header.content')
   </div>
 
 </header>

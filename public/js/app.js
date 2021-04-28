@@ -62465,7 +62465,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     userFinale: 0,
     arrayAppoggio: [],
     arrayMostrato: [],
-    elementoSelezionato: 0
+    elementoSelezionato: 0,
+    sommaCarrello: 0,
+    sommaCarrelloFinale: 0,
+    differenzaCarrello: 0
   },
   mounted: function mounted() {
     var _this = this;
@@ -62478,6 +62481,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     for (var h in this.finalPriceSaved) {
       this.sommaPrezzo += this.finalPriceSaved[h].prezzo;
+      this.finalPrice = this.sommaPrezzo.toFixed(2);
       this.userid = this.finalPriceSaved[h].user_id;
     } // console.log(this.userid);
     // // console.log(this.userFinale);
@@ -62572,14 +62576,29 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
     },
     add_to_chart: function add_to_chart(index) {
-      if (!this.carrello.includes(this.piattiRistorante[index].nome)) {
-        this.carrello.push(this.piattiRistorante[index]);
-      }
+      var _this4 = this;
 
+      this.carrello.push(this.piattiRistorante[index]);
+      this.differenzaCarrello = 0;
+      this.carrello.forEach(function (element) {
+        _this4.differenzaCarrello += element.prezzo;
+      });
+      this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
+      localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+    },
+    delete_to_chart: function delete_to_chart(index) {
+      var _this5 = this;
+
+      this.carrello.splice(index, 1);
+      this.differenzaCarrello = 0;
+      this.carrello.forEach(function (element) {
+        _this5.differenzaCarrello += element.prezzo;
+      });
+      this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
     },
     filterPlate: function filterPlate(index) {
-      var _this4 = this;
+      var _this6 = this;
 
       this.arrayAppoggio = [];
       this.elementoSelezionato = this.tipologie[index];
@@ -62592,10 +62611,10 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       this.arrayMostrato = [];
       this.arrayRistoranti.forEach(function (element) {
-        console.log(element.tipologia.includes(_this4.elementoSelezionato.nome));
+        console.log(element.tipologia.includes(_this6.elementoSelezionato.nome));
 
-        if (element.tipologia.includes(_this4.elementoSelezionato.nome)) {
-          _this4.arrayMostrato.push(element);
+        if (element.tipologia.includes(_this6.elementoSelezionato.nome)) {
+          _this6.arrayMostrato.push(element);
         }
       });
       console.log(this.arrayMostrato); // console.log(this.arrayAppoggio);
@@ -62616,35 +62635,35 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     ordini: ''
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this7 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://127.0.0.1:8000/api/orders/".concat(orderid)).then(function (response) {
-      _this5.ordini = response.data;
+      _this7.ordini = response.data;
 
       var _loop = function _loop(i) {
         var ordiniSomma = 0;
 
-        _this5.ordini.forEach(function (element) {
+        _this7.ordini.forEach(function (element) {
           if (i == element.created_at.substr(5, 2)) {
             ordiniSomma++;
           }
         });
 
-        _this5.ordiniMese.push(ordiniSomma);
+        _this7.ordiniMese.push(ordiniSomma);
       };
 
       for (var i = 1; i <= 12; i++) {
         _loop(i);
       }
 
-      console.log(_this5.ordiniMese);
+      console.log(_this7.ordiniMese);
       var ctx = document.getElementById('myChart');
       var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](ctx, {
         type: 'pie',
         data: {
           labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
           datasets: [{
-            data: _this5.ordiniMese,
+            data: _this7.ordiniMese,
             backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)', 'rgba(255, 159, 64, 0.8)', 'rgba(67, 97, 238, 0.8)', 'rgba(79, 119, 45, 0.8)', 'rgba(153, 102, 255, 0.8)', 'rgba(255, 206, 86, 0.8)', 'rgba(158, 42, 43, 0.8)', 'rgba(164, 44, 214, 0.8)', 'rgba(229, 56, 59, 0.8)', 'rgba(255, 195, 0, 0.8)', 'rgba(75, 192, 192, 0.8)']
           }]
         }
