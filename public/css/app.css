@@ -10967,12 +10967,10 @@ a.text-dark:focus {
 }
 
 header {
-  background-color: green;
   width: 100%;
   height: 620px;
   margin-top: 140px;
   padding: 20px 0;
-  background-image: url("");
   background-position: center;
   background-size: cover;
 }
@@ -11214,13 +11212,7 @@ footer .font .twt-lightblue:hover {
   cursor: pointer;
 }
 
-main {
-  width: 100%;
-  background-color: #fffffe;
-  margin-top: 150px;
-}
-
-main h1 {
+h1 {
   text-align: center;
   color: #272343;
   background-color: white;
@@ -11228,7 +11220,7 @@ main h1 {
   margin-top: 25px;
 }
 
-main .container-tipologie {
+.container-tipologie {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -11236,7 +11228,7 @@ main .container-tipologie {
   margin: 0 auto;
 }
 
-main .container-tipologie .tipologie {
+.container-tipologie .tipologie {
   width: calc(100% / 5);
   padding: 20px;
   display: flex;
@@ -11245,41 +11237,41 @@ main .container-tipologie .tipologie {
 }
 
 @media screen and (max-width: 1200px) {
-  main .container-tipologie .tipologie {
+  .container-tipologie .tipologie {
     width: calc(100% / 5);
   }
 }
 
 @media screen and (max-width: 768px) {
-  main .container-tipologie .tipologie {
+  .container-tipologie .tipologie {
     width: calc(100% / 5 -10px);
   }
 }
 
 @media screen and (max-width: 576px) {
-  main .container-tipologie .tipologie {
+  .container-tipologie .tipologie {
     width: calc(100% / 2);
   }
 }
 
-main .container-tipologie .tipologie img {
+.container-tipologie .tipologie img {
   width: 100%;
   border-radius: 50%;
 }
 
-main .container-tipologie .tipologie:hover {
+.container-tipologie .tipologie:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.2);
   z-index: 70;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  main .container-tipologie .tipologie:hover {
+  .container-tipologie .tipologie:hover {
     transition: none;
   }
 }
 
-main .container-tipologie .tipologie p {
+.container-tipologie .tipologie p {
   font-size: 20px;
   color: #272343;
   text-align: center;
@@ -11287,23 +11279,23 @@ main .container-tipologie .tipologie p {
 }
 
 @media screen and (max-width: 768px) {
-  main .container-tipologie .tipologie p {
+  .container-tipologie .tipologie p {
     font-size: 15px;
   }
 }
 
-main h1 {
+h1 {
   font-size: 45px;
   font-weight: bold;
   color: #272343;
 }
 
-main .choose-restaurant h2 {
+h2 {
   margin-bottom: 30px;
   text-align: center;
 }
 
-main .choose-restaurant .guest-restaurants {
+.guest-restaurants {
   width: 100%;
   margin: auto;
   display: flex;
@@ -11312,7 +11304,7 @@ main .choose-restaurant .guest-restaurants {
 }
 
 @media screen and (max-width: 1200px) {
-  main .choose-restaurant .guest-restaurants {
+  .guest-restaurants {
     width: 80%;
     margin: auto;
     justify-content: space-between;
@@ -11320,7 +11312,7 @@ main .choose-restaurant .guest-restaurants {
 }
 
 @media screen and (max-width: 768px) {
-  main .choose-restaurant .guest-restaurants {
+  .guest-restaurants {
     width: 80%;
     margin: auto;
     justify-content: space-between;
@@ -11328,13 +11320,13 @@ main .choose-restaurant .guest-restaurants {
 }
 
 @media screen and (max-width: 576px) {
-  main .choose-restaurant .guest-restaurants {
+  .guest-restaurants {
     width: 65%;
     justify-content: space-between;
   }
 }
 
-main .choose-restaurant .guest-restaurants .card {
+.guest-restaurants .card {
   width: calc(100% / 6);
   display: flex;
   margin-top: 30px;
@@ -11342,32 +11334,32 @@ main .choose-restaurant .guest-restaurants .card {
 }
 
 @media screen and (max-width: 1200px) {
-  main .choose-restaurant .guest-restaurants .card {
+  .guest-restaurants .card {
     width: calc(100% / 3 - 10px);
     margin-bottom: 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  main .choose-restaurant .guest-restaurants .card {
+  .guest-restaurants .card {
     width: calc(100% / 2 - 10px);
     margin-bottom: 30px;
   }
 }
 
 @media screen and (max-width: 576px) {
-  main .choose-restaurant .guest-restaurants .card {
+  .guest-restaurants .card {
     width: 100%;
     margin-bottom: 30px;
   }
 }
 
-main .choose-restaurant .guest-restaurants .card:hover {
+.guest-restaurants .card:hover {
   background-color: grey;
   opacity: 0.5;
 }
 
-main .choose-restaurant .guest-restaurants .card .card-img-top {
+.guest-restaurants .card .card-img-top {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -11375,12 +11367,12 @@ main .choose-restaurant .guest-restaurants .card .card-img-top {
   position: relative;
 }
 
-main .choose-restaurant .guest-restaurants .card .card-img-top img {
+.guest-restaurants .card .card-img-top img {
   width: 100%;
   padding: 10px;
 }
 
-main .choose-restaurant .guest-restaurants .card .cover-layover {
+.guest-restaurants .card .cover-layover {
   display: flex;
   flex-direction: column;
   display: none;
@@ -11392,20 +11384,24 @@ main .choose-restaurant .guest-restaurants .card .cover-layover {
   font-size: 60px;
 }
 
-main .choose-restaurant .guest-restaurants .card .cover-layover .font-cover {
+.guest-restaurants .card .cover-layover .font-cover {
   display: flex;
   justify-content: center;
 }
 
-main .choose-restaurant .guest-restaurants .card .card-img-top:hover .cover-layover {
+.guest-restaurants .card .cover-layover .text-cover {
+  color: black;
+}
+
+.guest-restaurants .card .card-img-top:hover .cover-layover {
   display: block;
 }
 
-main .choose-restaurant .guest-restaurants .card a {
+.guest-restaurants .card a {
   text-decoration: none;
 }
 
-main .choose-restaurant .guest-restaurants .card p {
+.guest-restaurants p {
   color: #272343;
   font-weight: bold;
   font-size: 35px;
@@ -11413,6 +11409,39 @@ main .choose-restaurant .guest-restaurants .card p {
   text-align: center;
   margin: 0px auto 10px auto;
   text-transform: capitalize;
+}
+
+.container-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  fex-wrap: wrap;
+  padding: 20px;
+}
+
+.container-section .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-section .section img {
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 40px;
+}
+
+.container-section .section h3 {
+  text-align: center;
+  color: #272343;
+  font-weight: bold;
+}
+
+.container-section .section p {
+  text-align: center;
+  color: #272343;
+  font-size: 20px;
 }
 
 .banner {
@@ -11468,39 +11497,6 @@ main .choose-restaurant .guest-restaurants .card p {
 .banner .container-img-app img {
   height: 75px;
   margin: auto;
-}
-
-.container-section {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  fex-wrap: wrap;
-  padding: 20px;
-}
-
-.container-section .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.container-section .section img {
-  margin: 0 auto;
-  width: 50%;
-  margin-bottom: 40px;
-}
-
-.container-section .section h3 {
-  text-align: center;
-  color: #272343;
-  font-weight: bold;
-}
-
-.container-section .section p {
-  text-align: center;
-  color: #272343;
-  font-size: 20px;
 }
 
 body {

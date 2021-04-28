@@ -54,7 +54,7 @@
 
       <div class="guest-restaurants">
 
-        <div v-for="(element, index) in arrayMostrato" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
+        <div class="card" v-for="(element, index) in arrayMostrato" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
             <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
                   <div class="card-img-top">
                       <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
