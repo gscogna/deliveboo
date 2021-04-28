@@ -54,6 +54,7 @@
       <div class="buttons text-center">
           <button class="button btn mostra-tutti" type="submit"><span>Acquista</span></button>
       </div>
+      
   
       </form>
     </div>
