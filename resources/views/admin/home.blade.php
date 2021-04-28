@@ -34,6 +34,10 @@
                     @method('DELETE')
                     <button class="btn-cancella">Cancella</button>
                 </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="btn-esci">Log out</button>
+              </form>
             </div>
         </div>
         

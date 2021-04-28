@@ -11570,7 +11570,7 @@ body {
 }
 
 .carousel-item {
-  height: 400px;
+  height: 600px;
   width: 100%;
 }
 
@@ -12357,12 +12357,21 @@ body {
   }
 }
 
+.formato_1 {
+  width: 500px;
+}
+
+.formato_2 {
+  width: 300px;
+}
+
 .posizionamento {
   position: absolute;
   right: 0;
 }
 
 .statistiche {
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -12394,5 +12403,13 @@ body {
 
 .mostra-tutti a {
   color: white;
+}
+
+.btn-esci {
+  background-color: #F94646;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 

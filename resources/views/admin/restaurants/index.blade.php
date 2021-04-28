@@ -36,7 +36,7 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="#piatti_ris">
               <i class="fas fa-utensils"></i>
               I tuoi piatti
             </a>
@@ -90,6 +90,7 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header-lg grafico sfondo_prova">
         <div class="container">
+          
           <div class="row">
               <div class="neons col-12">
                 <h4>DELIVEBOO</h4>
@@ -98,7 +99,82 @@
           </div>
       </div>
       <div class="content">
-          <div class="row mt-5 mb-5">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Statistiche Periodiche</h5>
+                <h4 class="card-title">Obesi nel mondo</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Aggiungi</a>
+                    <a class="dropdown-item text-danger" href="#">Rimuovi</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <img src="{{ asset('img/chart_pie.gif') }}" alt="logo-classe">
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">2021 classe 24</h5>
+                <h4 class="card-title">I migliori 5</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Aggiungi</a>
+                    <a class="dropdown-item text-danger" href="#">Rimuovi</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <img src="{{ asset('img/classe24.jpeg') }}" alt="logo-classe">
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Ristoranti falliti</h5>
+                <h4 class="card-title">24 ore di attività</h4>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="barChartSimpleGradientsNumbers"></canvas>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          {{-- tabella piatti --}}
+          <div class="row mt-5 mb-5" id="piatti_ris">
             <div class="col-md-12 table-responsive">
               <table class="table table-hover">
                 <caption>Lista dei piatti</caption>
@@ -142,6 +218,8 @@
               </table>
             </div>
           </div>
+
+          {{-- statistiche dipendenti --}}
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -245,6 +323,35 @@
           </div>
         </div>
       </div>
+      {{-- footer --}}
+      <footer class="footer">
+        <div class=" container-fluid ">
+          <nav>
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com">
+                  Creative Tim
+                </a>
+              </li>
+              <li>
+                <a href="http://presentation.creative-tim.com">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="http://blog.creative-tim.com">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy; <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 @endsection
