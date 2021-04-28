@@ -10975,7 +10975,7 @@ header .layover {
 }
 
 header nav {
-  background-color: #ffbf00;
+  background-color: rgba(255, 191, 0, 0.7);
   position: fixed;
   z-index: 80;
   top: 0;
@@ -11040,7 +11040,7 @@ header .header-content-guest .hcg-left .header-searchbar {
 }
 
 header .header-content-guest .hcg-left .header-searchbar input {
-  width: 400px;
+  width: 600px;
   border-radius: 10px;
   margin-top: 20px;
   outline: none;
@@ -11568,7 +11568,7 @@ body {
 }
 
 .carousel-item {
-  height: 400px;
+  height: 600px;
   width: 100%;
 }
 
@@ -11681,49 +11681,36 @@ body {
 }
 
 #products .container2 {
-  width: 80%;
-  height: 500px;
-  margin: auto;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-#products .container2 ::-webkit-scrollbar {
-  display: none;
+  flex-direction: column;
 }
 
 #products .container2 #product-items {
   width: 100%;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
   margin-left: 30px;
+  height: 500px;
   margin: 0 auto;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+#products .container2 #product-items ::-webkit-scrollbar {
+  display: none;
 }
 
 #products .container2 .contenitore-piatti-img {
-  width: calc(100% / 2 - 20px);
+  width: 100%;
   background: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 5px;
-  margin-bottom: 20px;
   margin-left: 5px;
   border-radius: 10px;
   border: 3px solid lightgrey;
   box-shadow: 3px 3px 3px grey;
-}
-
-@media screen and (max-width: 520px) {
-  #products .container2 .contenitore-piatti-img {
-    width: 80%;
-    margin: auto;
-    margin-bottom: 20px;
-  }
 }
 
 #products .container2 .contenitore-piatti-img .img-container {
@@ -11750,16 +11737,10 @@ body {
 }
 
 #products .container2 .card-piatti h5 {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
   font-weight: 400;
   text-transform: capitalize;
-}
-
-@media screen and (max-width: 768px) {
-  #products .container2 .card-piatti h5 {
-    font-size: 20px;
-  }
 }
 
 #products .container2 .card-piatti .card-text {
@@ -11791,24 +11772,6 @@ body {
   border-radius: 15px;
   background-color: #00c79c;
   font-size: 15px;
-  color: white;
-}
-
-#products .container2 .card-piatti .contenitore-btn-aggiungi .btn-aggiungi:hover {
-  color: black;
-  transition: all 0.2s ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #products .container2 .card-piatti .contenitore-btn-aggiungi .btn-aggiungi:hover {
-    transition: none;
-  }
-}
-
-@media screen and (max-width: 920px) {
-  #products {
-    flex-direction: column;
-  }
 }
 
 #about-sec {
@@ -11881,11 +11844,6 @@ body {
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-.prezzo-totale {
-  text-align: center;
-  font-weight: bold;
 }
 
 .aut-card-body {
@@ -12082,25 +12040,6 @@ body {
   border-radius: 15px;
   background-color: #00c79c;
   font-size: 20px;
-  color: white;
-}
-
-#carr .container-btn-pag .btn-pagamento:hover {
-  color: black;
-  transition: all 0.2s ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #carr .container-btn-pag .btn-pagamento:hover {
-    transition: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #carr {
-    width: 80%;
-    margin: auto;
-  }
 }
 
 .navbar-brand {
@@ -12303,12 +12242,21 @@ body {
   }
 }
 
+.formato_1 {
+  width: 500px;
+}
+
+.formato_2 {
+  width: 300px;
+}
+
 .posizionamento {
   position: absolute;
   right: 0;
 }
 
 .statistiche {
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -12340,5 +12288,13 @@ body {
 
 .mostra-tutti a {
   color: white;
+}
+
+.btn-esci {
+  background-color: #F94646;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
