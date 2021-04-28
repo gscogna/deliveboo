@@ -1,5 +1,6 @@
-
 @extends('layouts.app')
+@section('title', 'Il nostro menù')
+
   @section('header.content')
        {{-- Sezione slider --}}
        <section id="main">
@@ -56,7 +57,27 @@
       </section> -->
       {{-- Sezione prodotti e piatti --}}
 
-     
+    <section id="carte">
+      <div class="contenitore-sezione">
+        <div class="abc">
+          <img src="{{ asset('img/img-1.jpeg') }}" alt="foto-1">
+        </div>
+  
+        <div class="abc testo">
+          <h2>Col cibo si può donare l'allegria e il sorriso!</h2>
+          <h4>Il cibo trova sempre coloro che amano cucinare.</h4>
+        </div>
+  
+        <div class="abc testo">
+          <h2>Deliveboo è la nostra medicina!</h2>
+          <h4>Nessun amore è più sincero dell'amore per il cibo.</h4>
+        </div>
+  
+        <div class="abc">
+          <img src="{{ asset('img/img-2.jpeg') }}" alt="foto-2">
+        </div>
+      </div>
+    </section>
 
       <section id="products">
       

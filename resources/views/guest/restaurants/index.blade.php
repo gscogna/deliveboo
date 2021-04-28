@@ -71,15 +71,17 @@
           {{-- <a @click='restaurant_plates(element.user_id)' href="{{ route('guest.restaurant.show') }}"><button  type="button" name="button">@{{element.nome}}</button> </a> --}}
         </div>
 
-        
-        <div class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
-          <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
-          <p class="rainbow-text">@{{item.nome}}</p>
-          <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
-            <button class="btn-menu" type="button" name="button">Vai al menù</button> 
-          </a>
-        </div>
-        
+      
+
+          <div class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
+            <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
+            <p class="rainbow-text">@{{item.nome}}</p>
+            <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
+              <button class="btn-menu" type="button" name="button">Vai al menù</button> 
+            </a>
+          </div>
+          
+       
         
 
         <div v-if ="!ristorantiSelezionati.length && !ristoranteScelto.length && search != ''">

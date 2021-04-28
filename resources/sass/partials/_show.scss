@@ -78,9 +78,10 @@ body{
   color: #000;
 }
 #products{
-  background: lightyellow;;
+  background: #cef1e9;
   width:100%;
   margin:0 auto;
+  padding: 80px 0;
   display:flex;
   flex-direction: row;
  // flex-wrap:nowrap;
@@ -88,12 +89,12 @@ body{
     // background-color:orange;
     width:80%;
     height:500px;
-    margin: auto;
+    margin: 0 auto;
     overflow-y:scroll;
-    scrollbar-width: none; //firefox
-    ::-webkit-scrollbar {
-      display: none;  // Safari and Chrome
-    }
+    // scrollbar-width: none; //firefox
+    // ::-webkit-scrollbar {
+    //   display: none;  // Safari and Chrome
+    // }
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -262,4 +263,44 @@ body{
   .prezzo-totale{
     text-align: center;
     font-weight: bold;
+  }
+
+
+  #carte{
+    width: 1000px;
+    background-color: #e1f8f3;
+    padding-bottom: 80px;
+    margin: auto;
+    margin-bottom: 100px;
+    @media screen and (max-width: 768px){
+      width: 100%;
+      padding-bottom: 80px;
+    }
+    .contenitore-sezione{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding-top: 80px;
+      .abc{
+        width: calc(100% / 2);
+        padding: 20px;
+        @media screen and (max-width: 768px){
+          width: 100%;
+          padding: 20px;
+        }
+        img{
+          width: 100%;
+        }
+      }
+      .testo{
+        text-align: center;
+        padding: 0 30px;
+        
+        @media screen and (max-width: 768px){
+          padding: 50px 0;
+        }
+      }
+    }
   }

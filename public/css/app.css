@@ -11259,6 +11259,7 @@ main .container-tipologie {
   flex-wrap: wrap;
   width: 70%;
   margin: 0 auto;
+  padding: 90px;
 }
 
 main .container-tipologie .tipologie {
@@ -11330,6 +11331,7 @@ main .choose-restaurant h2 {
 
 main .choose-restaurant .guest-restaurants {
   width: 100%;
+  padding: 80px 0;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -11360,7 +11362,7 @@ main .choose-restaurant .guest-restaurants {
 }
 
 main .choose-restaurant .guest-restaurants .card {
-  width: calc(100% / 6);
+  width: calc(100% / 4 - 30px);
   display: flex;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -11391,7 +11393,7 @@ main .choose-restaurant .guest-restaurants .card .card-img-top {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 70%;
+  height: 90%;
   position: relative;
 }
 
@@ -11673,9 +11675,10 @@ body {
 }
 
 #products {
-  background: lightyellow;
+  background: #cef1e9;
   width: 100%;
   margin: 0 auto;
+  padding: 80px 0;
   display: flex;
   flex-direction: row;
 }
@@ -11683,16 +11686,11 @@ body {
 #products .container2 {
   width: 80%;
   height: 500px;
-  margin: auto;
+  margin: 0 auto;
   overflow-y: scroll;
-  scrollbar-width: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-#products .container2 ::-webkit-scrollbar {
-  display: none;
 }
 
 #products .container2 #product-items {
@@ -11888,6 +11886,57 @@ body {
   font-weight: bold;
 }
 
+#carte {
+  width: 1000px;
+  background-color: #e1f8f3;
+  padding-bottom: 80px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte {
+    width: 100%;
+    padding-bottom: 80px;
+  }
+}
+
+#carte .contenitore-sezione {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+#carte .contenitore-sezione .abc {
+  width: calc(100% / 2);
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte .contenitore-sezione .abc {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+#carte .contenitore-sezione .abc img {
+  width: 100%;
+}
+
+#carte .contenitore-sezione .testo {
+  text-align: center;
+  padding: 0 30px;
+}
+
+@media screen and (max-width: 768px) {
+  #carte .contenitore-sezione .testo {
+    padding: 50px 0;
+  }
+}
+
 .aut-card-body {
   background-color: rgba(255, 191, 0, 0.3);
   width: 30%;
@@ -12004,12 +12053,17 @@ body {
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 2px 2px 2px lightgrey;
-  margin-top: 50px;
   width: 500px;
   border-radius: 10px;
   padding: 10px;
   margin-right: 50px;
   margin-left: 50px;
+}
+
+@media screen and (max-width: 768) {
+  #carr {
+    margin: auto;
+  }
 }
 
 #carr h5 {
@@ -12056,7 +12110,7 @@ body {
 
 #carr .contenitore-carrello {
   width: 100%;
-  height: 200px;
+  height: 150px;
   display: flex;
   justify-content: space-between;
   padding: 10px;
