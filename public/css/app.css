@@ -10948,6 +10948,18 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
+.def {
+  width: 25rem;
+  margin: auto;
+  border: 4px solid #0f2a4b;
+}
+
+@media screen and (max-width: 768px) {
+  .def {
+    width: 18rem;
+  }
+}
+
 .navbar-brand {
   font-size: 30px;
   font-weight: bold;

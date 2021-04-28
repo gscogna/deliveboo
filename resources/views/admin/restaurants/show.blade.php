@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2 class="pt-5 text-center">Dettaglio Piatto</h2>
-    <div class="card mb-5" style="width: 30rem; margin: auto; border: 4px solid #0f2a4b;">
+    <div class="card mb-5 def">
         <img class="card-img-top" src="{{ asset('storage/' .$plate->immagine) }}" alt="img piatto">
         <div class="card-body">
             <h3 class="card-title text-center">Nome: {{ $plate->nome }}</h3>
