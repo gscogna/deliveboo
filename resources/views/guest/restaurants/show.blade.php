@@ -87,7 +87,7 @@
     <!-- section title -->
     <div class="row">
       <div class="col-10 mx-auto col-sm-6 text-center">
-        <h1 class="text-capitalize product-title">Prodotti Ristorante</h1>
+        <h1 class="text-capitalize product-title">Piatti </h1>
       </div>
     </div>
     <!-- end section title -->
@@ -114,10 +114,9 @@
               <button @click="add_to_chart(index)" class="btn-aggiungi">Aggiungi</button>
             </span>
           </div>
-        </div>
-        
+        </div>  
       </div>
-        <!--  carrello senza click-->
+      <!--  carrello senza click-->
         <div id="carr">
           <h5>Il tuo carrello</h5>
           <div class="img-carr">
@@ -176,6 +175,7 @@
       <!-- end of single item -->
     </div>
     <!-- end of store items -->
+        
   </div>
 
 </section>

@@ -12039,12 +12039,14 @@ body {
 }
 
 #carr {
+  position: absolute;
+  right: 0;
   background-color: #ffbf00;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 2px 2px 2px 2px lightgrey;
-  width: 500px;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  width: 300px;
   border-radius: 10px;
   padding: 10px;
   margin-right: 50px;
@@ -12097,6 +12099,7 @@ body {
 
 #carr .contenitore-carrello-padre {
   width: 100%;
+  position: relative;
 }
 
 #carr .contenitore-carrello {
@@ -12138,13 +12141,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   #carr .container-btn-pag .btn-pagamento:hover {
     transition: none;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #carr {
-    width: 80%;
-    margin: auto;
   }
 }
 
