@@ -86,7 +86,7 @@
   <div class="container">
     <!-- section title -->
     <div class="row">
-      <div class="col-10 mx-auto col-sm-6 text-center">
+      <div class="mx-auto col-sm-10 text-center">
         <h1 class="text-capitalize product-title">Piatti </h1>
       </div>
     </div>
@@ -94,20 +94,19 @@
     <!-- Product items -->
     <div class="row product-items" id="product-items">
       <!-- single items -->
-      <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3"  v-for="(item,index) in piattiRistorante">
-        <div class="card single-item">
-          <div class="img-container">
+      <div class="col-sm-6 col-lg-4 mx-auto mt-3"  v-for="(item,index) in piattiRistorante">
+        <div class="card single-item" style="height: 100%; width: 100%">
+          <div class="img-container" style="width: 100%">
             {{-- DA CAMBIARE IMMAGINE "PROVA" --}}
-            {{-- <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="ciao"> --}}
-            <img src="https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg" alt="piatto">
+            <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="ciao">
+            {{-- <img src="https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg" alt="piatto"> --}}
             </div>
           <div class="card-body">
-            <div class="card-text d-flex justify-content-between text-capitalize">
-              <h5 id="item-name">@{{ item.nome }}</h5>
-              <p>@{{ item.ingredienti }} </p>
+            <div class="mt-2 card-text d-flex justify-content-between text-capitalize flex-column">
+              <h3 id="item-name">@{{ item.nome }}</h3>
+              <p style="font-size: 20px">@{{ item.ingredienti }} </p>
               <div class="prezzo-card"name="prezzo">
-                <i class="fas fa-euro-sign"></i>
-                <span>@{{ item.prezzo }}</span>
+                <span style="font-size: 20px; font-weight: bold">@{{ item.prezzo }}€</span>
               </div>
             </div>
             <span class="contenitore-btn-aggiungi">
@@ -117,6 +116,13 @@
         </div>  
       </div>
       <!--  carrello senza click-->
+      <div @click="showCarrello" class="icona">
+        <div class="numero">
+          @{{ contatore }}
+        </div>
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+      <div class="cont-carrx" :class="show">
         <div id="carr">
           <h5>Il tuo carrello</h5>
           <div class="img-carr">
@@ -159,7 +165,7 @@
                     
                   </form>     
                   <div class="prezzo-totale">
-                    <h5>Totale: @{{ sommaCarrelloFinale }} €</h5>
+                    <h3>Totale: @{{ sommaCarrelloFinale }} €</h3>
                   </div>  
 
               </div>   <!-- fine contenitore-carrello -->
@@ -174,6 +180,7 @@
             </div>
       <!-- end of single item -->
     </div>
+      </div>
     <!-- end of store items -->
         
   </div>

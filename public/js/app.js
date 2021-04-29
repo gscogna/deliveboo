@@ -62585,6 +62585,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       });
       this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.contatore = this.carrello.length;
     },
     delete_to_chart: function delete_to_chart(index) {
       var _this5 = this;
@@ -62596,6 +62597,7 @@ var chiamate = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       });
       this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+      this.contatore = this.carrello.length;
     },
     filterPlate: function filterPlate(index) {
       var _this6 = this;
@@ -62737,8 +62739,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Corso24\Mamp_public\Aprile\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ilariamammucari/Documents/mamp_public/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

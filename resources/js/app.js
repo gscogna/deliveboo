@@ -167,6 +167,8 @@ var chiamate = new Vue({
         
       this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
       localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+
+      this.contatore = this.carrello.length;
     },
 
     delete_to_chart(index){
@@ -180,6 +182,8 @@ var chiamate = new Vue({
 
         this.sommaCarrelloFinale = this.differenzaCarrello.toFixed(2);
         localStorage.setItem(this.carrelloSalvato, JSON.stringify(this.carrello));
+
+        this.contatore = this.carrello.length;
       },
 
     filterPlate(index){

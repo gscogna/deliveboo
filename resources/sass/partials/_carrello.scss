@@ -8,10 +8,47 @@ padding-bottom: 20px;
 color: #fff;
 }
 
+.icona{
+    position: fixed;
+    top: 20%;
+    // bottom: 5%;
+    right: 25px;
+    z-index: 10000;
+    i{
+        font-size: 25px;
+        background-color: #ffbf00;
+        border-radius: 50%;
+        padding: 20px;
+        cursor: pointer;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .numero{
+        height: 30px;
+        line-height: 18px;
+        font-size: 15px;
+        padding: 6px 10px;
+        background-color: #00c79c;
+        border-radius: 50%;
+        position: fixed;
+        top: 19%;
+        right: 20px;
+        z-index: 100000;
+    }
+}
+
+.cont-carrx{
+    position: fixed;
+    top: 250px;
+    right: 20px;
+    z-index: 10000;
+}
+
 #carr{
-    position: absolute;
-    right: 0;
-    background-color:#ffbf00;
+    // position: absolute;
+    // right: 0;
+    background-color:#ffff;
+    border: 2px solid gray;
     display:flex;
     flex-direction:column;
     align-items:center; 
@@ -107,4 +144,12 @@ color: #fff;
         }
     }
     
+}
+
+.show {
+    display: block;
+}
+
+.hide{
+    display: none;
 }
