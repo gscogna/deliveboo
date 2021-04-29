@@ -87,7 +87,7 @@
     <!-- section title -->
     <div class="row">
       <div class="mx-auto col-sm-10 text-center">
-        <h1 class="text-capitalize product-title">Piatti </h1>
+        <h2 class="text-capitalize product-title">Piatti </h2>
       </div>
     </div>
     <!-- end section title -->
