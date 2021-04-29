@@ -23,6 +23,9 @@
             <a href="{{ url('/') }}">Torna alla homepage</a>
         </button>
     </div>
+    <h2>{{$details['title'] }}</h2>
+    <p>{{$details['body'] }}</p>
+    <p>Grazie per aver usufruito dei nostri servizi</p>
 </div>
 
 {{-- Another section --}}
