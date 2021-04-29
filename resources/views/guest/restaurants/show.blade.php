@@ -45,12 +45,15 @@
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-            </div><!-- fine jumbotron -->
+        </div><!-- fine jumbotron -->
 
 
       </section>
-  @endsection
-     @section('content')
+    @endsection
+    @section('content')
+    <div class="container-fluid pagina_color">
+
+    
          {{-- Sezione info ristorante e vario --}}
       <!-- <section id="ristorante-info">
 
@@ -78,75 +81,42 @@
         </div>
       </div>
     </section>
-
-      <section id="products">
-      
-        <div class="container2">        
-           
-              {{-- singolo oggetto --}}
-              <div class="contenitore-piatti-img" v-for="(item,index) in piattiRistorante">
-
-                
-
-                  <div class="img-container">
-                      <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
-                  </div>
-
-                    <div class="card-piatti">                   
-                        <h5>@{{ item.nome }}</h5>
-                        <div class="card-text ">
-                        <p>@{{ item.ingredienti }} </p>
-                    </div>
-                      <div class="prezzo-card"name="prezzo" >
-                        <i class="fas fa-euro-sign"></i>
-                        <span>@{{ item.prezzo }}</span>
-
-                      </div>
-                      <span class="contenitore-btn-aggiungi">
-                        <button @click="add_to_chart(index)" class="btn-aggiungi">Aggiungi</button>
-                      </span>
-                                       
-                   </div>  <!-- /card-piatti -->                 
-
-              </div> <!-- /@click -->
-            
-        </div> <!-- /contenitore-piatti-img -->
-
-
-
-        <!-- carrello header con click -->
-        <!-- <div id="carr-header">
-
-        <form method="POST" action="{{ route('add.carrello.post') }}">
-          @csrf
-          @method('POST')
-            {{-- carrello col click --}}
-          <div @click="showCarrello" class="carrello carr-header">
-           <i class="fas fa-shopping-cart"></i>
-          </div>  
-
-       
-        <div :class="show" class="oggetti_carrello carr-header">
-          <h5>Il mio carrello</h5>
-          <hr>
-          <div v-for="(piatto, index) in carrello" class="container-piatti">
-            <p>@{{ piatto }}</p>
+      {{-- bootstrap --}}
+      <section id="products" class="products py-5">
+  <div class="container">
+    <!-- section title -->
+    <div class="row">
+      <div class="col-10 mx-auto col-sm-6 text-center">
+        <h1 class="text-capitalize product-title">Piatti </h1>
+      </div>
+    </div>
+    <!-- end section title -->
+    <!-- Product items -->
+    <div class="row product-items" id="product-items">
+      <!-- single items -->
+      <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3"  v-for="(item,index) in piattiRistorante">
+        <div class="card single-item">
+          <div class="img-container">
+            {{-- DA CAMBIARE IMMAGINE "PROVA" --}}
+            {{-- <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="ciao"> --}}
+            <img src="https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg" alt="piatto">
+            </div>
+          <div class="card-body">
+            <div class="card-text d-flex justify-content-between text-capitalize">
+              <h5 id="item-name">@{{ item.nome }}</h5>
+              <p>@{{ item.ingredienti }} </p>
+              <div class="prezzo-card"name="prezzo">
+                <i class="fas fa-euro-sign"></i>
+                <span>@{{ item.prezzo }}</span>
+              </div>
+            </div>
+            <span class="contenitore-btn-aggiungi">
+              <button @click="add_to_chart(index)" class="btn-aggiungi">Aggiungi</button>
+            </span>
           </div>
-          <div v-for="(val, index) in piattiRistorante">
-            <p>@{{ val.contatore }}</p>
-          </div>
-          <button type="submit" class="btn btn-primary">Primary</button>
-  
-          <div v-for="item in piattiRistorante" class="input">
-            <input type="text" name="nome" :value="item.nome" readonly>
-            <input type="number" name="prezzo" :value="item.prezzo" readonly>
-          </div>
-  
-          </form>              
-        </div> -->
-
-
-        <!--  carrello senza click-->
+        </div>  
+      </div>
+      <!--  carrello senza click-->
         <div id="carr">
           <h5>Il tuo carrello</h5>
           <div class="img-carr">
@@ -202,11 +172,16 @@
               </a>
               
             </div>
-         
-               
-         </div>   <!-- fine #carr -->  
+      <!-- end of single item -->
+    </div>
+    <!-- end of store items -->
+        
+  </div>
 
+</section>
+      {{-- fine bootstrap --}}
 
-      </section> <!-- fine section #products -->
-   
+   </div>
      @endsection
+
+

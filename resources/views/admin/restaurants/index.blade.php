@@ -104,7 +104,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Statistiche Periodiche</h5>
-                <h4 class="card-title">Obesi nel mondo</h4>
+                <h4 class="card-title">Persone in attesa di mangiare</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -116,13 +116,13 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <img src="{{ asset('img/chart_pie.gif') }}" alt="logo-classe">
+                <div class="chart-area text-center">
+                  <img src="{{ asset('img/fame.gif') }}" alt="logo-classe">
                 </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                  <i class="now-ui-icons ui-1_check"></i>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">2021 classe 24</h5>
-                <h4 class="card-title">I migliori 5</h4>
+                <h4 class="card-title">Medaglia al valore</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -143,8 +143,8 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <img src="{{ asset('img/classe24.jpeg') }}" alt="logo-classe">
+                <div class="chart-area text-center">
+                  <img src="{{ asset('img/stemma.jpg') }}" alt="logo-classe">
                 </div>
               </div>
               <div class="card-footer">
@@ -157,17 +157,17 @@
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Ristoranti falliti</h5>
-                <h4 class="card-title">24 ore di attività</h4>
+                <h5 class="card-category">Boolean Statistica</h5>
+                <h4 class="card-title">Ragazzi che finiscono il corso senza morire</h4>
               </div>
               <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="barChartSimpleGradientsNumbers"></canvas>
+                <div class="chart-area text-center">
+                  <img src="{{ asset('img/boolean.gif') }}" alt="logo-classe">
                 </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
+                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 30 days
                 </div>
               </div>
             </div>
@@ -261,7 +261,7 @@
                       </tr>
                       <tr>
                         <td>
-                          Sara Gorletta
+                          Sara Gorleta
                         </td>
                         <td>
                           Argentina
@@ -323,35 +323,6 @@
           </div>
         </div>
       </div>
-      {{-- footer --}}
-      <footer class="footer">
-        <div class=" container-fluid ">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright" id="copyright">
-            &copy; <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
 @endsection
