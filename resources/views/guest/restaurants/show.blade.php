@@ -98,11 +98,11 @@
         <div class="card single-item" style="height: 100%; width: 100%">
           <div class="img-container" style="width: 100%">
             {{-- DA CAMBIARE IMMAGINE "PROVA" --}}
-            <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="ciao">
+            <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="ciao" style="width: 100%;height:290px;">
             {{-- <img src="https://www.tavolartegusto.it/wp/wp-content/uploads/2020/05/Pizza-napoletana-Ricetta-della-Pizza-Napoletana-Pizza-Margherita.jpg" alt="piatto"> --}}
             </div>
-          <div class="card-body">
-            <div class="mt-2 card-text d-flex justify-content-between text-capitalize flex-column">
+          <div class="card-body" style="width: 100%">
+            <div class="mt-2 card-text d-flex justify-content-between text-capitalize flex-column" style="width: 100%">
               <h3 id="item-name">@{{ item.nome }}</h3>
               <p style="font-size: 20px">@{{ item.ingredienti }} </p>
               <div class="prezzo-card"name="prezzo">

@@ -59,8 +59,8 @@
         <div v-for="(element, index) in arrayMostrato" class="card" v-if ="(ristoranteScelto.length == 0 && search == '') || ristorantiSelezionati.length > 0">
           
           <a class="plates_route" href="{{ route('guest.restaurant.show') }}">
-            <div class="card-img-top">
-              <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="">
+            <div class="card-img-top" style="width: 100%;height:290px;">
+              <img :src="'http://127.0.0.1:8000/storage/'+ element.immagine" alt="" style="width: 100%">
               <div class="cover-layover">
               <i class="fas fa-utensils"></i>
               </div>
@@ -73,10 +73,10 @@
 
       
 
-          <div class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
+          <div @click='restaurant_plates(item.user_id)' class="card-restaurant" v-for="(item, index) in ristoranteScelto" v-if="ristoranteScelto.length > 0" >
             <img :src="'http://127.0.0.1:8000/storage/'+ item.immagine" alt="">
             <p class="rainbow-text">@{{item.nome}}</p>
-            <a @click='restaurant_plates(item.user_id)'  href="{{ route('guest.restaurant.show') }}">
+            <a href="{{ route('guest.restaurant.show') }}">
               <button class="btn-menu" type="button" name="button">Vai al menù</button> 
             </a>
           </div>
